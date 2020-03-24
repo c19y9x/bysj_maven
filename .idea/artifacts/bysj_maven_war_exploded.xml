@@ -6,6 +6,19 @@
         <element id="directory" name="classes">
           <element id="module-output" name="bysj_maven" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.cyx:c3p0:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:commons-beanutils-1.8.3:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:commons-logging-1.1.1:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:druid-1.0.9:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:javax.servlet.jsp.jstl:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:jstl-impl:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:mysql-connector-java-5.1.18-bin:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:spring-beans-4.2.4.RELEASE:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:spring-core-4.2.4.RELEASE:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:spring-jdbc-4.2.4.RELEASE:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:spring-tx-4.2.4.RELEASE:1.0" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="bysj_maven/web/Web" />
     </root>

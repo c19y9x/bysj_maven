@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <meta charset="utf-8">
@@ -82,7 +84,7 @@
           <div class="social_icon text-right">
             <form action="search.jsp?wbtreeid=1058" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
               <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
-              <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字" "="">
+              <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字">
               <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand">
             </form>
           </div>
@@ -115,14 +117,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main_menu">
-              <li class=""><a href="" style="color:aliceblue;">首页 <span class="sr-only"></span></a></li>
-              <li><a href="" style="color:aliceblue;">院系概况</a></li>
-              <li><a href="" style="color:aliceblue;">专业建设</a></li>
-              <li><a href="" style="color:aliceblue;">学科建设</a></li>
-              <li><a href="" style="color:aliceblue;white-space:nowrap;">研究生教学</a></li>
-              <li><a href="" style="color:aliceblue;">学生工作</a></li>
-              <li><a href="" style="color:aliceblue;">招生就业</a></li>
-              <li><a href="" style="color:aliceblue;">院务公开</a></li>
+              <c:forEach items="${lm}" var="lanmu" varStatus="s">
+                <li class=""><a href="" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+              </c:forEach>
             </ul>
           </div>
           <!-- /.navbar-collapse -->

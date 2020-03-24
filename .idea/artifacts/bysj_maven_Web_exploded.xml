@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bysj_maven:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/bysj_maven_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="bysj_maven/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bysj_maven" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
