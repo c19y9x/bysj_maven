@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -203,7 +205,7 @@
                 <table cellspacing="" cellpadding="" border="0">
                     <tbody>
                     <tr>
-                        <td align="center"><span class="titlestyle134386">尚无资料</span></td>
+                        <td align="center"><span class="titlestyle134386">${newss[0].content}</span></td>
                     </tr>
                     </tbody>
                 </table>
