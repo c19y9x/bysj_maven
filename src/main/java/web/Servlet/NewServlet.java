@@ -1,6 +1,5 @@
 package web.Servlet;
 
-import domain.Lanmu;
 import domain.News;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,7 +25,7 @@ public class NewServlet extends HttpServlet {
         //3.将PageBean存入request
         request.setAttribute("newss",newss);
         //4.转发到list.jsp
-        request.getRequestDispatcher("/erji.jsp").forward(request,response);
+        request.getRequestDispatcher("/erji_content.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
