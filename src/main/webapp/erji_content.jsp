@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -171,7 +171,22 @@
             <script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
             <!-- 这个div下放文章内容 -->
             <div>
-                ${newss[0].content}
+                <h1 align="center">${newss[0].title}</h1>
+                <div align="center">
+                    时间：
+
+                    <fmt:formatDate value="${newss[0].add_time}" pattern="yyyy-MM-dd"/>
+                    &nbsp;作者： &nbsp;点击：[
+                    <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181">1502</span>]
+                </div>
+                <hr />
+                <div id="vsb_content_2" class="nvtpw">
+                    <div class="v_news_content">
+                        ${newss[0].content}
+                    </div>
+                </div>
+                <div id="div_vote_id"></div>
+                <p align="right">【<a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭</a>】</p>
             </div>
         </form>
     </div>
