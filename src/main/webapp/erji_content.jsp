@@ -87,7 +87,7 @@
                     <div class="social_icon text-right">
                         <form action="search.jsp?wbtreeid=1058" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
                             <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
-                            <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字" "="">
+                            <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字">
                             <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand">
                         </form>
                     </div>
@@ -174,7 +174,6 @@
                 <h1 align="center">${newss[0].title}</h1>
                 <div align="center">
                     时间：
-
                     <fmt:formatDate value="${newss[0].add_time}" pattern="yyyy-MM-dd"/>
                     &nbsp;作者： &nbsp;点击：[
                     <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181">1502</span>]

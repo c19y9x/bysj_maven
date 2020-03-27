@@ -200,7 +200,9 @@
 
 <!-- 开始 -->
 <div>
-  <iframe width="100%" src="frame/zhuye.html" frameborder="0" style="height: 800px;" scrolling = "no"></iframe>
+<%--  style="height: 800px;"--%>
+<%--  用id="frm"控制frame框的大小--%>
+  <iframe id="frm" width="100%" src="frame/zhuye.jsp" frameborder="0"  scrolling = "no"></iframe>
 </div>
 <!-- 结束 -->
 
@@ -303,7 +305,17 @@
 <script src="js/isotope/isotope.pkgd.min.js"></script>
 <script src="js/isotope/packery-mode.pkgd.min.js"></script>
 <script src="js/isotope/scripts.js"></script>
-
+<script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function() {
+    setFrmHeight();
+  });
+  function setFrmHeight() {
+    var frm = $(window.parent.document).find("#frm");
+    var height = $(document).height();
+    frm.height(height);
+  }
+</script>
 
 <!--Back To Top-->
 <script src="js/backtotop.js"></script>

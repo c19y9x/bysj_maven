@@ -18,8 +18,10 @@ public class NewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
 
+        String newid = request.getParameter("id");
+
         JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-        String sql = "SELECT * FROM news";
+        String sql = "SELECT * FROM news where id ="+newid;
         List<News> newss = template.query(sql, new BeanPropertyRowMapper<News>(News.class));
         System.out.println(newss);
         //3.将PageBean存入request
