@@ -20,7 +20,7 @@
     <div class="new-left">
         <div class="tz-title">
             <span><b>学院</b>要闻</span>
-            <a target="_blank" href="https://www.view.sdu.edu.cn">进入新闻网&gt;</a>
+            <a target="_blank" href="https://www.view.sdu.edu.cn">更多&gt;</a>
         </div>
         <div class="newcon">
             <div class="newcon-left" >

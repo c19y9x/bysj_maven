@@ -16,6 +16,7 @@
                 * 内部用了frame框架集成了frame/zhuye.jsp
             * erji_biaoti.jsp 主页下的二级界面(左侧有导航栏),可以理解为放文章标题的界面
             * erji_content.jsp 放文章内容的界面
+            * shouye_xyxw.jsp 首页-学院新闻-更多新闻界面
         
         
 ## bysj数据库
