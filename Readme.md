@@ -12,6 +12,10 @@
                     * NewServlet 显示新闻消息       
         * resources 资源文件
         * webapp 界面文件
+            * index.jsp 首页
+                * 内部用了frame框架集成了frame/zhuye.jsp
+            * erji_biaoti.jsp 主页下的二级界面(左侧有导航栏),可以理解为放文章标题的界面
+            * erji_content.jsp 放文章内容的界面
         
         
 ## bysj数据库
@@ -19,4 +23,6 @@
 * news表 存储新闻
     * 所有文章内容放一张表。在表中添加lid和zlid用于定位所在栏目位置
 * 其他表 lanmu表的子栏目
+
+
 

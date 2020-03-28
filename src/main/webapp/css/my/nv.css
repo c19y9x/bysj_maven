@@ -22,7 +22,7 @@ font-size:24px;color:#fff;}
 .dzz li a{display:block;height:38px;border:1px solid #cecdcd;border-bottom:none;border-bottom:5px solid #cecdcd;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;}
 .dzz li a:hover{color:#e3a206;border:none;border:1px solid #cecdcd;border-bottom:5px solid #e3a206;}
 .dzz li a.hover{color:#e3a206;border:none;border:1px solid #cecdcd;border-bottom:5px solid #e3a206;}
-.list li{height:32px;line-height:32px;background-image:url(../../ls/images/lslisttb_03.jpg);background-position:left center;background-repeat:no-repeat;text-indent:10px;}
+.list li{height:32px;line-height:32px;background-image:url(../../img/erji/lslisttb_03.jpg);background-position:left center;background-repeat:no-repeat;text-indent:10px;}
 .list li a{display:inline-block;white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;}
 .list li a:hover{color:#005aa1;}
 .list li span{text-align:right;}

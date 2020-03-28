@@ -143,75 +143,7 @@
 <!--End of Hedaer Section-->
 
 <section>
-    <div class="container container-fluid no-padding nvbanner">
-        <img src="img/erji/nyba_03.jpg" border="0" />
-    </div>
-    <div class="container container-fluid dynava no-padding cleafix">
-        <div class="con_wz_lf fl cleafix">
-            <h3><span class="windowstyle134429"> 吉首大学</span></h3>
-            <ul>
-                <li class="meaus"><a href="jyjx/xkjs.htm">学科建设</a></li>
-                <ul class="zs">
-                    <li><a href="jyjx/xkjs/syl.htm">双一流</a></li>
-                    <li><a href="jyjx/xkjs/zdxk.htm">重点学科</a></li>
-                </ul>
-                <li><a href="jyjx/bksjy.htm">本科生教育</a></li>
-                <li><a href="jyjx/yjsjy.htm">研究生教育</a></li>
-                <li><a href="jyjx/lxsjy.htm">留学生教育</a></li>
-                <li><a href="jyjx/jxjy.htm">继续教育</a></li>
-                <li><a href="jyjx/cxcy.htm">创新创业</a></li>
-            </ul>
-            <div class="nyzct">
-                <img src="img/erji/nylb_03.jpg" border="0" width="192" height="127" />
-            </div>
-        </div>
-        <div class="con_wz_fr fr cleafix">
-            <div class="con_bt cleafix">
-                <h3 class="fl"></h3>
-                <div class="fr">
-                    <table class="winstyle134378" cellspacing="0" cellpadding="0">
-                        <tbody>
-                        <tr>
-                            <td nowrap="">当前位置： <a href="index.htm"><span class="fontstyle134378">首页</span></a><span class="splitflagstyle134378">&gt;&gt;</span><a href="jyjx.htm"><span class="fontstyle134378">教育教学</span></a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="dpwx_nv">
-                <script>
-                    function seeContenta11(contentid,size,displayid)
-                    {
-                        document.getElementById(contentid).innerHTML = "[";
-                        for(var i=0;i<=size;i++)
-                        {
-                            var allcontentid = contentid+(i+1);
-                            if(allcontentid==displayid)
-                            {
-                                document.getElementById(contentid).innerHTML += " <span id='"+allcontentid+"' name='"+allcontentid+"' "+' class="wb_content" '+" >"+(i+1)+"</span> ";
-                                document.getElementById(displayid).style.display = 'block';
-                            }else
-                            {
-                                document.getElementById(contentid).innerHTML += " <span style='cursor:pointer' id='"+allcontentid+"' name='"+allcontentid+"' onclick=seeContenta11('"+contentid+"','"+size+"','"+allcontentid+"') "+' class="wb_content" '+" >"+(i+1)+"</span> ";
-                                document.getElementById(allcontentid).style.display = "none";
-                            }
-                        }
-
-                        document.getElementById(contentid).innerHTML += "]";
-                    }
-                </script>
-                <table class="wb_window" width="100%">
-                </table>
-                <table cellspacing="" cellpadding="" border="0">
-                    <tbody>
-                    <tr>
-                        <td align="center"><span class="titlestyle134386">${newss[0].content}</span></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <iframe id="frm" width="100%" src="frame/new_biaotu.jsp" frameborder="0" scrolling = "no"></iframe>
 </section>
 
 <br><br>

@@ -41,10 +41,10 @@
 
                 <iframe width=370px height=328px src="lunbotu/index.html" frameborder="0" scrolling = "no"></iframe>
             </div>
-            <div class="newcon-right" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+            <div class="newcon-right" >
                 <ul>
                     <c:forEach items="${news}" var="new1" varStatus="n">
-                        <li ><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+                        <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
                     </c:forEach>
                 </ul>
             </div>
