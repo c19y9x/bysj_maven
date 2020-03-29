@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/my/style.css">
     <link rel="stylesheet" href="../css/my/global.css">
     <link rel="stylesheet" href="../css/my/h5.css">
@@ -31,6 +31,7 @@
             frm.height(height);
         }
     </script>
+
 </head>
 <body>
 <div class="container container-fluid no-padding nvbanner">
@@ -53,8 +54,8 @@
                         <td nowrap="">当前位置：
                             <a href="../../index.htm"><span class="fontstyle134378">首页</span></a>
                             <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">学院新闻</span></a>
-                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../xkjs.htm"><span class="fontstyle134378">学科建设</span></a>
-                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="zdxk.htm"><span class="fontstyle134378">重点学科</span></a>
+                           <%-- <span class="splitflagstyle134378">&gt;&gt;</span><a href="../xkjs.htm"><span class="fontstyle134378">学科建设</span></a>
+                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="zdxk.htm"><span class="fontstyle134378">重点学科</span></a>--%>
                         </td>
                     </tr>
                     </tbody>
@@ -102,14 +103,27 @@
                             <table cellspacing="0" class="headStyle20m3gy1kdc" width="100%" cellpadding="1">
                                 <tbody>
                                 <tr valign="middle">
-                                    <td nowrap="" align="left" width="1%" id="fanye134388">共1条&nbsp;&nbsp;1/1&nbsp;</td>
+                                    <td nowrap="" align="left" width="1%" id="fanye134388">
+                                        <div style="margin-top: 3px">
+                                            共${pb.totalCount}条&nbsp;&nbsp;${pb.currentPage}/${pb.totalPage}&nbsp;
+                                        </div>
+                                    </td>
                                     <td nowrap="" align="left">
-                                        <div>
-                                            <span class="PrevDisabled">首页</span>
+                                        <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                                            <%--<span class="PrevDisabled">首页</span>
                                             <span class="PrevDisabled">上页</span>
                                             <span class="NextDisabled">下页</span>
-                                            <span class="NextDisabled">尾页</span>
-                                        </div></td>
+                                            <span class="NextDisabled">尾页</span>--%>
+                                            <button type="button" class="btn btn-default"
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erijServlet?currentPage=1'">首页</button>
+                                            <button type="button" class="btn btn-default"
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erijServlet?currentPage=${pb.currentPage - 1}'">上页</button>
+                                            <button type="button" class="btn btn-default"
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erijServlet?currentPage=${pb.currentPage + 1}'">下页</button>
+                                            <button type="button" class="btn btn-default"
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erijServlet?currentPage=${pb.totalPage}'">尾页</button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table></td>
