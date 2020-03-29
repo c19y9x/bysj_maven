@@ -140,7 +140,7 @@
 <section id="slider">
   <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
     <!-- Indicators(切换图片按钮) -->
-    <ol class="carousel-indicators" style = "padding-bottom:50px;">
+    <ol class="carousel-indicators">
       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
       <li data-target="#carousel-example-generic" data-slide-to="1"></li>
       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -305,17 +305,7 @@
 <script src="js/isotope/isotope.pkgd.min.js"></script>
 <script src="js/isotope/packery-mode.pkgd.min.js"></script>
 <script src="js/isotope/scripts.js"></script>
-<script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(function() {
-    setFrmHeight();
-  });
-  function setFrmHeight() {
-    var frm = $(window.parent.document).find("#frm");
-    var height = $(document).height();
-    frm.height(height);
-  }
-</script>
+
 
 <!--Back To Top-->
 <script src="js/backtotop.js"></script>

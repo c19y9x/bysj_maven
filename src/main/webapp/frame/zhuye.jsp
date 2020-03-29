@@ -13,14 +13,24 @@
     <!-- <link href="mycss.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="common.css">
     <link rel="stylesheet" type="text/css" href="index.css">
-
+    <script src="../js/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            setFrmHeight();
+        });
+        function setFrmHeight() {
+            var frm = $(window.parent.document).find("#frm");
+            var height = $(document).height();
+            frm.height(height);
+        }
+    </script>
 </head>
 <body>
 <div class="new">
     <div class="new-left">
         <div class="tz-title">
             <span><b>学院</b>要闻</span>
-            <a target="_blank" href="https://www.view.sdu.edu.cn">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erijServlet">更多&gt;</a>
         </div>
         <div class="newcon">
             <div class="newcon-left" >

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/erijServlet")
+@WebServlet("/erjiServlet")
 public class ErijServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
@@ -36,7 +36,8 @@ public class ErijServlet extends HttpServlet {
         session.setAttribute("pb",pb);
         //request.setAttribute("condition",condition);//将查询条件存入request
         //4.转发到list.jsp
-        request.getRequestDispatcher("/shouye_xyxw.jsp").forward(request,response);
+        //request.getRequestDispatcher("/shouye_xyxw.jsp").forward(request,response);
+        request.getRequestDispatcher("/sy_xyxw.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
