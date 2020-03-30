@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 陈逸轩
-  Date: 2020/3/29
-  Time: 21:37
+  Date: 2020/3/30
+  Time: 15:21
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -148,11 +148,11 @@
 
 <div class="container container-fluid dynava no-padding cleafix" id="nrrrr">
     <div class="con_wz_lf fl cleafix">
-        <h3><span class="windowstyle134374"> 学院新闻</span></h3>
+        <h3><span class="windowstyle134374"> ${pb.lid}</span></h3>
         <!-- 左边栏目 -->
         <ul>
-           <%-- <li><a href="syl.htm" title="双一流">双一流</a></li>
-            <li><a href="zdxk.htm" title="重点学科">重点学科</a></li>--%>
+            <%-- <li><a href="syl.htm" title="双一流">双一流</a></li>
+             <li><a href="zdxk.htm" title="重点学科">重点学科</a></li>--%>
         </ul>
         <div class="nyzct">
             <img src="img/erji/nylb_03.jpg" border="0" width="192" height="127" />
@@ -301,3 +301,4 @@
 <!-- Custom JavaScript-->
 <script src="js/main.js"></script>
 </html>
+

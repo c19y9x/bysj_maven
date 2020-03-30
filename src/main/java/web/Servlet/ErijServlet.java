@@ -22,21 +22,22 @@ public class ErijServlet extends HttpServlet {
         String currentPage = request.getParameter("currentPage");//当前页码
         String rows = request.getParameter("rows");//每页显示条数
 
+        String lid = request.getParameter("lid");//栏目名
+        String zid = request.getParameter("zid");//子栏目名
+
         UserService service = new UserServiceImpl();
         if(service.isEmptyString(currentPage))
             currentPage = "1";
         if(service.isEmptyString(rows))
-            rows = "5";
+            rows = "10";
+        if(service.isEmptyString(zid))
+            zid = "0";
         //2.调用service查询
-        PageBean<News> pb = service.findNewsByPage(currentPage,rows);
-
+        PageBean<News> pb = service.findNewsByPage(currentPage,rows,lid,zid);
         System.out.println(pb);
-
         //3.将PageBean存入request
         session.setAttribute("pb",pb);
-        //request.setAttribute("condition",condition);//将查询条件存入request
-        //4.转发到list.jsp
-        //request.getRequestDispatcher("/shouye_xyxw.jsp").forward(request,response);
+
         request.getRequestDispatcher("/sy_xyxw.jsp").forward(request,response);
     }
 

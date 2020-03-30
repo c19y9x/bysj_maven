@@ -30,25 +30,10 @@
     <div class="new-left">
         <div class="tz-title">
             <span><b>学院</b>要闻</span>
-            <a target="_blank" href="${pageContext.request.contextPath}/erijServlet">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet">更多&gt;</a>
         </div>
         <div class="newcon">
             <div class="newcon-left" >
-                <!-- <div class="bd">
-                 <div class="img11" style="overflow:hidden; position:relative; width:370px">
-                  <ul style="width: 2960px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -2209.68px;">
-                   <li class="clone" style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132497.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/9/87/54/4AF6FA45CE00A33CD7B04F38192_B7C924EE_C1D5.jpg" width="370" height="248" /></a> <span>党旗飘扬(7):援鄂医疗队百余位同志申请火线入党</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132637.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/8/22/FF/2973D573C45EBC7C65FF5D4E83C_8507A3B1_1177D.jpg" width="370" height="248" /></a> <span>打造“山大系”品牌，服务济南高质量发展</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132759.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/4/10/77/27EBAC4E959E426943CE2A3FEE8_E9C13DE3_1076C.jpg" width="370" height="248" /></a> <span>党旗飘扬（9）：山东大学齐鲁医院援湖北医疗队10人“火线入党”</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132715.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/1/F6/93/324E9AEEEC4DB2F827D44D44CA0_D15F6118_AE83.jpg" width="370" height="248" /></a> <span>战疫在一线（34）:三“心”相连 所向披靡</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132172.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/3/F6/D2/6FDD51066711A5BD4B8B8BCB420_E4A0B831_1581E.jpg" width="370" height="248" /></a> <span>刘新泳教授团队抗新冠肺炎药物研究取得系列进展</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132115.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/C/03/3C/5E0EBAA6D4DA39EFEC37EDFC41F_BA4A2956_98A5B.png" width="370" height="248" /></a> <span>战疫在一线(31)：爱在春风里，只为花开时</span></li>
-                   <li style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132497.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/9/87/54/4AF6FA45CE00A33CD7B04F38192_B7C924EE_C1D5.jpg" width="370" height="248" /></a> <span>党旗飘扬(7):援鄂医疗队百余位同志申请火线入党</span></li>
-                   <li class="clone" style="float: left; width: 370px;"><a href="https://www.view.sdu.edu.cn/info/1003/132637.htm" target="_blank"><img src="https://www.view.sdu.edu.cn/__local/8/22/FF/2973D573C45EBC7C65FF5D4E83C_8507A3B1_1177D.jpg" width="370" height="248" /></a> <span>打造“山大系”品牌，服务济南高质量发展</span></li>
-                  </ul>
-                 </div>
-                </div>  -->
-
                 <iframe width=370px height=328px src="lunbotu/index.html" frameborder="0" scrolling = "no"></iframe>
             </div>
             <div class="newcon-right" >

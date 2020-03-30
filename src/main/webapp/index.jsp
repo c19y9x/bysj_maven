@@ -118,7 +118,7 @@
           <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main_menu">
               <c:forEach items="${lm}" var="lanmu" varStatus="s">
-                <li class=""><a href="" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                <li class=""><a href="${pageContext.request.contextPath}/erjiServlet?lid=${lanmu.id}" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
               </c:forEach>
             </ul>
           </div>
@@ -252,53 +252,6 @@
     time: 1000
   });
 </script>
-
-<!--Gmaps-->
-<!---<script src="js/gmaps.min.js"></script>
-<script type="text/javascript">
-    var map;
-    $(document).ready(function () {
-        map = new GMaps({
-            el: '#map',
-            lat: 23.6911078,
-            lng: 90.5112799,
-            zoomControl: true,
-            zoomControlOpt: {
-                style: 'SMALL',
-                position: 'LEFT_BOTTOM'
-            },
-            panControl: false,
-            streetViewControl: false,
-            mapTypeControl: false,
-            overviewMapControl: false,
-            scrollwheel: false,
-        });
-
-
-        map.addMarker({
-            lat: 23.6911078,
-            lng: 90.5112799,
-            title: 'Office',
-            details: {
-                database_id: 42,
-                author: 'Foysal'
-            },
-            click: function (e) {
-                if (console.log)
-                    console.log(e);
-                alert('You clicked in this marker');
-            },
-            mouseover: function (e) {
-                if (console.log)
-                    console.log(e);
-            }
-        });
-    });
-</script>--->
-<!--Google Maps API-->
-<!---<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxvF9oTfcziZWw--3phPVx1ztAsyhXL4"></script>--->
-
-
 <!--Isotope-->
 <script src="js/isotope/min/scripts-min.js"></script>
 <script src="js/isotope/cells-by-row.js"></script>

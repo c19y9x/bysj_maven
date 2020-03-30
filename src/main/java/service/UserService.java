@@ -12,7 +12,7 @@ public interface UserService {
     //获取首页下新闻公告的所有新闻内容
     public List<News> getSynews();
     //分页获取新闻标题
-    public PageBean<News> findNewsByPage(String currentPage, String rows);
+    public PageBean<News> findNewsByPage(String currentPage, String rows, String lid, String zid);
 
 
     //java程序中要用的的工具类
