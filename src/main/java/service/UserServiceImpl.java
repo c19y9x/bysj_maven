@@ -42,8 +42,11 @@ public class UserServiceImpl implements UserService {
         int totalCount = dao.findTotalCount(lid,zid);
         pb.setTotalCount(totalCount);
 
+        //设置lid和zid
         String str_lid = dao.getLid(lid);
         List<ZiLanmu> zids = dao.getzids(lid);
+        pb.setLid(str_lid);
+        pb.setZids(zids);
         //4.调用dao查询List集合
         //计算开始的记录索引
         int start = (currentPage - 1) * rows;

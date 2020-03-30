@@ -38,7 +38,7 @@ public class ErijServlet extends HttpServlet {
         //3.将PageBean存入request
         session.setAttribute("pb",pb);
 
-        request.getRequestDispatcher("/sy_xyxw.jsp").forward(request,response);
+        request.getRequestDispatcher("/erji_bt.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

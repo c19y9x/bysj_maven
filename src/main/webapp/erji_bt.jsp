@@ -153,6 +153,9 @@
         <ul>
             <%-- <li><a href="syl.htm" title="双一流">双一流</a></li>
              <li><a href="zdxk.htm" title="重点学科">重点学科</a></li>--%>
+                <c:forEach items="${pb.zids}" var="zid" varStatus="s">
+                    <li><a href="" title="${zid.zlmname}">${zid.zlmname}</a></li>
+                </c:forEach>
         </ul>
         <div class="nyzct">
             <img src="img/erji/nylb_03.jpg" border="0" width="192" height="127" />
@@ -162,14 +165,14 @@
     <!-- 右边新闻标题部分 -->
     <div class="con_wz_fr fr cleafix">
         <div class="con_bt cleafix">
-            <h3 class="fl"><span class="windowstyle134377"> 学院新闻</span></h3>
+            <h3 class="fl"><span class="windowstyle134377"> ${pb.lid}</span></h3>
             <div class="fr">
                 <table class="winstyle134378" cellspacing="0" cellpadding="0">
                     <tbody>
                     <tr>
                         <td nowrap="">当前位置：
                             <a href="../../index.htm"><span class="fontstyle134378">首页</span></a>
-                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">学院新闻</span></a>
+                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">${pb.lid}</span></a>
                             <%-- <span class="splitflagstyle134378">&gt;&gt;</span><a href="../xkjs.htm"><span class="fontstyle134378">学科建设</span></a>
                              <span class="splitflagstyle134378">&gt;&gt;</span><a href="zdxk.htm"><span class="fontstyle134378">重点学科</span></a>--%>
                         </td>
@@ -180,7 +183,7 @@
         </div>
         <div>
             <ul class="wzstar list">
-
+                <%--文章标题显示--%>
                 <c:forEach items="${pb.list}" var="neww" varStatus="n">
                     <li style="text-align:left;"> <a href="${pageContext.request.contextPath}/newServlet?id=${neww.id}" target="_blank" title="学科建设"> ${neww.title}</a><span class="fr"><fmt:formatDate value='${neww.add_time}' pattern='yyyy-MM-dd' /></span></li>
 
@@ -282,19 +285,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
-<script src="js/jquery-1.12.3.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        setFrmHeight();
-    });
-    function setFrmHeight() {
-        var frm = $(window.document).find("#nrrrr");
-        var height = frm.height();
-        if (height < 462)
-            frm.height(926);
-        alert(height);
-    }
-</script>
+
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
