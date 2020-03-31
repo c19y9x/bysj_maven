@@ -1,8 +1,6 @@
 package dao;
 
-import domain.Lanmu;
-import domain.News;
-import domain.ZiLanmu;
+import domain.*;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import util.JDBCUtils;
@@ -102,7 +100,7 @@ public class UserDaoImpl implements UserDao {
         sql = sb.toString();
         return template.queryForObject(sql,Integer.class);
     }
-
+    //分页获取新闻
     @Override
     public List<News> findByPage(int start, int rows, int lid, int zid) {
         String sql = "select * from news where 1 = 1";
@@ -136,6 +134,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<ZiLanmu> getzids(int lid) {
         String str_lid = null;
+        //根据栏目id决定查询哪一个表
         switch(lid){
             case 1:
                 str_lid = "sy";break;
@@ -159,5 +158,23 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM "+str_lid;
         List<ZiLanmu> zilanmus = template.query(sql, new BeanPropertyRowMapper<ZiLanmu>(ZiLanmu.class));
         return zilanmus;
+    }
+
+    @Override
+    public List<News> getShouyebt(int lid,int zid,int count) {
+        String sql = "select * from news where 1 = 1";
+
+        StringBuilder sb = new StringBuilder(sql);
+
+        if(zid == 0)
+            sb.append(" and lid = "+ lid);
+        else
+            sb.append(" and lid = "+ lid +" and zid = " + zid);
+
+        //添加分页查询
+        sb.append(" limit 0,"+count);
+        //添加分页查询值
+        sql = sb.toString();
+        return template.query(sql,new BeanPropertyRowMapper<News>(News.class));
     }
 }

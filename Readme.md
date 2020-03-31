@@ -7,7 +7,9 @@
                 * Lanmu 栏目名(院系概况，专业建设等)
                 * ZiLanmu 子栏目名(栏目下的二级栏目)
                 * News 新闻类(用于封装新闻通知)
-                * PageBean 界面分页类(存储二级界面的各种信息，如分页信息等)
+                * PageBean 二级界面类(存储二级界面的各种信息，如分页信息等)
+                * ShouyeContent 存储首页界面上的各个栏目的标题和内容(除了最上面的所有栏目)
+                * ShouyePage 首页界面信息类
             * service 用户服务类
             * util 工具类
             * web web相关的类(如servlet)
@@ -45,6 +47,22 @@
             这里如果是第一次从首页访问，zid默认为1，即界面上默认显示的是子栏目1的新闻
         调用dao.getLid(lid)获得当前页面的所有子栏目名称
         分页操作
+    这样，在二级界面收到的一个PageBean内包含了
+         //分页参数
+         int totalCount; // 总记录数
+         int totalPage ; // 总页码
+         int currentPage ; //当前页码
+         int rows;//每页显示的记录数
+         //页面显示的内容
+         Lanmu lm; //栏目名             --上方栏目集合
+         List<ZiLanmu> zids; //子栏目名  --左侧子栏目
+         List<T> list ; // 每页的数据    --新闻标题
+```
+
+* ShouyeServlet运行过程
+```
+    ShouyePage类
+        List<>
 ```
     
 

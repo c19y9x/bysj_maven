@@ -1,12 +1,11 @@
 package service;
 
+
 import dao.UserDao;
 import dao.UserDaoImpl;
-import domain.Lanmu;
-import domain.News;
-import domain.PageBean;
-import domain.ZiLanmu;
+import domain.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
@@ -73,5 +72,44 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isEmptyString(String str)  {
         return str == null || str.trim().length() == 0;
+    }
+
+    @Override
+    public ShouyePage getShouyePage() {
+        ShouyePage shouyePage = new ShouyePage();
+
+        //获取所有栏目并封装
+        List<Lanmu> lanmus = dao.getLanmu();
+        shouyePage.setLanmus(lanmus);
+
+        List<String> titles = new ArrayList<String>();
+        titles.add("学院</b>要闻");
+        titles.add("学术</b>聚焦");
+        titles.add("通知</b>公告");
+        titles.add("招生</b>就业");
+        titles.add("教学</b>信息");
+
+
+
+        List<List<News>> news = new ArrayList<List<News>>();
+
+        news.add(dao.getShouyebt(1,1,8)); //首页-学院要闻 显示8条
+        news.add(dao.getShouyebt(4,2,6));
+        news.add(dao.getShouyebt(8,2,7));
+        news.add(dao.getShouyebt(7,0,7));
+        news.add(dao.getShouyebt(3,0,7));
+
+        List<ShouyeContent> shouyeContents = new ArrayList<>();
+
+
+        for (int i = 0; i < 5; i++) {
+            ShouyeContent sc = new ShouyeContent();
+            sc.setTitle(titles.get(i));
+            sc.setNews(news.get(i));
+            shouyeContents.add(sc);
+        }
+        shouyePage.setShouyeContents(shouyeContents);
+
+        return shouyePage;
     }
 }

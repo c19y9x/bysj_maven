@@ -2,6 +2,7 @@ package web.Servlet;
 
 import domain.Lanmu;
 import domain.News;
+import domain.ShouyePage;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -20,11 +21,10 @@ public class ShouyeServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         UserService service = new UserServiceImpl();
-        List<Lanmu> lanmus = service.getLanmu();
-        List<News> news = service.getSynews();
 
-        session.setAttribute("lm",lanmus);
-        session.setAttribute("news",news);
+        ShouyePage shouyePage = service.getShouyePage();
+        System.out.println(shouyePage);
+        session.setAttribute("sy",shouyePage);
         //4.转发到list.jsp
         request.getRequestDispatcher("/index.jsp").forward(request,response);
     }

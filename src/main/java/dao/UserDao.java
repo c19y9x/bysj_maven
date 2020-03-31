@@ -2,6 +2,7 @@ package dao;
 
 import domain.Lanmu;
 import domain.News;
+import domain.ShouyeContent;
 import domain.ZiLanmu;
 
 import java.util.List;
@@ -22,4 +23,7 @@ public interface UserDao {
     public String getLid(int lid);
     //获取栏目下的所有子栏目
     public List<ZiLanmu> getzids(int lid);
+
+    //获取首页各个栏目的文章标题（lid，zid为栏目和子栏目名，count为显示的条数，如果zid为0，则显示这个栏目下的所有信息）
+    public List<News> getShouyebt(int lid,int zid,int count);
 }

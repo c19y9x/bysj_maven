@@ -117,7 +117,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main_menu">
-              <c:forEach items="${lm}" var="lanmu" varStatus="s">
+              <c:forEach items="${sy.lanmus}" var="lanmu" varStatus="s">
                 <c:if test="${s.count == 1}">
                   <li class=""><a href="${pageContext.request.contextPath}/shouye" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
                 </c:if>
@@ -278,7 +278,17 @@
 <script>
   new WOW().init();
 </script>
+<script type="text/javascript">
+  $(function() {
+    setgs();
+  });
+  function setgs() {
+    var str = "兄弟你好";
+    var newStr = str.slice(0,2)+'-local'+str.slice(2);
+    alert(newStr);
 
+  }
+</script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
@@ -286,5 +296,4 @@
 <script src="js/main.js"></script>
 </body>
 
-</html>
 </html>

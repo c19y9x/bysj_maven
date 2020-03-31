@@ -29,7 +29,7 @@
 <div class="new">
     <div class="new-left">
         <div class="tz-title">
-            <span><b>学院</b>要闻</span>
+            <span><b>${sy.shouyeContents[0].title} </span>
             <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet?lid=1">更多&gt;</a>
         </div>
         <div class="newcon">
@@ -38,7 +38,7 @@
             </div>
             <div class="newcon-right" >
                 <ul>
-                    <c:forEach items="${news}" var="new1" varStatus="n">
+                    <c:forEach items="${sy.shouyeContents[0].news}" var="new1" varStatus="n">
                         <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
                     </c:forEach>
                 </ul>
@@ -47,7 +47,7 @@
     </div>
     <div class="new-right">
         <div class="tz-title">
-            <span><b>学术</b>聚焦</span>
+            <span><b>${sy.shouyeContents[1].title} </span>
             <a target="_blank" href="https://www.view.sdu.edu.cn/xsjj.htm">更多&gt;</a>
         </div>
         <ul>
@@ -64,7 +64,7 @@
 <div class="box3">
     <div class="notic">
         <div class="tz-title">
-            <span><b>通知</b>公告</span>
+            <span><b>${sy.shouyeContents[2].title}</b></span>
             <a target="_blank" href="https://www.view.sdu.edu.cn/tzgg.htm">更多&gt;</a>
         </div>
         <div class="noticlist">
@@ -81,7 +81,7 @@
     </div>
     <div class="notic">
         <div class="tz-title">
-            <span><b>媒体</b>看山大</span>
+            <span><b>${sy.shouyeContents[3].title}</b></span>
             <a target="_black" href="https://www.media.sdu.edu.cn/">更多&gt;</a>
         </div>
         <ul class="mtlist">
@@ -95,7 +95,7 @@
         </ul>
 
     </div>
-    <div class="notic lastnotic">
+    <%--<div class="notic lastnotic">
         <div class="tz-title">
             <span><b>学术</b>预告</span>
             <a target="_blank" href="https://www.view.sdu.edu.cn/xsyg.htm">更多&gt;</a>
@@ -143,7 +143,26 @@
                 <li> </li>
             </ul>
         </div>
+    </div>--%>
+
+    <div class="notic lastnotic">
+        <div class="tz-title">
+            <span><b>${sy.shouyeContents[4].title}</b></span>
+            <a target="_blank" href="https://www.view.sdu.edu.cn/tzgg.htm">更多&gt;</a>
+        </div>
+        <div class="noticlist">
+            <ul class="tzlist">
+                <li><span>2020-01-14</span><a href="http://www.rsrczp.sdu.edu.cn/info/1043/3372.htm" target="_blank">山东大学2020年诚聘海内外优秀人才</a></li>
+                <li><span>2020-01-29</span><a href="http://www.qiluhospital.com/site2/xwdt/yygg/01/208386.shtml" target="_blank">山东大学齐鲁医院2020年事业编招聘...</a></li>
+                <li><span>2019-04-08</span><a href="http://gj.sdu.edu.cn" target="_blank">山东大学美英澳2019年招生公告</a></li>
+                <li><span>2019-08-30</span><a href="http://www.rsrczp.sdu.edu.cn/info/1047/3181.htm" target="_blank">山东大学2019年第二批教师外专业技...</a></li>
+                <li><span>2019-05-13</span><a href="http://www.gsp.sdu.edu.cn/" target="_blank">山东大学中加合作办学项目2019年招...</a></li>
+                <li><span>2019-09-01</span><a href="http://www.rsrczp.sdu.edu.cn/info/1049/3201.htm" target="_blank">山东大学2019年第二批管理岗位招聘...</a></li>
+                <li><span>2019-05-15</span><a href="http://www.math.sdu.edu.cn/info/1045/11641.htm" target="_blank">关于校外机构冒名举办未来山大人夏...</a></li>
+            </ul>
+        </div>
     </div>
+
 </div>
 </body>
 </html>
