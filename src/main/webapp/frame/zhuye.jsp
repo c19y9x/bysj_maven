@@ -30,7 +30,7 @@
     <div class="new-left">
         <div class="tz-title">
             <span><b>学院</b>要闻</span>
-            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet?lid=1">更多&gt;</a>
         </div>
         <div class="newcon">
             <div class="newcon-left" >

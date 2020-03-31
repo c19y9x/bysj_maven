@@ -8,7 +8,7 @@ public class News {
     private String content;
     private Date add_time;
     private int lid;
-    private int zlid;
+    private int zid;
 
     public int getId() {
         return id;
@@ -50,12 +50,12 @@ public class News {
         this.lid = lid;
     }
 
-    public int getZlid() {
-        return zlid;
+    public int getZid() {
+        return zid;
     }
 
-    public void setZlid(int zlid) {
-        this.zlid = zlid;
+    public void setZid(int zid) {
+        this.zid = zid;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class News {
                 ", content='" + content + '\'' +
                 ", add_time=" + add_time +
                 ", lid=" + lid +
-                ", zlid=" + zlid +
+                ", zid=" + zid +
                 '}';
     }
 }

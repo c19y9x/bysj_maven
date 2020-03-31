@@ -120,14 +120,14 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right main_menu">
-                            <li class=""><a href="" style="color:aliceblue;">首页 <span class="sr-only"></span></a></li>
-                            <li><a href="" style="color:aliceblue;">院系概况</a></li>
-                            <li><a href="" style="color:aliceblue;">专业建设</a></li>
-                            <li><a href="" style="color:aliceblue;">学科建设</a></li>
-                            <li><a href="" style="color:aliceblue;white-space:nowrap;">研究生教学</a></li>
-                            <li><a href="" style="color:aliceblue;">学生工作</a></li>
-                            <li><a href="" style="color:aliceblue;">招生就业</a></li>
-                            <li><a href="" style="color:aliceblue;">院务公开</a></li>
+                            <c:forEach items="${lm}" var="lanmu" varStatus="s">
+                                <c:if test="${s.count == 1}">
+                                    <li class=""><a href="${pageContext.request.contextPath}/shouye" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                                </c:if>
+                                <c:if test="${s.count != 1}">
+                                    <li class=""><a href="${pageContext.request.contextPath}/erjiServlet?lid=${lanmu.id}" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                                </c:if>
+                            </c:forEach>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -148,31 +148,32 @@
 
 <div class="container container-fluid dynava no-padding cleafix" id="nrrrr">
     <div class="con_wz_lf fl cleafix">
-        <h3><span class="windowstyle134374"> ${pb.lid}</span></h3>
+        <h3><span class="windowstyle134374"> ${pb.lm.lanmuming}</span></h3>
         <!-- 左边栏目 -->
         <ul>
             <%-- <li><a href="syl.htm" title="双一流">双一流</a></li>
              <li><a href="zdxk.htm" title="重点学科">重点学科</a></li>--%>
                 <c:forEach items="${pb.zids}" var="zid" varStatus="s">
-                    <li><a href="" title="${zid.zlmname}">${zid.zlmname}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/erjiServlet?lid=${pb.lm.id}&zid=${s.count}" title="${zid.zlmname}">${zid.zlmname}</a></li>
                 </c:forEach>
         </ul>
         <div class="nyzct">
             <img src="img/erji/nylb_03.jpg" border="0" width="192" height="127" />
         </div>
+        <br><br>
     </div>
 
     <!-- 右边新闻标题部分 -->
     <div class="con_wz_fr fr cleafix">
         <div class="con_bt cleafix">
-            <h3 class="fl"><span class="windowstyle134377"> ${pb.lid}</span></h3>
+            <h3 class="fl"><span class="windowstyle134377"> ${pb.zids[zid-1].zlmname}</span></h3>
             <div class="fr">
                 <table class="winstyle134378" cellspacing="0" cellpadding="0">
                     <tbody>
                     <tr>
                         <td nowrap="">当前位置：
                             <a href="../../index.htm"><span class="fontstyle134378">首页</span></a>
-                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">${pb.lid}</span></a>
+                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">${pb.lm.lanmuming}</span></a>
                             <%-- <span class="splitflagstyle134378">&gt;&gt;</span><a href="../xkjs.htm"><span class="fontstyle134378">学科建设</span></a>
                              <span class="splitflagstyle134378">&gt;&gt;</span><a href="zdxk.htm"><span class="fontstyle134378">重点学科</span></a>--%>
                         </td>
@@ -285,8 +286,16 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>-->
-
-
+<script src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        setFrmHeight();
+    });
+    function setFrmHeight() {
+        var frm = $(window.document).find("#nrrrr");
+        frm.height(926);
+    }
+</script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <!-- Custom JavaScript-->

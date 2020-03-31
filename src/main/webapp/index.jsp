@@ -118,7 +118,12 @@
           <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main_menu">
               <c:forEach items="${lm}" var="lanmu" varStatus="s">
-                <li class=""><a href="${pageContext.request.contextPath}/erjiServlet?lid=${lanmu.id}" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                <c:if test="${s.count == 1}">
+                  <li class=""><a href="${pageContext.request.contextPath}/shouye" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                </c:if>
+                <c:if test="${s.count != 1}">
+                  <li class=""><a href="${pageContext.request.contextPath}/erjiServlet?lid=${lanmu.id}" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                </c:if>
               </c:forEach>
             </ul>
           </div>

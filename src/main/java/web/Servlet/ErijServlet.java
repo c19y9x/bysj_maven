@@ -1,5 +1,6 @@
 package web.Servlet;
 
+import domain.Lanmu;
 import domain.News;
 import domain.PageBean;
 import service.UserService;
@@ -12,12 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/erjiServlet")
 public class ErijServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        HttpSession session = request.getSession();
         //1.获取参数
         String currentPage = request.getParameter("currentPage");//当前页码
         String rows = request.getParameter("rows");//每页显示条数
@@ -31,12 +32,22 @@ public class ErijServlet extends HttpServlet {
         if(service.isEmptyString(rows))
             rows = "10";
         if(service.isEmptyString(zid))
-            zid = "0";
+            zid = "1";
+        if(service.isEmptyString(lid))
+            lid = "1";
+
+        int int_zid = Integer.parseInt(zid);
+
         //2.调用service查询
         PageBean<News> pb = service.findNewsByPage(currentPage,rows,lid,zid);
+        List<Lanmu> lanmus = service.getLanmu();
         System.out.println(pb);
         //3.将PageBean存入request
-        session.setAttribute("pb",pb);
+        request.setAttribute("pb",pb);
+        //用于确定子栏目是哪一个(显示在右侧标题部分的左上方)
+        request.setAttribute("zid",int_zid);
+
+        request.setAttribute("lm",lanmus);
 
         request.getRequestDispatcher("/erji_bt.jsp").forward(request,response);
     }

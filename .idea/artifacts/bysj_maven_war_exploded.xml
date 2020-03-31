@@ -1,6 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="bysj_maven:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/bysj_maven_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/bysj_maven-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>bysj_maven</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -18,7 +25,12 @@
           <element id="library" level="project" name="Maven: com.cyx:spring-core-4.2.4.RELEASE:1.0" />
           <element id="library" level="project" name="Maven: com.cyx:spring-jdbc-4.2.4.RELEASE:1.0" />
           <element id="library" level="project" name="Maven: com.cyx:spring-tx-4.2.4.RELEASE:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:jsp-api:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:servlet-api:1.0" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/bysj_maven-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="bysj_maven/web/Web" />
     </root>

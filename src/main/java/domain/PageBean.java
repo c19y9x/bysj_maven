@@ -12,7 +12,7 @@ public class PageBean<T> {
     private int currentPage ; //当前页码
     private int rows;//每页显示的记录数
 
-    private String lid; //栏目名
+    private Lanmu lm; //栏目名
     private List<ZiLanmu> zids; //子栏目名
 
     public int getTotalCount() {
@@ -55,12 +55,12 @@ public class PageBean<T> {
         this.rows = rows;
     }
 
-    public String getLid() {
-        return lid;
+    public Lanmu getLm() {
+        return lm;
     }
 
-    public void setLid(String lid) {
-        this.lid = lid;
+    public void setLm(Lanmu lm) {
+        this.lm = lm;
     }
 
     public List<ZiLanmu> getZids() {
@@ -79,7 +79,7 @@ public class PageBean<T> {
                 ", list=" + list +
                 ", currentPage=" + currentPage +
                 ", rows=" + rows +
-                ", lid='" + lid + '\'' +
+                ", lm=" + lm +
                 ", zids=" + zids +
                 '}';
     }
