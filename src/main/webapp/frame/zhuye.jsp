@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <!-- <link href="mycss.css" rel="stylesheet"> -->
@@ -51,12 +52,16 @@
             <a target="_blank" href="https://www.view.sdu.edu.cn/xsjj.htm">更多&gt;</a>
         </div>
         <ul>
-            <li><span><a href="https://www.view.sdu.edu.cn/info/1101/131625.htm" target="_blank">《抗疫：舆论正能量》疫情专报（3月21日）</a></span></li>
+            <%--<li><span><a href="https://www.view.sdu.edu.cn/info/1101/131625.htm" target="_blank">《抗疫：舆论正能量》疫情专报（3月21日）</a></span></li>
             <li><span><a href="https://www.view.sdu.edu.cn/info/1021/132778.htm" target="_blank">张鹏在IANDC发表文章揭示标签割问题的计算困难性</a></span></li>
             <li><span><a href="https://www.view.sdu.edu.cn/info/1021/132700.htm" target="_blank">基础医学院张利宁教授团队在精神疾病抑郁症研究方向获新进展</a></span></li>
             <li><span><a href="https://www.view.sdu.edu.cn/info/1021/132652.htm" target="_blank">冯金奎教授课题组在二氧化碳资源化应用方面取得新进展</a></span></li>
             <li><span><a href="https://www.view.sdu.edu.cn/info/1021/132651.htm" target="_blank">尹龙卫团队在MXene基材料光电催化领域获进展</a></span></li>
-            <li><span><a href="https://www.view.sdu.edu.cn/info/1101/132560.htm" target="_blank">王学典：不倒的精神长城——从战疫看中华文明的“韧”性特质</a></span></li>
+            <li><span><a href="https://www.view.sdu.edu.cn/info/1101/132560.htm" target="_blank">王学典：不倒的精神长城——从战疫看中华文明的“韧”性特质</a></span></li>--%>
+                <c:forEach items="${sy.shouyeContents[1].news}" var="new1" varStatus="n">
+                    <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
+                    <li><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+                </c:forEach>
         </ul>
     </div>
 </div>
@@ -69,13 +74,18 @@
         </div>
         <div class="noticlist">
             <ul class="tzlist">
-                <li><span>2020-01-14</span><a href="http://www.rsrczp.sdu.edu.cn/info/1043/3372.htm" target="_blank">山东大学2020年诚聘海内外优秀人才</a></li>
+                <%--<li><span>2020-01-14</span><a href="http://www.rsrczp.sdu.edu.cn/info/1043/3372.htm" target="_blank">山东大学2020年诚聘海内外优秀人才</a></li>
                 <li><span>2020-01-29</span><a href="http://www.qiluhospital.com/site2/xwdt/yygg/01/208386.shtml" target="_blank">山东大学齐鲁医院2020年事业编招聘...</a></li>
                 <li><span>2019-04-08</span><a href="http://gj.sdu.edu.cn" target="_blank">山东大学美英澳2019年招生公告</a></li>
                 <li><span>2019-08-30</span><a href="http://www.rsrczp.sdu.edu.cn/info/1047/3181.htm" target="_blank">山东大学2019年第二批教师外专业技...</a></li>
                 <li><span>2019-05-13</span><a href="http://www.gsp.sdu.edu.cn/" target="_blank">山东大学中加合作办学项目2019年招...</a></li>
                 <li><span>2019-09-01</span><a href="http://www.rsrczp.sdu.edu.cn/info/1049/3201.htm" target="_blank">山东大学2019年第二批管理岗位招聘...</a></li>
-                <li><span>2019-05-15</span><a href="http://www.math.sdu.edu.cn/info/1045/11641.htm" target="_blank">关于校外机构冒名举办未来山大人夏...</a></li>
+                <li><span>2019-05-15</span><a href="http://www.math.sdu.edu.cn/info/1045/11641.htm" target="_blank">关于校外机构冒名举办未来山大人夏...</a></li>--%>
+                <c:forEach items="${sy.shouyeContents[2].news}" var="new1" varStatus="n">
+                    <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
+                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
+
+                </c:forEach>
             </ul>
         </div>
     </div>
@@ -85,13 +95,9 @@
             <a target="_black" href="https://www.media.sdu.edu.cn/">更多&gt;</a>
         </div>
         <ul class="mtlist">
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/49018.htm" target="_blank">[人民网]山大与济南签署协议，携手开创名城名校合作共进新...</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/49073.htm" target="_blank">[山东新闻联播]【众志成城 抗击疫情】画笔下的战“疫”</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/48953.htm" target="_blank">[光明日报客户端]山东大学和济南市深化校地合作 规划“一廊、五片区”</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/48970.htm" target="_blank">[海外网]山东大学与济南打造“山大系”品牌服务济南高质量发展</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/48978.htm" target="_blank">[大众日报]山东大学与济南市签署深化校地合作协议 沿经十路打...</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/48906.htm" target="_blank">[科技日报]6小时“生死时速”：阻断“炎症风暴”背后的营救术</a></li>
-            <li><a href="https://www.media.sdu.edu.cn/info/1005/48897.htm" target="_blank">[Chinadaily]Shandong develops key equipment for critically-...</a></li>
+            <c:forEach items="${sy.shouyeContents[3].news}" var="new1" varStatus="n">
+                <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+            </c:forEach>
         </ul>
 
     </div>
@@ -152,13 +158,11 @@
         </div>
         <div class="noticlist">
             <ul class="tzlist">
-                <li><span>2020-01-14</span><a href="http://www.rsrczp.sdu.edu.cn/info/1043/3372.htm" target="_blank">山东大学2020年诚聘海内外优秀人才</a></li>
-                <li><span>2020-01-29</span><a href="http://www.qiluhospital.com/site2/xwdt/yygg/01/208386.shtml" target="_blank">山东大学齐鲁医院2020年事业编招聘...</a></li>
-                <li><span>2019-04-08</span><a href="http://gj.sdu.edu.cn" target="_blank">山东大学美英澳2019年招生公告</a></li>
-                <li><span>2019-08-30</span><a href="http://www.rsrczp.sdu.edu.cn/info/1047/3181.htm" target="_blank">山东大学2019年第二批教师外专业技...</a></li>
-                <li><span>2019-05-13</span><a href="http://www.gsp.sdu.edu.cn/" target="_blank">山东大学中加合作办学项目2019年招...</a></li>
-                <li><span>2019-09-01</span><a href="http://www.rsrczp.sdu.edu.cn/info/1049/3201.htm" target="_blank">山东大学2019年第二批管理岗位招聘...</a></li>
-                <li><span>2019-05-15</span><a href="http://www.math.sdu.edu.cn/info/1045/11641.htm" target="_blank">关于校外机构冒名举办未来山大人夏...</a></li>
+                <c:forEach items="${sy.shouyeContents[4].news}" var="new1" varStatus="n">
+                    <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
+                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
+
+                </c:forEach>
             </ul>
         </div>
     </div>
