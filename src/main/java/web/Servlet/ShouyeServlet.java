@@ -1,29 +1,30 @@
 package web.Servlet;
 
 import domain.Lanmu;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import util.JDBCUtils;
+import domain.News;
+import domain.ShouyePage;
+import service.UserService;
+import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
-
+@WebServlet("/shouye")
 public class ShouyeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        HttpSession session = request.getSession();
 
-        JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-        String sql = "select * from lanmu";
-        List<Lanmu> lanmus = template.query(sql, new BeanPropertyRowMapper<Lanmu>(Lanmu.class));
+        UserService service = new UserServiceImpl();
 
-        //3.将PageBean存入request
-        request.setAttribute("lm",lanmus);
+        ShouyePage shouyePage = service.getShouyePage();
+        System.out.println(shouyePage);
+        session.setAttribute("sy",shouyePage);
         //4.转发到list.jsp
         request.getRequestDispatcher("/index.jsp").forward(request,response);
     }
