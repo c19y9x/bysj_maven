@@ -1,9 +1,6 @@
 package service;
 
-import domain.Lanmu;
-import domain.News;
-import domain.PageBean;
-import domain.ShouyePage;
+import domain.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public interface UserService {
     public boolean isEmptyString(String str);
     //获取首页所有信息(上方栏目表和图片下的内容)
     public ShouyePage getShouyePage();
+
+    //根据栏目获取子栏目
+    public List<ZiLanmu> getZlmforlm(int lid);
 }

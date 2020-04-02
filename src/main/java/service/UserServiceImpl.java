@@ -112,4 +112,9 @@ public class UserServiceImpl implements UserService {
 
         return shouyePage;
     }
+
+    @Override
+    public List<ZiLanmu> getZlmforlm(int lid) {
+        return dao.getzids(lid);
+    }
 }

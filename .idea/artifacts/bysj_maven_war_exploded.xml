@@ -27,6 +27,9 @@
           <element id="library" level="project" name="Maven: com.cyx:spring-tx-4.2.4.RELEASE:1.0" />
           <element id="library" level="project" name="Maven: com.cyx:jsp-api:1.0" />
           <element id="library" level="project" name="Maven: com.cyx:servlet-api:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:jackson-annotations-2.2.3:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:jackson-core-2.2.3:1.0" />
+          <element id="library" level="project" name="Maven: com.cyx:jackson-databind-2.2.3:1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

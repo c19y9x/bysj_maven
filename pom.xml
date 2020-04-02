@@ -85,5 +85,21 @@
             <artifactId>servlet-api</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-annotations-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-core-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-databind-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>
