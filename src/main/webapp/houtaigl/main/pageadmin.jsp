@@ -20,6 +20,7 @@
         window.onload = function(){
             $("#lm_cx").click(function(){
                 var lanmu_cx = $("#lanmum").val();
+                //删除不含有属性id = no_del的元素
                 $("table tr[id!='no_del']").remove();
                 var $tr=[];
                 var $td;
@@ -44,29 +45,29 @@
                 });
             });
 
-            $("#lm_cz").click(function (){
-                var s = $("table tr[id!='no_del']").size();
-                alert(s);
-            });
-            // update表单
-            function update_info(obj)
-            {
-                // 法一:js方式
-                var tr1 = obj.parentNode.parentNode;
-                // 赋值
-                $("#user_id").val(tr1.cells[1].innerText);
-                $("#user_name").val(tr1.cells[2].innerText);
-                //法二:Jquery方式
-               /*$("#user_id").val($(obj).parent().parent().children('td').eq(1).text());
-                $("#user_name").val($(obj).parent().parent().children('td').eq(2).text());*/
-            }
 
-            function add_info()
-            {
-                var form_data = $("#form_data").serialize();
-                window.location.href="${pageContext.request.contextPath}/shouye";
-                //alert(form_data);
-            }
+        }
+
+        // update表单
+        function update_info(obj)
+        {
+            // 法一:js方式
+            var tr1 = obj.parentNode.parentNode;
+            // 赋值
+            $("#zlm_id").val(tr1.cells[1].innerText);
+            $("#lm_name").val(tr1.cells[2].innerText);
+            $("#lm_id").val($("#lanmum").val());
+            //法二:Jquery方式
+            /*$("#user_id").val($(obj).parent().parent().children('td').eq(1).text());
+             $("#user_name").val($(obj).parent().parent().children('td').eq(2).text());*/
+        }
+
+        function commit_info()
+        {
+            var form_data = $("#form_data").serialize();
+            //$("#form_data").submit();
+            window.location.href="${pageContext.request.contextPath}/HtlmeditServlet?"+form_data;
+
         }
     </script>
 </head>
@@ -92,7 +93,6 @@
                 </select>
             </div>
             <button type="" class="btn btn-default" id="lm_cx">查询</button>
-            <button type="" class="btn btn-default" id="lm_cz">重置</button>
         </div>
 
     </div>
@@ -115,14 +115,6 @@
                 <th>操作</th>
             </tr>
 
-            <tr id="wait_del">
-                <td><input type="checkbox" name="uid" value="${user.id}"></td>
-                <td>1</td>
-                <td>试一下</td>
-                <td><a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;
-                    <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="del">删除</a>
-                </td>
-            </tr>
         </table>
     </form>
 
@@ -142,14 +134,16 @@
                     栏目管理
                 </h4>
             </div>
-            <form id="form_data">
+            <form id="form_data" action="" method="post">
                 <div class="modal-body">
-                    栏目名: <input type="text" id="user_name" name="user_name"/>
+                    <input id="lm_id" name="lid" type="hidden" />
+                    <input id="zlm_id" name="zid" type="hidden" />
+                    栏目名: <input type="text" id="lm_name" name="lanmuming"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <button type="button" onclick="add_info()" class="btn btn-primary">
+                    <button type="button" onclick="commit_info()" class="btn btn-primary">
                         提交更改
                     </button>
                 </div>

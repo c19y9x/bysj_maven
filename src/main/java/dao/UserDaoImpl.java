@@ -177,4 +177,38 @@ public class UserDaoImpl implements UserDao {
         sql = sb.toString();
         return template.query(sql,new BeanPropertyRowMapper<News>(News.class));
     }
+
+    @Override
+    public void updateLm(int zid, String lanmuming) {
+        String sql = "update lanmu set lanmuming = ? where id = ?";
+        template.update(sql, lanmuming,zid);
+    }
+
+    @Override
+    public void updateZlm(int lid,int zid, String lanmuming) {
+        String str_lid = null;
+        //根据栏目id决定查询哪一个表
+        switch(lid){
+            case 1:
+                str_lid = "sy";break;
+            case 2:
+                str_lid = "yxgk";break;
+            case 3:
+                str_lid = "zyjs";break;
+            case 4:
+                str_lid = "xkjs";break;
+            case 5:
+                str_lid = "yjsjx";break;
+            case 6:
+                str_lid = "xsgz";break;
+            case 7:
+                str_lid = "zsjy";break;
+            case 8:
+                str_lid = "ywgk";break;
+            default:
+                break;
+        }
+        String sql = "update "+str_lid+" set zlmname = ? where id = ?";
+        template.update(sql, lanmuming,zid);
+    }
 }

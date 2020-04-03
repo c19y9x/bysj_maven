@@ -117,4 +117,12 @@ public class UserServiceImpl implements UserService {
     public List<ZiLanmu> getZlmforlm(int lid) {
         return dao.getzids(lid);
     }
+
+    @Override
+    public void updateLm(int lid, int zid, String lanmuming) {
+        if(lid == 1)
+            dao.updateLm(zid,lanmuming);
+        else
+            dao.updateZlm(lid,zid,lanmuming);
+    }
 }

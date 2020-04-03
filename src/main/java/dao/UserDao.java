@@ -26,4 +26,9 @@ public interface UserDao {
 
     //获取首页各个栏目的文章标题（lid，zid为栏目和子栏目名，count为显示的条数，如果zid为0，则显示这个栏目下的所有信息）
     public List<News> getShouyebt(int lid,int zid,int count);
+
+    //修改主栏目名
+    void updateLm(int zid, String lanmuming);
+    //修改子栏目名
+    void updateZlm(int lid,int zid, String lanmuming);
 }

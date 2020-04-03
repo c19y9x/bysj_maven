@@ -32,9 +32,9 @@
         <div class="dl-inform"><div class="dl-inform-title">小秘书<s class="dl-inform-icon dl-up"></s></div></div>
         <ul id="J_Nav"  class="nav-list ks-clear">
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
-            <li class="nav-item"><div class="nav-item-inner nav-order">表单页</div></li>
+            <%--<li class="nav-item"><div class="nav-item-inner nav-order">表单页</div></li>
             <li class="nav-item"><div class="nav-item-inner nav-inventory">搜索页</div></li>
-            <li class="nav-item"><div class="nav-item-inner nav-supplier">详情页</div></li>
+            <li class="nav-item"><div class="nav-item-inner nav-supplier">详情页</div></li>--%>
         </ul>
     </div>
     <ul id="J_NavContent" class="dl-tab-conten">

@@ -1,9 +1,8 @@
-package web.Servlet;
+package web.Servlet.ht;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Lanmu;
 import domain.ShouyePage;
-import domain.ZiLanmu;
+import org.apache.commons.beanutils.BeanUtils;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -14,29 +13,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-@WebServlet("/htlanmuAdmin")
-public class HtlanmuAdminServlet extends HttpServlet {
+@WebServlet("/HtlmeditServlet")
+public class HtlmeditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        response.setContentType("application/json;charset=utf-8");
-        String _lid = request.getParameter("lid");
+        //1.获取参数
+        String lanmuming = request.getParameter("lanmuming");//每页显示条数
 
+        String _lid = request.getParameter("lid");//栏目名
+        String _zid = request.getParameter("zid");//子栏目名
+        int zid = Integer.parseInt(_zid);
         int lid = Integer.parseInt(_lid);
+
         UserService service = new UserServiceImpl();
-        Map<String,Object> map = new HashMap<String,Object>();
-        List<ZiLanmu> zlm = service.getZlmforlm(lid);
-
-        //创建Jackson的核心对象  ObjectMapper
-        ObjectMapper mapper = new ObjectMapper();
-
-        String json = mapper.writeValueAsString(zlm);
-        System.out.println(json);
-        mapper.writeValue(response.getWriter(),zlm);
-
+        service.updateLm(lid,zid,lanmuming);
+        response.sendRedirect(request.getContextPath()+"/htlanmu");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

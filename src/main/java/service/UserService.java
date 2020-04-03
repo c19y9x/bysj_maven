@@ -21,4 +21,7 @@ public interface UserService {
 
     //根据栏目获取子栏目
     public List<ZiLanmu> getZlmforlm(int lid);
+
+    //修改栏目名
+    void updateLm(int lid, int zid, String lanmuming);
 }
