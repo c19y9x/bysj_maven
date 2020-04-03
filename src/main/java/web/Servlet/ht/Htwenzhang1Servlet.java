@@ -1,6 +1,7 @@
 package web.Servlet.ht;
 
-import domain.Lanmu;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import domain.News;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -9,23 +10,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/htlanmu")
-public class HtlanmuServlet extends HttpServlet {
+//接受lid zid返回所属文章
+@WebServlet("/htwenzhang1")
+public class Htwenzhang1Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        HttpSession session = request.getSession();
+        response.setContentType("application/json;charset=utf-8");
+        String _lid = request.getParameter("lid");
+        String _zid = request.getParameter("zid");
+        int lid = Integer.parseInt(_lid);
+        int zid = Integer.parseInt(_zid);
 
         UserService service = new UserServiceImpl();
-
-        List<Lanmu> lanmus = service.getLanmu();
-
-        session.setAttribute("lms",lanmus);
-        //4.转发到list.jsp
-        request.getRequestDispatcher("/houtaigl/main/lanmuguanli.jsp").forward(request,response);
+        List<News> news_bt = service.getNewsForlzid(lid, zid);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(response.getWriter(),news_bt);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

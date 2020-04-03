@@ -31,4 +31,6 @@ public interface UserDao {
     void updateLm(int zid, String lanmuming);
     //修改子栏目名
     void updateZlm(int lid,int zid, String lanmuming);
+    //根据栏目和子栏目id获取下面新闻
+    public List<News> getNewsForlzid(int lid, int zid);
 }

@@ -211,4 +211,20 @@ public class UserDaoImpl implements UserDao {
         String sql = "update "+str_lid+" set zlmname = ? where id = ?";
         template.update(sql, lanmuming,zid);
     }
+
+    @Override
+    public List<News> getNewsForlzid(int lid, int zid) {
+        String sql = "select id,title,add_time,lid,zid from news where 1 = 1";
+
+        StringBuilder sb = new StringBuilder(sql);
+
+        if(zid == 0)
+            sb.append(" and lid = "+ lid);
+        else
+            sb.append(" and lid = "+ lid +" and zid = " + zid);
+
+        //添加分页查询值
+        sql = sb.toString();
+        return template.query(sql,new BeanPropertyRowMapper<News>(News.class));
+    }
 }

@@ -19,6 +19,7 @@
     <script>
         window.onload = function(){
             $("#lm_cx").click(function(){
+                //获取选的栏目，以id的形式返回
                 var lanmu_cx = $("#lanmum").val();
                 //删除不含有属性id = no_del的元素
                 $("table tr[id!='no_del']").remove();

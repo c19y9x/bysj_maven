@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/htlanmu")
-public class HtlanmuServlet extends HttpServlet {
+@WebServlet("/htwenzhang")
+public class HtwenzhangServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
@@ -25,7 +25,7 @@ public class HtlanmuServlet extends HttpServlet {
 
         session.setAttribute("lms",lanmus);
         //4.转发到list.jsp
-        request.getRequestDispatcher("/houtaigl/main/lanmuguanli.jsp").forward(request,response);
+        request.getRequestDispatcher("houtaigl/main/articleAdmin.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

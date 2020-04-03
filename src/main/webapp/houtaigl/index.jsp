@@ -54,7 +54,7 @@
                 text:'栏目文章管理',
                 items:[
                     {id:'pageadmin',text:'栏目管理',href:'../htlanmu',closeable : false},
-                    {id:'second-menu',text:'文章管理',href:'main/second-menu.html'},
+                    {id:'second-menu',text:'文章管理',href:'../htwenzhang'},
                 ]
             },{
                 text:'管理员用户',

@@ -125,4 +125,9 @@ public class UserServiceImpl implements UserService {
         else
             dao.updateZlm(lid,zid,lanmuming);
     }
+
+    @Override
+    public List<News> getNewsForlzid(int lid, int zid) {
+        return dao.getNewsForlzid(lid,zid);
+    }
 }
