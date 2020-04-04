@@ -217,14 +217,27 @@ public class UserDaoImpl implements UserDao {
         String sql = "select id,title,add_time,lid,zid from news where 1 = 1";
 
         StringBuilder sb = new StringBuilder(sql);
-
-        if(zid == 0)
-            sb.append(" and lid = "+ lid);
-        else
-            sb.append(" and lid = "+ lid +" and zid = " + zid);
-
+        //当lid为1，说明选中了所有栏目，显示全部新闻
+        if(lid == 1)
+            ;
+        else{
+            if(zid == 0)
+                sb.append(" and lid = "+ lid);
+            else
+                sb.append(" and lid = "+ lid +" and zid = " + zid);
+        }
+        //按时间降序排列
+        sb.append(" ORDER BY add_time DESC");
         //添加分页查询值
         sql = sb.toString();
         return template.query(sql,new BeanPropertyRowMapper<News>(News.class));
+    }
+
+    @Override
+    public void delNew(int newid) {
+        //1.定义sql
+        String sql = "delete from news where id = ?";
+        //2.执行sql
+        template.update(sql, newid);
     }
 }

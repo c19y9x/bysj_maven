@@ -49,7 +49,7 @@
 
         }
 
-        // update表单
+        // update
         function update_info(obj)
         {
             // 法一:js方式

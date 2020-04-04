@@ -16,6 +16,8 @@ public interface UserService {
     //java程序中要用的的工具类
     // * 判断字符串是否为空
     public boolean isEmptyString(String str);
+    //String数组转int数组
+    public int[] StringToInt(String[] arrs);
 
     //获取首页所有信息(上方栏目表和图片下的内容)
     public ShouyePage getShouyePage();
@@ -27,4 +29,6 @@ public interface UserService {
     void updateLm(int lid, int zid, String lanmuming);
     //根据栏目和子栏目id获取下面新闻
     public List<News> getNewsForlzid(int lid, int zid);
+    //删除文章
+    public void delNew(int newid);
 }

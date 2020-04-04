@@ -75,6 +75,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int[] StringToInt(String[] arrs) {
+        int[] ints = new int[arrs.length];
+        for (int i = 0; i < arrs.length ; i++) {
+            ints[i] = Integer.parseInt(arrs[i]);
+        }
+        return ints;
+    }
+
+    @Override
     public ShouyePage getShouyePage() {
         ShouyePage shouyePage = new ShouyePage();
 
@@ -130,4 +139,11 @@ public class UserServiceImpl implements UserService {
     public List<News> getNewsForlzid(int lid, int zid) {
         return dao.getNewsForlzid(lid,zid);
     }
+
+    @Override
+    public void delNew(int newid) {
+        dao.delNew(newid);
+    }
+
+
 }

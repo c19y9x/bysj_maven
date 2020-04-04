@@ -21,10 +21,13 @@
         table th{
             text-align:center;
         }
+        table{table-layout: fixed;word-break: break-all; word-wrap: break-word; }
+        .award-name{-o-text-overflow:ellipsis;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:100%;}
     </style>
 
     <script>
         window.onload = function () {
+            //给第一个下拉菜单绑定离焦事件
             $("#lm").blur(function () {
                 var lanmu_cx = $("#lm").val();
                 $("select[id='zlm'] option").remove();
@@ -41,23 +44,64 @@
                     }
                 });
             });
+            //给查询按钮绑定事件
             $("#wz_cx").click(function () {
                 var lanmu_id = $("#lm").val();
                 var zlanmu_id = $("#zlm").val();
+                $("table tr[id!='no_del']").remove();
                 //这里因为数据传输问题，所以不传内容过来了，只传标题等
                 $.get("htwenzhang1",{lid:lanmu_id,zid:zlanmu_id},function (data) {
                     var list = data;
-                    alert(1);
                     for(var i = 0;i < list.length ;i++){
-                        $("table").append("<tr><td><input type=\"checkbox\" name=\"uid\" value="+list[i].id+"</td>" +
-                            "<td>"+(i+1)+"</td>" +
-                            "<td>"+list[i].title+"</td>" +
-                            "<td>"+new Date(list[i].add_time).Format('yy-MM-dd')+"</td>" +
-                            "<td><a class=\"btn btn-default btn-sm\" onclick=\"update_info(this)\" data-toggle=\"modal\" data-target=\"#myModal\" id=\"xj\">修改</a>&nbsp;" +
-                            "<a class=\"btn btn-default btn-sm\" data-toggle=\"modal\" data-target=\"#myModal\" id=\"del\">删除</a></td></tr>");
+                        $("table").append("<tr><td><input type=\"checkbox\" name=\"newid\" value='"+list[i].id+"'></td>" +
+                            "<td align=\"center\">"+(i+1)+"</td>" +
+                            "<td><div class='award-name'>"+list[i].title+"</div></td>" +
+                            "<td align=\"center\">"+new Date(list[i].add_time).Format('yy-MM-dd')+"</td>" +
+                            "<td><a class=\"btn btn-default btn-sm\" onclick=\"update_new(this)\" id=\"xj\">修改</a>&nbsp;" +
+                            "<a class=\"btn btn-default btn-sm\" onclick=\"del_info(this)\" id=\"del\">删除</a></td></tr>");
                     }
-                })
+                });
             });
+        }
+
+        function del_info(obj){
+            if(confirm("您确定要删除吗？")){
+                var newid = $(obj).parent().parent().children('td').eq(0).children('input').eq(0).val();
+                var lanmu_id = $("#lm").val();
+                var zlanmu_id = $("#zlm").val();
+                $.get("htwenzhang2",{newid:newid},function (data) {
+                    //模拟点击查询按钮
+                    document.getElementById("wz_cx").click();
+                    alert("已删除");
+                })
+            }
+        }
+
+        function tijiao_news() {
+            if(confirm("您确定要删除吗？")){
+                var checkID = [];
+                $("input[name='newid']:checked").each(function (i) {
+                    checkID[i] = $(this).val();
+                });
+
+                $.ajax(
+                    {data:{'checkID':checkID},
+                        dataType:'text',
+                        success: function(data){
+                            document.getElementById("wz_cx").click();
+                            alert("已删除");
+                        },
+                        type:'post',
+                        url:'htwenzhang3',
+                        traditional:true
+                    }
+                );
+            }
+
+        }
+
+        function update_new(){
+
         }
         //时间戳转换函数
         //使用方法:new Date(1542274800000).Format('yy-MM-dd hh:mm:ss');
@@ -100,7 +144,7 @@
                     </c:forEach>
                 </select>
                 <select name="zlm" class="form-control" id="zlm">
-
+                    <option value='0'></option>
                 </select>
             </div>
             <button type="" class="btn btn-default" id="wz_cx">查询</button>
@@ -110,8 +154,8 @@
 
     <div style="float: right;margin: 5px;">
 
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加栏目</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
+
+        <a class="btn btn-primary" onclick="tijiao_news()" id="delSelected">删除选中</a>
 
     </div>
 
