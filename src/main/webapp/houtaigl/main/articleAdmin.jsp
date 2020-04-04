@@ -76,7 +76,7 @@
                 })
             }
         }
-
+        //多选删除
         function tijiao_news() {
             if(confirm("您确定要删除吗？")){
                 var checkID = [];
