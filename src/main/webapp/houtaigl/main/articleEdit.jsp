@@ -1,4 +1,4 @@
-<%--
+<%@ page import="domain.News" %><%--
   Created by IntelliJ IDEA.
   User: 陈逸轩
   Date: 2020/4/4
@@ -24,11 +24,11 @@
     <script src="https://cdn.bootcss.com/moment.js/2.22.0/moment-with-locales.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
-    <script type="text/javascript" charset="utf-8" src="../my/utf8-jsp/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../my/utf8-jsp/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-    <script type="text/javascript" charset="utf-8" src="../my/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
     <style type="text/css">
         .myrow {
             display: flex;
@@ -46,6 +46,55 @@
         }
     </style>
 
+    <script>
+        $(function () {
+            $("#btns button").prop("type","button");
+
+            //给第一个下拉菜单绑定离焦事件
+            /*
+            * 先给主栏目下拉菜单绑定一个离焦事件(根据lid查下面的zid)，
+            * 设置主栏目下拉菜单选中的值为lid(即让它显示当前栏目)
+            * 让这个离焦事件加载完自动完成
+            * 再设置子栏目下拉菜单选中的值
+            * */
+            $("#lm").blur(function () {
+                var lanmu_cx = ${new1.lid};
+
+                $("select[id='zlm'] option").remove();
+                //htwenzhang1用于处理根据第一个下拉菜单的栏目获取子栏目显示在第二个下拉菜单中
+                $.get("htlanmuAdmin",{lid:lanmu_cx},function (data) {
+                    var list = data;
+                    for(var i = 0;i < list.length ;i++){
+                        if(lanmu_cx == 1)
+                        {
+                            //如果选的lid为1(即选中所有栏目)，则第二个下拉菜单不显示任何东西
+                            $("#zlm").append("<option value='0'></option>");break;
+                        }
+                        else
+                            $("#zlm").append("<option value='"+ (i+1) +"'>"+list[i].zlmname +"</option>");
+                    }
+                });
+
+            });
+
+            $("#emmmmm").click(function () {
+                $("#lm option[value='${new1.lid}']").attr("selected",true);
+                $("#zlm option[value='${new1.zid}']").attr("selected",true);
+            })
+            $("#lm").trigger("blur");
+            //不知道为啥，得加个定时器才能正常运行，不能直接$("#emmmmm").trigger("click");
+            //可能是第二个下拉菜单还没加载出来的原因？
+            setTimeout(function () {
+                $("#emmmmm").trigger("click");
+            },100);
+
+
+        });
+
+
+
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -53,7 +102,7 @@
         <form action="" method="post">
             <div class="form-group">
                 <label for="title">标题：</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="${new1.title}">
             </div>
 
             <br>
@@ -70,9 +119,11 @@
                             </c:if>
                         </c:forEach>
                     </select>
+                    ------
                     <select name="zlm" class="form-control" id="zlm">
                         <option value='0'></option>
                     </select>
+                    <a type="hidden" id="emmmmm"></a>
                 </div>
             </div>
 
@@ -93,7 +144,7 @@
             <br>
             <div class="form-group">
                 <label >文章内容：</label>
-                <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+                    <script id="editor" type="text/plain" style="width:1140px;height:500px;"></script>
                 <div id="btns">
                     <div>
                         <button onclick="getAllHtml()">获得整个html的内容</button>
@@ -164,13 +215,8 @@
     $('#datetimepicker1').datetimepicker({
         format: 'YYYY-MM-DD',
         locale: moment.locale('zh-cn'),
-        defaultDate: "2018-1-1",
+        defaultDate: "${new1.add_time}",
         showClear:true
-    });
-    $('#datetimepicker2').datetimepicker({
-        format: 'YYYY-MM-DD',
-        locale: moment.locale('zh-cn'),
-        defaultDate: "2028-1-1"
     });
 </script>
 <script type="text/javascript">
@@ -190,6 +236,7 @@
     }
     function insertHtml() {
         var value = prompt('插入html代码', '');
+        //var value = prompt('${new1.title}', '');
         UE.getEditor('editor').execCommand('insertHtml', value)
     }
     function createEditor() {
@@ -216,7 +263,8 @@
     function setContent(isAppendTo) {
         var arr = [];
         arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
-        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+        //UE.getEditor('editor').setContent('<h1>欢迎使用ueditor</h1>', isAppendTo);
+        UE.getEditor('editor').setContent('${new1.content}', isAppendTo);
         alert(arr.join("\n"));
     }
     function setDisabled() {

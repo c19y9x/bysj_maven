@@ -1,8 +1,6 @@
 package web.Servlet.ht;
 
-import domain.Lanmu;
-import domain.ShouyePage;
-import org.apache.commons.beanutils.BeanUtils;
+import domain.News;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -13,24 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
-
-@WebServlet("/HtlmeditServlet")
-public class HtlmeditServlet extends HttpServlet {
+//文章编辑界面类
+@WebServlet("/htwenzhangedit")
+public class HtwenzhangeditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        //1.获取参数
-        String lanmuming = request.getParameter("lanmuming");//每页显示条数
+        HttpSession session = request.getSession();
 
-        String _lid = request.getParameter("lid");//栏目名
-        String _zid = request.getParameter("zid");//子栏目名
-        int zid = Integer.parseInt(_zid);
-        int lid = Integer.parseInt(_lid);
+        String _newid = request.getParameter("newid");
+        int newid = Integer.parseInt(_newid);
 
         UserService service = new UserServiceImpl();
-        service.updateLm(lid,zid,lanmuming);
-        response.sendRedirect(request.getContextPath()+"/htlanmu");
+        News new1 = service.getNew(newid);
+        session.setAttribute("new1",new1);
+        request.getRequestDispatcher("houtaigl/main/articleEdit.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

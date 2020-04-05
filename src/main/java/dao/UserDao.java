@@ -35,4 +35,6 @@ public interface UserDao {
     public List<News> getNewsForlzid(int lid, int zid);
     //根据文章id删除
     public void delNew(int newid);
+    //根据文章id返回文章
+    public News getNew(int newid);
 }

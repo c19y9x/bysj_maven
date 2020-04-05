@@ -145,5 +145,8 @@ public class UserServiceImpl implements UserService {
         dao.delNew(newid);
     }
 
-
+    @Override
+    public News getNew(int newid) {
+        return dao.getNew(newid);
+    }
 }

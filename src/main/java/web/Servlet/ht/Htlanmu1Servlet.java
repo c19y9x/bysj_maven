@@ -17,9 +17,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//根据栏目获取此栏目下的子栏目
+//功能类根据栏目获取此栏目下的子栏目
 @WebServlet("/htlanmuAdmin")
-public class HtlanmuAdminServlet extends HttpServlet {
+public class Htlanmu1Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=utf-8");

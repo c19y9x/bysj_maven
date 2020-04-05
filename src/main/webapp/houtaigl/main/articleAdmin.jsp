@@ -57,7 +57,7 @@
                             "<td align=\"center\">"+(i+1)+"</td>" +
                             "<td><div class='award-name'>"+list[i].title+"</div></td>" +
                             "<td align=\"center\">"+new Date(list[i].add_time).Format('yy-MM-dd')+"</td>" +
-                            "<td><a class=\"btn btn-default btn-sm\" onclick=\"update_new(this)\" id=\"xj\">修改</a>&nbsp;" +
+                            "<td><a class=\"btn btn-default btn-sm\" onclick=\"edit_new(this)\" id=\"xj\">修改</a>&nbsp;" +
                             "<a class=\"btn btn-default btn-sm\" onclick=\"del_info(this)\" id=\"del\">删除</a></td></tr>");
                     }
                 });
@@ -100,8 +100,9 @@
 
         }
 
-        function update_new(){
-
+        function edit_new(obj){
+            var newid = $(obj).parent().parent().children('td').eq(0).children('input').eq(0).val();
+            window.location.href = "${pageContext.request.contextPath}/htwenzhangedit?newid="+newid;
         }
         //时间戳转换函数
         //使用方法:new Date(1542274800000).Format('yy-MM-dd hh:mm:ss');

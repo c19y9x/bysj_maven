@@ -240,4 +240,10 @@ public class UserDaoImpl implements UserDao {
         //2.执行sql
         template.update(sql, newid);
     }
+
+    @Override
+    public News getNew(int newid) {
+        String sql = "SELECT * FROM news WHERE id = " + newid;
+        return template.queryForObject(sql,new BeanPropertyRowMapper<News>(News.class));
+    }
 }

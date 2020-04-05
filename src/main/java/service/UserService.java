@@ -31,4 +31,6 @@ public interface UserService {
     public List<News> getNewsForlzid(int lid, int zid);
     //删除文章
     public void delNew(int newid);
+    //根据文章id返回文章
+    public News getNew(int newid);
 }
