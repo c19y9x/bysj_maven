@@ -149,4 +149,14 @@ public class UserServiceImpl implements UserService {
     public News getNew(int newid) {
         return dao.getNew(newid);
     }
+
+    @Override
+    public void updateNew(News new1) {
+        dao.updateNew(new1);
+    }
+
+    @Override
+    public void addNew(News new1) {
+        dao.addNew(new1);
+    }
 }

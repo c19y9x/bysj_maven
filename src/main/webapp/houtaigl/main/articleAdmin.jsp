@@ -104,6 +104,10 @@
             var newid = $(obj).parent().parent().children('td').eq(0).children('input').eq(0).val();
             window.location.href = "${pageContext.request.contextPath}/htwenzhangedit?newid="+newid;
         }
+
+        function add_new(){
+            window.location.href = "${pageContext.request.contextPath}/houtaigl/main/articleAdd.jsp";
+        }
         //时间戳转换函数
         //使用方法:new Date(1542274800000).Format('yy-MM-dd hh:mm:ss');
         //格式根据自己的需求改动
@@ -155,8 +159,9 @@
 
     <div style="float: right;margin: 5px;">
 
-
+        <a class="btn btn-primary" onclick="add_new()" id="add">添加文章</a>
         <a class="btn btn-primary" onclick="tijiao_news()" id="delSelected">删除选中</a>
+
 
     </div>
 

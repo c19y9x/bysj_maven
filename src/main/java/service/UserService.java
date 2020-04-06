@@ -33,4 +33,8 @@ public interface UserService {
     public void delNew(int newid);
     //根据文章id返回文章
     public News getNew(int newid);
+    //修改文章
+    public void updateNew(News new1);
+    //添加文章
+    public void addNew(News new1);
 }

@@ -246,4 +246,16 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM news WHERE id = " + newid;
         return template.queryForObject(sql,new BeanPropertyRowMapper<News>(News.class));
     }
+
+    @Override
+    public void updateNew(News new1) {
+        String sql = "update news set title = ?,content = ? ,add_time = ? , lid = ? , zid = ? where id = ?";
+        template.update(sql, new1.getTitle(),new1.getContent(),new1.getAdd_time(),new1.getLid(),new1.getZid(),new1.getId());
+    }
+
+    @Override
+    public void addNew(News new1) {
+        String sql = "insert into news values(null,?,?,?,?,?)";
+        template.update(sql, new1.getTitle(),new1.getContent(),new1.getAdd_time(),new1.getLid(),new1.getZid());
+    }
 }

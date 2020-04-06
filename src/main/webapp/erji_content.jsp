@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Title</title>
-
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <!--    自己添加的-->
     <link rel="stylesheet" href="css/my/style.css">
     <link rel="stylesheet" href="css/my/global.css">
@@ -50,6 +50,21 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        table .imgtable{
+            margin:0 auto;
+        }
+    </style>
+    <script>
+        //格式控制，直接从网页上复制的文章加入不会居中显示
+        $(function () {
+            setTimeout(function () {
+                $(".imgtable").css("margin","0 auto");
+            },100);
+        })
+
+    </script>
 </head>
 <body data-spy="scroll" data-target="#header">
 
@@ -176,7 +191,7 @@
                     时间：
                     <fmt:formatDate value="${newss[0].add_time}" pattern="yyyy-MM-dd"/>
                     &nbsp;作者： &nbsp;点击：[
-                    <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181">1502</span>]
+                    <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181"></span>]
                 </div>
                 <hr />
                 <div id="vsb_content_2" class="nvtpw">
