@@ -98,11 +98,9 @@ public class UserServiceImpl implements UserService {
         titles.add("招生</b>就业");
         titles.add("教学</b>信息");
 
-
-
         List<List<News>> news = new ArrayList<List<News>>();
 
-        news.add(dao.getShouyebt(1,1,8)); //首页-学院要闻 显示8条
+        news.add(dao.getShouyebt(8,3,8)); //院务公开-学院要闻 显示8条
         news.add(dao.getShouyebt(4,2,6));
         news.add(dao.getShouyebt(8,2,7));
         news.add(dao.getShouyebt(7,0,7));
@@ -158,5 +156,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addNew(News new1) {
         dao.addNew(new1);
+    }
+
+    @Override
+    public NewPage getNewPage(int lid) {
+        NewPage newPage = new NewPage();
+        String str_lid = dao.getLid(lid);
+        List<ZiLanmu> zids = dao.getzids(lid);
+
+        Lanmu lm = new Lanmu();
+        lm.setId(lid);
+        lm.setLanmuming(str_lid);
+
+        newPage.setLm(lm);
+        newPage.setZids(zids);
+
+        return newPage;
+    }
+
+    @Override
+    public Admin login(Admin admin) {
+        return dao.findAdmin(admin.getAdmin_id(),admin.getPassword());
+    }
+
+    @Override
+    public List<Admin> getAdmins() {
+        return dao.getAdmins();
     }
 }

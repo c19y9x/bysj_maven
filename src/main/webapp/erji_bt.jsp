@@ -172,8 +172,8 @@
                     <tbody>
                     <tr>
                         <td nowrap="">当前位置：
-                            <a href="../../index.htm"><span class="fontstyle134378">首页</span></a>
-                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="../../jyjx.htm"><span class="fontstyle134378">${pb.lm.lanmuming}</span></a>
+                            <a href="${pageContext.request.contextPath}/shouye"><span class="fontstyle134378">首页</span></a>
+                            <span class="splitflagstyle134378">&gt;&gt;</span><a href="${pageContext.request.contextPath}/erjiServlet?lid=${pb.lm.id}"><span class="fontstyle134378">${pb.lm.lanmuming}</span></a>
                             <%-- <span class="splitflagstyle134378">&gt;&gt;</span><a href="../xkjs.htm"><span class="fontstyle134378">学科建设</span></a>
                              <span class="splitflagstyle134378">&gt;&gt;</span><a href="zdxk.htm"><span class="fontstyle134378">重点学科</span></a>--%>
                         </td>
@@ -186,7 +186,7 @@
             <ul class="wzstar list">
                 <%--文章标题显示--%>
                 <c:forEach items="${pb.list}" var="neww" varStatus="n">
-                    <li style="text-align:left;"> <a href="${pageContext.request.contextPath}/newServlet?id=${neww.id}" target="_blank" title="学科建设"> ${neww.title}</a><span class="fr"><fmt:formatDate value='${neww.add_time}' pattern='yyyy-MM-dd' /></span></li>
+                    <li style="text-align:left;"> <a href="${pageContext.request.contextPath}/newServlet?id=${neww.id}&lid=${pb.lm.id}" target="_blank" title=""> ${neww.title}</a><span class="fr"><fmt:formatDate value='${neww.add_time}' pattern='yyyy-MM-dd' /></span></li>
 
                 </c:forEach>
             </ul>
@@ -235,13 +235,13 @@
                                             <span class="NextDisabled">下页</span>
                                             <span class="NextDisabled">尾页</span>--%>
                                             <button type="button" class="btn btn-default"
-                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=1'">首页</button>
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=1&lid=${pb.lm.id}&zid=${zid}'">首页</button>
                                             <button type="button" class="btn btn-default"
-                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.currentPage - 1}'">上页</button>
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.currentPage - 1}&lid=${pb.lm.id}&zid=${zid}'">上页</button>
                                             <button type="button" class="btn btn-default"
-                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.currentPage + 1}'">下页</button>
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.currentPage + 1}&lid=${pb.lm.id}&zid=${zid}'">下页</button>
                                             <button type="button" class="btn btn-default"
-                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.totalPage}'">尾页</button>
+                                                    onclick="window.parent.location.href = '${pageContext.request.contextPath}/erjiServlet?currentPage=${pb.totalPage}&lid=${pb.lm.id}&zid=${zid}'">尾页</button>
                                         </div>
                                     </td>
                                 </tr>

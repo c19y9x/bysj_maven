@@ -1,9 +1,6 @@
 package dao;
 
-import domain.Lanmu;
-import domain.News;
-import domain.ShouyeContent;
-import domain.ZiLanmu;
+import domain.*;
 
 import java.util.List;
 
@@ -41,4 +38,9 @@ public interface UserDao {
     public void updateNew(News new1);
     //添加文章
     public void addNew(News new1);
+
+
+    public Admin findAdmin(String admin_id, String password);
+
+    public List<Admin> getAdmins();
 }

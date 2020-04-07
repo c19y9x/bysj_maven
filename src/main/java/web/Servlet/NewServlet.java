@@ -1,8 +1,12 @@
 package web.Servlet;
 
+import domain.Lanmu;
+import domain.NewPage;
 import domain.News;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import service.UserService;
+import service.UserServiceImpl;
 import util.JDBCUtils;
 
 import javax.servlet.ServletException;
@@ -19,13 +23,18 @@ public class NewServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
         String newid = request.getParameter("id");
+        String _lid = request.getParameter("lid");
+        int lid = Integer.parseInt(_lid);
 
-        JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-        String sql = "SELECT * FROM news where id ="+newid;
-        List<News> newss = template.query(sql, new BeanPropertyRowMapper<News>(News.class));
-        System.out.println(newss);
-        //3.将PageBean存入request
+        UserService service = new UserServiceImpl();
+        News newss = service.getNew(Integer.parseInt(newid));
+        List<Lanmu> lanmus = service.getLanmu();
+
+        NewPage newPage = service.getNewPage(lid);
+
         request.setAttribute("newss",newss);
+        request.setAttribute("lm",lanmus);
+        request.setAttribute("newPage",newPage);
         //4.转发到list.jsp
         request.getRequestDispatcher("/erji_content.jsp").forward(request,response);
     }

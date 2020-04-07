@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 陈逸轩
-  Date: 2020/4/1
-  Time: 20:21
+  Date: 2020/4/8
+  Time: 0:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -55,9 +55,9 @@
             // 法一:js方式
             var tr1 = obj.parentNode.parentNode;
             // 赋值
-            $("#zlm_id").val(tr1.cells[1].innerText);
-            $("#lm_name").val(tr1.cells[2].innerText);
-            $("#lm_id").val($("#lanmum").val());
+            $("#id").val(tr1.cells[0].innerText);
+            $("#admin_id").val(tr1.cells[2].innerText);
+            $("#password").val($(obj).parent().parent().children('td').eq(2).children('input').eq(0).val());
             //法二:Jquery方式
             /*$("#user_id").val($(obj).parent().parent().children('td').eq(1).text());
              $("#user_name").val($(obj).parent().parent().children('td').eq(2).text());*/
@@ -75,47 +75,41 @@
 <body>
 
 <div class="container">
-    <h3 style="text-align: center">栏目管理</h3>
+    <h3 style="text-align: center">管理员管理</h3>
 
     <div style="float: left;">
 
-        <div class="form-inline">
-            <div class="form-group">
-                <label for="lanmum">栏目名：</label>
-                <select name="lanmum" class="form-control" id="lanmum">
-                    <c:forEach items="${lms}" var="lanmu" varStatus="s">
-                        <c:if test="${s.count == 1}">
-                            <option value="1">所有栏目</option>
-                        </c:if>
-                        <c:if test="${s.count != 1}">
-                            <option value="${lanmu.id}">${lanmu.lanmuming}</option>
-                        </c:if>
-                    </c:forEach>
-                </select>
-            </div>
-            <button type="" class="btn btn-default" id="lm_cx">查询</button>
-        </div>
 
     </div>
 
     <div style="float: right;margin: 5px;">
 
-<%--        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加栏目</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>--%>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加管理员</a>
+        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
 
     </div>
 
-    <br><br>
+
     <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover" id="my_table">
             <tr class="success" id="no_del">
                 <th><input type="checkbox" id="firstCb"></th>
                 <th>编号</th>
-                <th>栏目名</th>
+                <th>管理员id</th>
 
                 <th>操作</th>
             </tr>
-
+            <c:forEach items="${admins}" var="admin" varStatus="s">
+                <tr>
+                    <td><input type="checkbox" name="aid" value="${admin.id}"></td>
+                    <td>${s.count}</td>
+                    <td>${admin.admin_id}<input id="yc_pswd" value="${admin.password}" type="hidden" /></td>
+                    <td>
+                        <a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;
+                        <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="del">删除</a>
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
     </form>
 
@@ -132,14 +126,14 @@
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    栏目管理
+                    管理员管理
                 </h4>
             </div>
             <form id="form_data" action="" method="post">
                 <div class="modal-body">
-                    <input id="lm_id" name="lid" type="hidden" />
-                    <input id="zlm_id" name="zid" type="hidden" />
-                    栏目名: <input type="text" id="lm_name" name="lanmuming"/>
+                    <input id="id" name="id" type="hidden" />
+                    管理员id: <input type="text" id="admin_id" name="admin_id"/>
+                    管理员密码: <input type="text" id="password" name="password"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -155,3 +149,4 @@
 
 </body>
 </html>
+

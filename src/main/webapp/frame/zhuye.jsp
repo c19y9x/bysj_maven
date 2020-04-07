@@ -40,7 +40,7 @@
             <div class="newcon-right" >
                 <ul>
                     <c:forEach items="${sy.shouyeContents[0].news}" var="new1" varStatus="n">
-                        <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+                        <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}&lid=${new1.lid}" target="_blank">${new1.title}</a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -60,7 +60,7 @@
             <li><span><a href="https://www.view.sdu.edu.cn/info/1101/132560.htm" target="_blank">王学典：不倒的精神长城——从战疫看中华文明的“韧”性特质</a></span></li>--%>
                 <c:forEach items="${sy.shouyeContents[1].news}" var="new1" varStatus="n">
                     <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
-                    <li><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}&lid=${new1.lid}" target="_blank">${new1.title}</a></li>
                 </c:forEach>
         </ul>
     </div>
@@ -83,7 +83,7 @@
                 <li><span>2019-05-15</span><a href="http://www.math.sdu.edu.cn/info/1045/11641.htm" target="_blank">关于校外机构冒名举办未来山大人夏...</a></li>--%>
                 <c:forEach items="${sy.shouyeContents[2].news}" var="new1" varStatus="n">
                     <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
-                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
+                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}&lid=${new1.lid}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
 
                 </c:forEach>
             </ul>
@@ -96,7 +96,7 @@
         </div>
         <ul class="mtlist">
             <c:forEach items="${sy.shouyeContents[3].news}" var="new1" varStatus="n">
-                <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank">${new1.title}</a></li>
+                <li style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}&lid=${new1.lid}" target="_blank">${new1.title}</a></li>
             </c:forEach>
         </ul>
 
@@ -160,7 +160,7 @@
             <ul class="tzlist">
                 <c:forEach items="${sy.shouyeContents[4].news}" var="new1" varStatus="n">
                     <%--style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"--%>
-                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
+                    <li ><span><fmt:formatDate value='${new1.add_time}' pattern='yyyy-MM-dd' /></span><a href="${pageContext.request.contextPath}/newServlet?id=${new1.id}&lid=${new1.lid}" target="_blank" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${new1.title}</a></li>
 
                 </c:forEach>
             </ul>

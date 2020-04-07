@@ -37,4 +37,13 @@ public interface UserService {
     public void updateNew(News new1);
     //添加文章
     public void addNew(News new1);
+
+
+    //获取文章内容界面的主栏目名和子栏目名
+    public NewPage getNewPage(int lid);
+
+    //登陆判断语句
+    public Admin login(Admin admin);
+    //查询管理员
+    public List<Admin> getAdmins();
 }

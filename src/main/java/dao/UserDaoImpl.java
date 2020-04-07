@@ -258,4 +258,23 @@ public class UserDaoImpl implements UserDao {
         String sql = "insert into news values(null,?,?,?,?,?)";
         template.update(sql, new1.getTitle(),new1.getContent(),new1.getAdd_time(),new1.getLid(),new1.getZid());
     }
+
+    @Override
+    public Admin findAdmin(String admin_id, String password) {
+        try {
+            String sql = "select * from admin where admin_id = ? and password = ?";
+            Admin admin = template.queryForObject(sql, new BeanPropertyRowMapper<Admin>(Admin.class), admin_id, password);
+            return admin;
+        } catch (Exception e) {
+            //e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Admin> getAdmins() {
+        String sql = "select * from admin";
+
+        return template.query(sql,new BeanPropertyRowMapper<Admin>(Admin.class));
+    }
 }

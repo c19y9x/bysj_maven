@@ -8,23 +8,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>bysjBUI+bootstrap风格后台管理系统模板-模板之家</title>
+    <title>后台管理</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    <link href="houtaigl/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="houtaigl/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="houtaigl/assets/css/main-min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="header">
 
     <div class="dl-title">
-        <a href="http://www.builive.com" title="文档库地址" target="_blank"><!-- 仅仅为了提供文档的快速入口，项目中请删除链接 -->
-            <span class="lp-title-port">BUI</span><span class="dl-title-text">前端框架</span>
+        <a href="" title="地址" target="_blank"><!-- 仅仅为了提供文档的快速入口，项目中请删除链接 -->
+            <span class="lp-title-port">物理与机电工程学院</span><span class="dl-title-text"></span>
         </a>
-        <a href="http://www.cssmoban.com">模板之家</a>
+        <a href="http://www.cssmoban.com">后台管理系统</a>
     </div>
 
-    <div class="dl-log">欢迎您，<span class="dl-log-user">**.**@alibaba-inc.com</span><a href="###" title="退出系统" class="dl-log-quit">[退出]</a><a href="http://http://www.builive.com/" title="文档库" class="dl-log-quit">文档库</a>
+    <div class="dl-log">欢迎您，<span class="dl-log-user">${admin.admin_id}</span><a href="${pageContext.request.contextPath}/htlogin" title="退出系统" class="dl-log-quit">[退出]</a>
     </div>
 </div>
 <div class="content">
@@ -41,9 +41,9 @@
 
     </ul>
 </div>
-<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="./assets/js/bui.js"></script>
-<script type="text/javascript" src="./assets/js/config.js"></script>
+<script type="text/javascript" src="houtaigl/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="houtaigl/assets/js/bui.js"></script>
+<script type="text/javascript" src="houtaigl/assets/js/config.js"></script>
 
 <script>
     BUI.use('common/main',function(){
@@ -53,20 +53,20 @@
             menu:[{
                 text:'栏目文章管理',
                 items:[
-                    {id:'pageadmin',text:'栏目管理',href:'../htlanmu',closeable : false},
-                    {id:'second-menu',text:'文章管理',href:'../htwenzhang'},
+                    {id:'pageadmin',text:'栏目管理',href:'htlanmu',closeable : false},
+                    {id:'second-menu',text:'文章管理',href:'htwenzhang'},
                 ]
             },{
                 text:'管理员用户',
                 items:[
-                    {id:'operation',text:'页面常见操作',href:'main/operation.html'},
-                    {id:'quick',text:'页面操作快捷方式',href:'main/quick.html'}
+                    {id:'operation',text:'管理员管理',href:'htadmin'},
+                    //{id:'quick',text:'页面操作快捷方式',href:'main/quick.html'}
                 ]
             },{
                 text:'其他设置',
                 items:[
-                    {id:'resource',text:'资源文件结构',href:'main/resource.html'},
-                    {id:'loader',text:'引入JS方式',href:'main/loader.html'}
+                   /* {id:'resource',text:'资源文件结构',href:'main/resource.html'},
+                    {id:'loader',text:'引入JS方式',href:'main/loader.html'}*/
                 ]
             }]
         },{

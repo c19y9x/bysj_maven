@@ -135,14 +135,14 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right main_menu">
-                            <li class=""><a href="" style="color:aliceblue;">首页 <span class="sr-only"></span></a></li>
-                            <li><a href="" style="color:aliceblue;">院系概况</a></li>
-                            <li><a href="" style="color:aliceblue;">专业建设</a></li>
-                            <li><a href="" style="color:aliceblue;">学科建设</a></li>
-                            <li><a href="" style="color:aliceblue;white-space:nowrap;">研究生教学</a></li>
-                            <li><a href="" style="color:aliceblue;">学生工作</a></li>
-                            <li><a href="" style="color:aliceblue;">招生就业</a></li>
-                            <li><a href="" style="color:aliceblue;">院务公开</a></li>
+                            <c:forEach items="${lm}" var="lanmu" varStatus="s">
+                                <c:if test="${s.count == 1}">
+                                    <li class=""><a href="${pageContext.request.contextPath}/shouye" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                                </c:if>
+                                <c:if test="${s.count != 1}">
+                                    <li class=""><a href="${pageContext.request.contextPath}/erjiServlet?lid=${lanmu.id}" style="color:aliceblue;">${lanmu.lanmuming} </a></li>
+                                </c:if>
+                            </c:forEach>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -163,8 +163,11 @@
 
 <div class="container container-fluid dynava no-padding cleafix">
     <div class="con_wz_lf fl cleafix">
-        <h3><span class="windowstyle134374"> 首页</span></h3>
+        <h3><span class="windowstyle134374"> ${newPage.lm.lanmuming}</span></h3>
         <ul>
+            <c:forEach items="${newPage.zids}" var="zid" varStatus="s">
+                <li><a href="${pageContext.request.contextPath}/erjiServlet?lid=${newPage.lm.id}&zid=${s.count}" title="${zid.zlmname}">${zid.zlmname}</a></li>
+            </c:forEach>
         </ul>
         <div class="nyzct">
             <img src="img/erji/nylb_03.jpg" border="0" width="192" height="127" />
@@ -176,7 +179,9 @@
                 <table class="winstyle134378" cellspacing="0" cellpadding="0">
                     <tbody>
                     <tr>
-                        <td nowrap="">当前位置： <a href="../../index.htm"><span class="fontstyle134378">首页</span></a><span class="splitflagstyle134378">&gt;&gt;</span><a href="../../index/tzgg.htm"><span class="fontstyle134378">通知公告</span></a><span class="splitflagstyle134378">&gt;&gt;</span><span class="fontstyle134378">正文</span></td>
+                        <td nowrap="">当前位置： <a href="${pageContext.request.contextPath}/shouye"><span class="fontstyle134378">首页</span></a><span class="splitflagstyle134378">&gt;&gt;</span>
+                            <a href="${pageContext.request.contextPath}/erjiServlet?lid=${newPage.lm.id}"><span class="fontstyle134378">${newPage.lm.lanmuming}</span></a><span class="splitflagstyle134378">&gt;&gt;</span>
+                            <span class="fontstyle134378">正文</span></td>
                     </tr>
                     </tbody>
                 </table>
@@ -186,17 +191,17 @@
             <script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
             <!-- 这个div下放文章内容 -->
             <div>
-                <h1 align="center">${newss[0].title}</h1>
+                <h1 align="center">${newss.title}</h1>
                 <div align="center">
                     时间：
-                    <fmt:formatDate value="${newss[0].add_time}" pattern="yyyy-MM-dd"/>
+                    <fmt:formatDate value="${newss.add_time}" pattern="yyyy-MM-dd"/>
                     &nbsp;作者： &nbsp;点击：[
                     <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181"></span>]
                 </div>
                 <hr />
                 <div id="vsb_content_2" class="nvtpw">
                     <div class="v_news_content">
-                        ${newss[0].content}
+                        ${newss.content}
                     </div>
                 </div>
                 <div id="div_vote_id"></div>
