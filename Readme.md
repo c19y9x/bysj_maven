@@ -1,11 +1,15 @@
 ##项目结构
+该项目使用到的技术为jsp+Servlet+tomcat+mysql<br>
+下面提到的栏目指主栏目(即首页右上角的七个栏目),子栏目指栏目下面的二级栏目
 * src 
     * main 代码
         * java java代码
             * dao 数据库实现类
             * domain 数据库实体类
+                * Admin 管理员类
                 * Lanmu 栏目名(院系概况，专业建设等)
                 * ZiLanmu 子栏目名(栏目下的二级栏目)
+                * NewPage 存储新闻内容界面的当前栏目和子栏目
                 * News 新闻类(用于封装新闻通知)
                 * PageBean 二级界面类(存储二级界面的各种信息，如分页信息等)
                 * ShouyeContent 存储首页界面上的各个栏目的标题和内容(除了最上面的所有栏目)
@@ -15,14 +19,40 @@
             * web web相关的类(如servlet)
                 * Servlet 
                     * ShouyeServlet 显示首页信息
-                    * NewServlet 显示新闻消息       
+                    * NewServlet 显示新闻消息
+                    * ErjiServlet 显示二级界面(新闻标题界面)    
+                    * ht 后台
+                        * HoutaiServlet 显示后台管理主界面
+                        * HtlanmuServlet 后台管理-栏目管理
+                        * Htlanmu1Servlet 功能类:根据栏目id获取此栏目下的子栏目
+                        * Htlanmu2Servlet 功能类:栏目更新
+                        * Htwenzhang1Servlet 功能类:接受栏目lid zid返回所属文章
+                        * Htwenzhang2Servlet 功能类:根据newid删除文章
+                        * Htwenzhang3Servlet 功能类:多选删除文章
+                        * Htwenzhangadd1Servlet 功能类:添加文章
+                        * Htwenzhangedit1Servlet 功能类:更新修改文章
+                        * HtwenzhangeditServlet 文章编辑界面类
+                        * HtwenzhangServlet 文章管理界面类
+                        * htadmin 后台管理员列表界面
+                            * Htadmin1Servlet 功能类:修改账号密码
+                            * HtadminServlet  后台管理员列表界面类
+                    * htlogin 后台系统登陆界面
+                        * HtloginServlet 界面类
+                        * Htlogin1Servlet 功能类：登陆逻辑判断
         * resources 资源文件
+            * druid.properties 数据库配置文件
+            * ipConfig.properties 限制ip配置文件
         * webapp 界面文件
             * index.jsp 首页
                 * 内部用了frame框架集成了frame/zhuye.jsp
             * erji_biaoti.jsp 主页下的二级界面(左侧有导航栏),可以理解为放文章标题的界面
             * erji_content.jsp 放文章内容的界面
-            * shouye_xyxw.jsp 首页-学院新闻-更多新闻界面
+            * houtaigl 后台管理界面
+                * admin 管理员列表界面
+                * main  栏目文章管理界面
+                * index.jsp 后台管理主界面
+                * login.jsp 后台登陆界面
+              
         
         
 ## bysj数据库

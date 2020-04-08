@@ -102,6 +102,14 @@
             <version>1.0</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+        </dependency>
+
+
         <!--<dependency>
             <groupId>com.cyx</groupId>
             <artifactId>commons-codec-1.9</artifactId>

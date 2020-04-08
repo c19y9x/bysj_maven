@@ -55,7 +55,7 @@
             // 法一:js方式
             var tr1 = obj.parentNode.parentNode;
             // 赋值
-            $("#id").val(tr1.cells[0].innerText);
+            $("#id").val($(obj).parent().parent().children('td').eq(0).children('input').eq(0).val());
             $("#admin_id").val(tr1.cells[2].innerText);
             $("#password").val($(obj).parent().parent().children('td').eq(2).children('input').eq(0).val());
             //法二:Jquery方式
@@ -67,7 +67,7 @@
         {
             var form_data = $("#form_data").serialize();
             //$("#form_data").submit();
-            window.location.href="${pageContext.request.contextPath}/HtlmeditServlet?"+form_data;
+            window.location.href="${pageContext.request.contextPath}/htadmin1?"+form_data;
 
         }
     </script>

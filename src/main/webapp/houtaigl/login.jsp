@@ -45,7 +45,7 @@
         <div class="login-content">
             <div class="login-logo">
                 <a href="index.html">
-                    <img class="align-content" src="houtaigl/my/images/logo_03.png" alt="">
+                    <img class="align-content" src="img/logo_03.png" alt="">
                 </a>
             </div>
             <div class="login-form">

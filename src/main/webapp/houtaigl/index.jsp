@@ -60,13 +60,13 @@
                 text:'管理员用户',
                 items:[
                     {id:'operation',text:'管理员管理',href:'htadmin'},
-                    //{id:'quick',text:'页面操作快捷方式',href:'main/quick.html'}
+                    {id:'quick',text:'管理员IP限制',href:'main/quick.html'}
                 ]
             },{
                 text:'其他设置',
                 items:[
-                   /* {id:'resource',text:'资源文件结构',href:'main/resource.html'},
-                    {id:'loader',text:'引入JS方式',href:'main/loader.html'}*/
+                    {id:'resource',text:'滚动公告栏设置',href:'main/resource.html'}
+                    //{id:'loader',text:'引入JS方式',href:'main/loader.html'}
                 ]
             }]
         },{

@@ -47,7 +47,7 @@
     
     "fileActionName": "uploadfile", 
     "fileFieldName": "upfile", 
-    "filePathFormat": "/ueditor/jsp/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "filePathFormat": "ueditor/jsp/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}",
     "fileUrlPrefix": "", 
     "fileMaxSize": 51200000, 
     "fileAllowFiles": [
@@ -68,7 +68,7 @@
 
     
     "fileManagerActionName": "listfile", 
-    "fileManagerListPath": "/ueditor/jsp/upload/file/", 
+    "fileManagerListPath": "/ueditor/jsp/upload/file/",
     "fileManagerUrlPrefix": "", 
     "fileManagerListSize": 20, 
     "fileManagerAllowFiles": [

@@ -277,4 +277,10 @@ public class UserDaoImpl implements UserDao {
 
         return template.query(sql,new BeanPropertyRowMapper<Admin>(Admin.class));
     }
+
+    @Override
+    public void updateAdmin(Admin admin) {
+        String sql = "update admin set admin_id = ?,password = ? where id = ?";
+        template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getId());
+    }
 }

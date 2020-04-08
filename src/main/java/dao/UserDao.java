@@ -43,4 +43,6 @@ public interface UserDao {
     public Admin findAdmin(String admin_id, String password);
 
     public List<Admin> getAdmins();
+
+    public void updateAdmin(Admin admin);
 }

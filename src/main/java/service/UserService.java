@@ -46,4 +46,6 @@ public interface UserService {
     public Admin login(Admin admin);
     //查询管理员
     public List<Admin> getAdmins();
+    //修改管理员信息
+    public void updateAdmin(Admin admin);
 }

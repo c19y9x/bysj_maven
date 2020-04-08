@@ -35,7 +35,7 @@
         </div>
         <div class="newcon">
             <div class="newcon-left" >
-                <iframe width=370px height=328px src="lunbotu/index.html" frameborder="0" scrolling = "no"></iframe>
+                <iframe width=370px height=328px src="xwgd/gdxw.jsp" frameborder="0" scrolling = "no"></iframe>
             </div>
             <div class="newcon-right" >
                 <ul>
@@ -49,7 +49,7 @@
     <div class="new-right">
         <div class="tz-title">
             <span><b>${sy.shouyeContents[1].title} </span>
-            <a target="_blank" href="https://www.view.sdu.edu.cn/xsjj.htm">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet?lid=4&zid=2">更多&gt;</a>
         </div>
         <ul>
             <%--<li><span><a href="https://www.view.sdu.edu.cn/info/1101/131625.htm" target="_blank">《抗疫：舆论正能量》疫情专报（3月21日）</a></span></li>
@@ -70,7 +70,7 @@
     <div class="notic">
         <div class="tz-title">
             <span><b>${sy.shouyeContents[2].title}</b></span>
-            <a target="_blank" href="https://www.view.sdu.edu.cn/tzgg.htm">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet?lid=6&zid=3">更多&gt;</a>
         </div>
         <div class="noticlist">
             <ul class="tzlist">
@@ -92,7 +92,7 @@
     <div class="notic">
         <div class="tz-title">
             <span><b>${sy.shouyeContents[3].title}</b></span>
-            <a target="_black" href="https://www.media.sdu.edu.cn/">更多&gt;</a>
+            <a target="_black" href="${pageContext.request.contextPath}/erjiServlet?lid=7">更多&gt;</a>
         </div>
         <ul class="mtlist">
             <c:forEach items="${sy.shouyeContents[3].news}" var="new1" varStatus="n">
@@ -154,7 +154,7 @@
     <div class="notic lastnotic">
         <div class="tz-title">
             <span><b>${sy.shouyeContents[4].title}</b></span>
-            <a target="_blank" href="https://www.view.sdu.edu.cn/tzgg.htm">更多&gt;</a>
+            <a target="_blank" href="${pageContext.request.contextPath}/erjiServlet?lid=3">更多&gt;</a>
         </div>
         <div class="noticlist">
             <ul class="tzlist">

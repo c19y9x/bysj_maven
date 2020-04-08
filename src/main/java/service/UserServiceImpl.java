@@ -94,22 +94,24 @@ public class UserServiceImpl implements UserService {
         List<String> titles = new ArrayList<String>();
         titles.add("学院</b>要闻");
         titles.add("学术</b>聚焦");
-        titles.add("通知</b>公告");
+        titles.add("学风</b>建设");
         titles.add("招生</b>就业");
         titles.add("教学</b>信息");
+        titles.add("");
 
         List<List<News>> news = new ArrayList<List<News>>();
 
         news.add(dao.getShouyebt(8,3,8)); //院务公开-学院要闻 显示8条
         news.add(dao.getShouyebt(4,2,6));
-        news.add(dao.getShouyebt(8,2,7));
+        news.add(dao.getShouyebt(6,3,7));
         news.add(dao.getShouyebt(7,0,7));
         news.add(dao.getShouyebt(3,0,7));
+        news.add(dao.getShouyebt(8,2,8));
 
         List<ShouyeContent> shouyeContents = new ArrayList<>();
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             ShouyeContent sc = new ShouyeContent();
             sc.setTitle(titles.get(i));
             sc.setNews(news.get(i));
@@ -182,5 +184,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Admin> getAdmins() {
         return dao.getAdmins();
+    }
+
+    @Override
+    public void updateAdmin(Admin admin) {
+        dao.updateAdmin(admin);
     }
 }

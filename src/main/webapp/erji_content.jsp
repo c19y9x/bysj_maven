@@ -210,6 +210,7 @@
         </form>
     </div>
 </div>
+<br>
 
 <!--Start of footer-->
 <section id="footer">
