@@ -96,7 +96,7 @@ public class UserDaoImpl implements UserDao {
             sb.append(" and lid = "+ lid +" and zid = " + zid);
 
         //添加分页查询
-        sb.append(" limit ?,?");
+        sb.append(" ORDER BY add_time DESC limit ?,?");
         //添加分页查询值
         params.add(start);
         params.add(rows);
@@ -196,8 +196,8 @@ public class UserDaoImpl implements UserDao {
         String sql = "select id,title,add_time,lid,zid from news where 1 = 1";
 
         StringBuilder sb = new StringBuilder(sql);
-        //当lid为1，说明选中了所有栏目，显示全部新闻
-        if(lid == 1)
+        //当lid为0，说明选中了所有栏目，显示全部新闻
+        if(lid == 0)
             ;
         else{
             if(zid == 0)
@@ -286,5 +286,33 @@ public class UserDaoImpl implements UserDao {
     public void addAdmin(Admin admin) {
         String sql = "insert into admin values(null,?,?,?)";
         template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getAuthority());
+    }
+
+    @Override
+    public void addLm(int lid, String lanmuming) {
+        String str_lid = null;
+        //根据栏目id决定查询哪一个表
+        switch(lid){
+            case 1:
+                str_lid = "sy";break;
+            case 2:
+                str_lid = "yxgk";break;
+            case 3:
+                str_lid = "zyjs";break;
+            case 4:
+                str_lid = "xkjs";break;
+            case 5:
+                str_lid = "yjsjx";break;
+            case 6:
+                str_lid = "xsgz";break;
+            case 7:
+                str_lid = "zsjy";break;
+            case 8:
+                str_lid = "ywgk";break;
+            default:
+                break;
+        }
+        String sql = "insert into "+str_lid+" values(null,?)";
+        template.update(sql, lanmuming);
     }
 }

@@ -129,7 +129,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateLm(int lid, int zid, String lanmuming) {
-        if(lid == 1)
+        if(lid == 0)
             dao.updateLm(zid,lanmuming);
         else
             dao.updateZlm(lid,zid,lanmuming);
@@ -204,5 +204,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addAdmin(Admin admin) {
         dao.addAdmin(admin);
+    }
+
+    @Override
+    public void addLm(int lid, String lanmuming) {
+        dao.addLm(lid,lanmuming);
     }
 }

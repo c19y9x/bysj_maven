@@ -54,4 +54,6 @@ public interface UserService {
     public List<Lanmu> getLanmuById(int i);
     //增加管理员
     public void addAdmin(Admin admin);
+    //添加栏目
+    public void addLm(int lid, String lanmuming);
 }

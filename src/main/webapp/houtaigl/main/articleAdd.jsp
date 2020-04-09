@@ -70,7 +70,7 @@
                             $("#zlm").append("<option value='0'></option>");break;
                         }
                         else
-                            $("#zlm").append("<option value='"+ (i+1) +"'>"+list[i].zlmname +"</option>");
+                            $("#zlm").append("<option value='"+ list[i].id +"'>"+list[i].zlmname +"</option>");
                     }
                 });
 
@@ -89,7 +89,7 @@
                     url: "${pageContext.request.contextPath}/htwenzhangadd1" ,//url
                     data: $("#form_data").serialize(),
                     success: function (data) {
-                        alert("已修改");
+                        alert("已添加");
                         exit_yemian();
                     },
                     error : function() {

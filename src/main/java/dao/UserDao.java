@@ -51,4 +51,6 @@ public interface UserDao {
     public List<Lanmu> getLanmuById(int i);
 
     public void addAdmin(Admin admin);
+
+    public void addLm(int lid, String lanmuming);
 }

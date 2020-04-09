@@ -195,8 +195,8 @@
                 <div align="center">
                     时间：
                     <fmt:formatDate value="${newss.add_time}" pattern="yyyy-MM-dd"/>
-                    &nbsp;作者： &nbsp;点击：[
-                    <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181"></span>]
+                    &nbsp;<%--作者： &nbsp;点击：[--%>
+                    <span id="dynclicks_wbnews_12616_181" name="dynclicks_wbnews_12616_181"></span><%--]--%>
                 </div>
                 <hr />
                 <div id="vsb_content_2" class="nvtpw">

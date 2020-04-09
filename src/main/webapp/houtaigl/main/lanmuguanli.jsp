@@ -18,6 +18,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         window.onload = function(){
+            $("#lanmu_add_btn").hide();
             $("#lm_cx").click(function(){
                 //获取选的栏目，以id的形式返回
                 var lanmu_cx = $("#lanmum").val();
@@ -44,12 +45,15 @@
                             $('<td>'+(i+1)+'</td>').appendTo($td);
                             $('<td>'+p[key]+'</td>').appendTo($td);
                         }
-                        $('<td>'+'<a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;<a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="del">删除</a>'+'</td>').appendTo($td);
+                        $('<td>'+'<a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;'+'</td>').appendTo($td);
                         $tr.push($td);
                     }
                     for(var j=0;j<$tr.length;j++){
                         $($tr[j]).appendTo($("table"));
                     }
+                    //设置只有打开非所有栏目才能添加
+                    if(lanmu_cx != 0)
+                        $("#lanmu_add_btn").show();
                 });
             });
 
@@ -74,10 +78,31 @@
         {
             var form_data = $("#form_data").serialize();
             //$("#form_data").submit();
-            window.location.href="${pageContext.request.contextPath}/HtlmeditServlet?"+form_data;
+            window.location.href="${pageContext.request.contextPath}/htlmedit?"+form_data;
+
+        }
+        //add
+        function update_info_add() {
+            var lanmu_cx = $("#lanmum").val();
+            $("#lm_id1").val(lanmu_cx);
+        }
+
+        function commit_info_add()
+        {
+            var form_data = $("#form_data1").serialize();
+            //$("#form_data").submit();
+            window.location.href="${pageContext.request.contextPath}/htlanmu3?"+form_data;
 
         }
     </script>
+    <style>
+        table th{
+            text-align:center;
+        }
+        table tr td{
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
 
@@ -114,9 +139,7 @@
 
     <div style="float: right;margin: 5px;">
 
-<%--        <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加栏目</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>--%>
-
+        <a class="btn btn-primary" data-toggle="modal" data-target="#lanmu_add" id="lanmu_add_btn" onclick="update_info_add()">添加栏目</a>
     </div>
 
     <br><br>
@@ -159,6 +182,34 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
                     <button type="button" onclick="commit_info()" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="lanmu_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="">
+                    栏目添加
+                </h4>
+            </div>
+            <form id="form_data1" action="" method="post">
+                <div class="modal-body">
+                    <input id="lm_id1" name="lid" type="hidden" />
+                    栏目名: <input type="text" id="lm_name1" name="lanmuming"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" onclick="commit_info_add()" class="btn btn-primary">
                         提交更改
                     </button>
                 </div>
