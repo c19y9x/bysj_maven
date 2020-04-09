@@ -22,6 +22,7 @@
             text-align:center;
         }
         table{table-layout: fixed;word-break: break-all; word-wrap: break-word; }
+        /*标题行在<td>内只显示一行，多出来的用省略号*/
         .award-name{-o-text-overflow:ellipsis;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;width:100%;}
     </style>
 
@@ -139,14 +140,21 @@
             <div class="form-group">
                 <label for="lm">文章位置：</label>
                 <select name="lanmum" class="form-control" id="lm">
-                    <c:forEach items="${lms}" var="lanmu" varStatus="s">
-                        <c:if test="${s.count == 1}">
-                            <option value="1">所有栏目</option>
-                        </c:if>
-                        <c:if test="${s.count != 1}">
+                    <c:if test="${admin.authority == 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
+                            <c:if test="${s.count == 1}">
+                                <option value="0">所有栏目</option>
+                            </c:if>
+                            <c:if test="${s.count != 1}">
+                                <option value="${lanmu.id}">${lanmu.lanmuming}</option>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${admin.authority != 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
                             <option value="${lanmu.id}">${lanmu.lanmuming}</option>
-                        </c:if>
-                    </c:forEach>
+                        </c:forEach>
+                    </c:if>
                 </select>
                 <select name="zlm" class="form-control" id="zlm">
                     <option value='0'></option>

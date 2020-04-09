@@ -45,4 +45,10 @@ public interface UserDao {
     public List<Admin> getAdmins();
 
     public void updateAdmin(Admin admin);
+
+    public Admin getAdminById(int id);
+
+    public List<Lanmu> getLanmuById(int i);
+
+    public void addAdmin(Admin admin);
 }

@@ -14,14 +14,14 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-//修改账号密码以及权限
-@WebServlet("/htadmin1")
-public class Htadmin1Servlet extends HttpServlet {
+@WebServlet("/htadminupdate")
+public class HtadminupdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.设置编码
         request.setCharacterEncoding("utf-8");
-        //获取map
+        //2.获取map
         Map<String, String[]> map = request.getParameterMap();
-        //封装对象
+        //3.封装对象
         Admin admin = new Admin();
         try {
             BeanUtils.populate(admin,map);
@@ -30,9 +30,12 @@ public class Htadmin1Servlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        System.out.println(admin);
+
+        //4.调用Service修改
         UserService service = new UserServiceImpl();
         service.updateAdmin(admin);
+
+        //5.跳转到查询所有Servlet
         response.sendRedirect(request.getContextPath()+"/htadmin");
     }
 

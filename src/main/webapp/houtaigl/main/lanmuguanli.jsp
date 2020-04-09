@@ -32,9 +32,16 @@
                     var list = data;
                     for(var i = 0;i < list.length ;i++){
                         $td = $('<tr></tr>');
-                        $('<td>'+'<input type="checkbox" name="uid" value="' +(i+1) +'">'+'</td>').appendTo($td);
+                        $('<td>'+'<input type="checkbox" name="uid" value="' +list[i].id +'">'+'</td>').appendTo($td);
                         var p = list[i];
+                        var j = 1;
                         for(var key in p){
+                            if(j==1)
+                            {
+                                j = 2;
+                                continue;
+                            }
+                            $('<td>'+(i+1)+'</td>').appendTo($td);
                             $('<td>'+p[key]+'</td>').appendTo($td);
                         }
                         $('<td>'+'<a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;<a class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="del">删除</a>'+'</td>').appendTo($td);
@@ -83,14 +90,21 @@
             <div class="form-group">
                 <label for="lanmum">栏目名：</label>
                 <select name="lanmum" class="form-control" id="lanmum">
-                    <c:forEach items="${lms}" var="lanmu" varStatus="s">
-                        <c:if test="${s.count == 1}">
-                            <option value="1">所有栏目</option>
-                        </c:if>
-                        <c:if test="${s.count != 1}">
-                            <option value="${lanmu.id}">${lanmu.lanmuming}</option>
-                        </c:if>
-                    </c:forEach>
+                    <c:if test="${admin.authority == 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
+                            <c:if test="${s.count == 1}">
+                                <option value="0">所有栏目</option>
+                            </c:if>
+                            <c:if test="${s.count != 1}">
+                                <option value="${lanmu.id}">${lanmu.lanmuming}</option>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${admin.authority != 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
+                                <option value="${lanmu.id}">${lanmu.lanmuming}</option>
+                        </c:forEach>
+                    </c:if>
                 </select>
             </div>
             <button type="" class="btn btn-default" id="lm_cx">查询</button>

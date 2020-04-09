@@ -27,8 +27,8 @@ public class Htlanmu1Servlet extends HttpServlet {
 
         int lid = Integer.parseInt(_lid);
         UserService service = new UserServiceImpl();
-
-        if(lid == 1) {
+        //lid为0，查询所有栏目；lid不为0，查询该栏目下的子栏目。
+        if(lid == 0) {
             List<Lanmu> lm = service.getLanmu();
             //创建Jackson的核心对象  ObjectMapper
             ObjectMapper mapper = new ObjectMapper();

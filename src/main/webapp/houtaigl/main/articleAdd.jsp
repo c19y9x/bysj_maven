@@ -64,7 +64,7 @@
                 $.get("${pageContext.request.contextPath}/htlanmuAdmin",{lid:lanmu_cx},function (data) {
                     var list = data;
                     for(var i = 0;i < list.length ;i++){
-                        if(lanmu_cx == 1)
+                        if(lanmu_cx == 0)
                         {
                             //如果选的lid为1(即选中所有栏目)，则第二个下拉菜单不显示任何东西
                             $("#zlm").append("<option value='0'></option>");break;
@@ -122,14 +122,21 @@
             <div class="form-group">
                 <label for="lm">文章位置：</label>
                 <select name="lid" class="form-control" id="lm">
-                    <c:forEach items="${lms}" var="lanmu" varStatus="s">
-                        <c:if test="${s.count == 1}">
-                            <option value="1">所有栏目</option>
-                        </c:if>
-                        <c:if test="${s.count != 1}">
+                    <c:if test="${admin.authority == 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
+                            <c:if test="${s.count == 1}">
+                                <option value="0">所有栏目</option>
+                            </c:if>
+                            <c:if test="${s.count != 1}">
+                                <option value="${lanmu.id}">${lanmu.lanmuming}</option>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${admin.authority != 0}">
+                        <c:forEach items="${lms}" var="lanmu" varStatus="s">
                             <option value="${lanmu.id}">${lanmu.lanmuming}</option>
-                        </c:if>
-                    </c:forEach>
+                        </c:forEach>
+                    </c:if>
                 </select>
                 ------
                 <select name="zid" class="form-control" id="zlm">

@@ -1,7 +1,6 @@
 package web.Servlet.ht.htadmin;
 
 import domain.Admin;
-import domain.Lanmu;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -10,23 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/htadmin")
-public class HtadminServlet extends HttpServlet {
+@WebServlet("/htadminedit")
+public class HtadmineditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        HttpSession session = request.getSession();
-
+        //1.获取id
+        String id = request.getParameter("id");
+        //2.调用Service查询
         UserService service = new UserServiceImpl();
-
-        List<Admin> admins = service.getAdmins();
-        System.out.println(admins);
-        session.setAttribute("admins",admins);
-        //4.转发到list.jsp
-        request.getRequestDispatcher("/houtaigl/admin/admingl.jsp").forward(request,response);
+        Admin admin = service.getAdminById(Integer.parseInt(id));
+        System.out.println(admin);
+        //3.将user存入request
+        request.setAttribute("admin",admin);
+        //4.转发到update.jsp
+        request.getRequestDispatcher("houtaigl/admin/adminEdit.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

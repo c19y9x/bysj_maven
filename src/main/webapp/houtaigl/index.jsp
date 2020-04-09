@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>后台管理</title>
@@ -56,13 +57,16 @@
                     {id:'pageadmin',text:'栏目管理',href:'htlanmu',closeable : false},
                     {id:'second-menu',text:'文章管理',href:'htwenzhang'},
                 ]
-            },{
+            }<c:if test="${admin.authority == 0}">,
+                {
                 text:'管理员用户',
                 items:[
                     {id:'operation',text:'管理员管理',href:'htadmin'},
                     {id:'quick',text:'管理员IP限制',href:'main/quick.html'}
                 ]
-            },{
+
+            }</c:if>
+            ,{
                 text:'其他设置',
                 items:[
                     {id:'resource',text:'滚动公告栏设置',href:'main/resource.html'}

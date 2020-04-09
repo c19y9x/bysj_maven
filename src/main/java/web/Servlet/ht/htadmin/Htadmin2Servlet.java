@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-
-//修改账号密码以及权限
-@WebServlet("/htadmin1")
-public class Htadmin1Servlet extends HttpServlet {
+//增加管理员
+@WebServlet("/htadmin2")
+public class Htadmin2Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         //获取map
@@ -32,7 +31,7 @@ public class Htadmin1Servlet extends HttpServlet {
         }
         System.out.println(admin);
         UserService service = new UserServiceImpl();
-        service.updateAdmin(admin);
+        service.addAdmin(admin);
         response.sendRedirect(request.getContextPath()+"/htadmin");
     }
 

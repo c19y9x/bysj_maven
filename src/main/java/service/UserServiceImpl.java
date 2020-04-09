@@ -190,4 +190,19 @@ public class UserServiceImpl implements UserService {
     public void updateAdmin(Admin admin) {
         dao.updateAdmin(admin);
     }
+
+    @Override
+    public Admin getAdminById(int id) {
+        return dao.getAdminById(id);
+    }
+
+    @Override
+    public List<Lanmu> getLanmuById(int i) {
+        return dao.getLanmuById(i);
+    }
+
+    @Override
+    public void addAdmin(Admin admin) {
+        dao.addAdmin(admin);
+    }
 }

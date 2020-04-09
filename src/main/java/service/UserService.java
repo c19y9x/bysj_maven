@@ -48,4 +48,10 @@ public interface UserService {
     public List<Admin> getAdmins();
     //修改管理员信息
     public void updateAdmin(Admin admin);
+    //根据id获取管理员信息
+    public Admin getAdminById(int id);
+    //权限控制，给不同权限不同的栏目管理
+    public List<Lanmu> getLanmuById(int i);
+    //增加管理员
+    public void addAdmin(Admin admin);
 }

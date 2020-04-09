@@ -30,28 +30,7 @@ public class UserDaoImpl implements UserDao {
     public int findTotalCount() {
         //定义一个模板sql
         String sql = "select count(*) from news where 1 = 1 ";
-/*        StringBuilder sb = new StringBuilder(sql);
-        //遍历map
-        Set<String> keyset = condition.keySet();
-        //定义参数集合
-        List<Object> params = new ArrayList<Object>();
-        for (String key : keyset)
-        {
-            //排除分页条件参数，
-            if("currentPage".equals(key) || "rows".equals(key)){
-                continue;
-            }
-            String value = condition.get(key)[0];
 
-            if(value != null && !"".equals(value)){
-                //有值
-                sb.append(" and "+key+" like ? ");
-                params.add("%"+value+"%");  //加条件的值
-            }
-        }
-        System.out.println(sb.toString());
-        System.out.println(params);
-        return template.queryForObject(sb.toString(),Integer.class,params.toArray());*/
         return template.queryForObject(sql,Integer.class);
     }
 
@@ -280,7 +259,32 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateAdmin(Admin admin) {
-        String sql = "update admin set admin_id = ?,password = ? where id = ?";
-        template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getId());
+        String sql = "update admin set admin_id = ?,password = ? ,authority = ? where id = ?";
+        template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getAuthority(),admin.getId());
+    }
+
+    @Override
+    public Admin getAdminById(int id) {
+        String sql = "select * from admin where id = "+id;
+        return template.queryForObject(sql,new BeanPropertyRowMapper<Admin>(Admin.class));
+    }
+
+    @Override
+    public List<Lanmu> getLanmuById(int i) {
+        String sql = "SELECT * FROM lanmu WHERE 2 < 1";
+        StringBuilder sb = new StringBuilder(sql);
+        int j;
+        while(i != 0){
+            j = i % 10;
+            sb.append(" or id = " + j);
+            i = i/10;
+        }
+        return template.query(sb.toString(), new BeanPropertyRowMapper<Lanmu>(Lanmu.class));
+    }
+
+    @Override
+    public void addAdmin(Admin admin) {
+        String sql = "insert into admin values(null,?,?,?)";
+        template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getAuthority());
     }
 }
