@@ -45,7 +45,8 @@
                             $('<td>'+(i+1)+'</td>').appendTo($td);
                             $('<td>'+p[key]+'</td>').appendTo($td);
                         }
-                        $('<td>'+'<a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;'+'</td>').appendTo($td);
+                        $('<td>'+'<a class="btn btn-default btn-sm" onclick="update_info(this)" data-toggle="modal" data-target="#myModal" id="xj">修改</a>&nbsp;' +
+                            '<a class=\"btn btn-default btn-sm del_lanmu\" onclick=\"del_info(this)\">删除</a>'+'</td>').appendTo($td);
                         $tr.push($td);
                     }
                     for(var j=0;j<$tr.length;j++){
@@ -53,7 +54,17 @@
                     }
                     //设置只有打开非所有栏目才能添加
                     if(lanmu_cx != 0)
+                    {
                         $("#lanmu_add_btn").show();
+                    }
+
+                    if(lanmu_cx == 0){
+                        //隐藏删除按钮
+                        $(".del_lanmu").hide();
+                        //隐藏添加栏目按钮
+                        $("#lanmu_add_btn").hide();
+                    }
+
                 });
             });
 
@@ -93,6 +104,19 @@
             //$("#form_data").submit();
             window.location.href="${pageContext.request.contextPath}/htlanmu3?"+form_data;
 
+        }
+        //del
+        function del_info(obj) {
+            if(confirm("宁确定要删除吗？\n" +
+                "注意:删除栏目会删除该栏目下的所有文章")){
+                var lid = $("#lanmum").val();
+                var zid = $(obj).parent().parent().children('td').eq(0).children('input').eq(0).val();
+                $.get("htlanmu4",{lid:lid,zid:zid},function (data) {
+                    //模拟点击查询按钮
+                    document.getElementById("lm_cx").click();
+                    alert("已删除");
+                })
+            }
         }
     </script>
     <style>

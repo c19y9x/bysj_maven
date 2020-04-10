@@ -50,6 +50,16 @@
             }
             return text;
         }
+
+        function del_admin(obj) {
+            if(confirm("您确定要删除吗？")){
+                var adminid = $(obj).parent().parent().children('td').eq(0).children('input').eq(0).val();
+                $(obj).parent().parent().remove();
+                $.get("htadmin3",{adminid:adminid},function (data) {
+                    alert("已删除");
+                })
+            }
+        }
     </script>
     <style>
         table th{
@@ -98,7 +108,7 @@
                     <td class="authority" value="${admin.authority}"></td>
                     <td>
                         <a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}/htadminedit?id=${admin.id}" id="xj">修改</a>&nbsp;
-                        <a class="btn btn-default btn-sm" id="del">删除</a>
+                        <a class="btn btn-default btn-sm" id="del" onclick="del_admin(this)">删除</a>
                     </td>
                 </tr>
             </c:forEach>

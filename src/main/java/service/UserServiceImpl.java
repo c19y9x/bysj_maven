@@ -210,4 +210,14 @@ public class UserServiceImpl implements UserService {
     public void addLm(int lid, String lanmuming) {
         dao.addLm(lid,lanmuming);
     }
+
+    @Override
+    public void delLanmu(int lid, int zid) {
+        dao.delLanmu(lid, zid);
+    }
+
+    @Override
+    public void deladmin(int adminid) {
+        dao.deladmin(adminid);
+    }
 }

@@ -75,7 +75,7 @@ public class IpFilter implements Filter{
 
     /**
      * 对配置文件进行初始化并校验
-     * @author 欧阳
+     * @author
      * @serialData 20180728
      * @throws IOException
      */
@@ -212,8 +212,17 @@ public class IpFilter implements Filter{
         }
 
         //对第三种方式进行校验
-        pattern = Pattern.compile("("+regx+"\\."+ regx+"\\."+regx+"\\."+ "\\*)|" +
+        /*pattern = Pattern.compile("("+regx+"\\."+ regx+"\\."+regx+"\\."+ "\\*)|" +
                 "("+regx+"\\."+regx+"\\."+regx+"\\."+ "\\*(,|;))*");
+        if(this.isNullorMatches(allowIPWildcard, pattern)){
+            result = true;  //匹配成功
+        } else {
+            result = false;
+        }*/
+        /*pattern = Pattern.compile("("+regx+"\\."+ regx+"\\.\\*\\."+ "\\*)|" +
+                "("+regx+"\\."+regx+"\\.\\*\\."+ "\\*(,|;))*");*/
+        pattern = Pattern.compile("("+regx+"\\."+ regx+"\\.\\*\\."+ "\\*)|" +
+                "("+regx+"\\."+regx+"\\.((\\*)|"+regx+")\\."+ "\\*(,|;))*");
         if(this.isNullorMatches(allowIPWildcard, pattern)){
             result = true;  //匹配成功
         } else {

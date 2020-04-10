@@ -89,6 +89,7 @@
                     {data:{'checkID':checkID},
                         dataType:'text',
                         success: function(data){
+                            //模拟点击查询按钮
                             document.getElementById("wz_cx").click();
                             alert("已删除");
                         },

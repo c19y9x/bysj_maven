@@ -30,13 +30,13 @@ public class Htlogin1Servlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-
+        //System.out.println(admin);
         UserService service = new UserServiceImpl();
-        Admin loginUser = service.login(admin);
-        if(loginUser != null){
+        Admin admin1 = service.login(admin);
+        if(admin1 != null){
             //登录成功
             //将用户存入session
-            session.setAttribute("admin",loginUser);
+            session.setAttribute("admin",admin1);
             //跳转页面
             response.sendRedirect(request.getContextPath()+"/houtaigl");
         }else{

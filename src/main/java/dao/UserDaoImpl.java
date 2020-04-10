@@ -313,6 +313,41 @@ public class UserDaoImpl implements UserDao {
                 break;
         }
         String sql = "insert into "+str_lid+" values(null,?)";
+        template.update("ALTER TABLE "+ str_lid+" AUTO_INCREMENT = 1;");
         template.update(sql, lanmuming);
+    }
+
+    @Override
+    public void delLanmu(int lid, int zid) {
+        String str_lid = null;
+        //根据栏目id决定查询哪一个表
+        switch(lid){
+            case 1:
+                str_lid = "sy";break;
+            case 2:
+                str_lid = "yxgk";break;
+            case 3:
+                str_lid = "zyjs";break;
+            case 4:
+                str_lid = "xkjs";break;
+            case 5:
+                str_lid = "yjsjx";break;
+            case 6:
+                str_lid = "xsgz";break;
+            case 7:
+                str_lid = "zsjy";break;
+            case 8:
+                str_lid = "ywgk";break;
+            default:
+                break;
+        }
+        String sql = "delete from "+str_lid+" where id = ?";
+        template.update(sql, zid);
+    }
+
+    @Override
+    public void deladmin(int adminid) {
+        String sql = "delete from admin where id = ?";
+        template.update(sql, adminid);
     }
 }

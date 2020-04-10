@@ -56,4 +56,8 @@ public interface UserService {
     public void addAdmin(Admin admin);
     //添加栏目
     public void addLm(int lid, String lanmuming);
+    //删除栏目
+    public void delLanmu(int lid, int zid);
+    //删除管理员
+    void deladmin(int adminid);
 }

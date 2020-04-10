@@ -53,4 +53,8 @@ public interface UserDao {
     public void addAdmin(Admin admin);
 
     public void addLm(int lid, String lanmuming);
+
+    public void delLanmu(int lid, int zid);
+
+    public void deladmin(int adminid);
 }
