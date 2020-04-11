@@ -21,21 +21,24 @@
     <script>
 
         function tijiao_data() {
-            var ip1 = $("#ip_limit1").val();
-            var ip2 = $("#ip_limit2").val();
-            var reg1 = /^((((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])[;])+)|)$/;
-            var reg2 = /^(((((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.(\*)[;])+)|)$/;
-            if(reg1.test(ip1)&&reg2.test(ip2))
-            {
-                return true;
-            }
-            else if(!reg1.test(ip1)){
-                alert("\"单个IP地址控制格式错误\"");
-                return false;
-            }
-            else if(!reg2.test(ip2)){
-                alert("\"通配符控制格式错误\"");
-                return false;
+            if(confirm("您确定要更改吗？")){
+                var ip1 = $("#ip_limit1").val();
+                var ip2 = $("#ip_limit2").val();
+                //正则表达式格式检测
+                var reg1 = /^((((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])[;])+)|)$/;
+                var reg2 = /^(((((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])|(\*))\.(\*)[;])+)|)$/;
+                if(reg1.test(ip1)&&reg2.test(ip2))
+                {
+                    return true;
+                }
+                else if(!reg1.test(ip1)){
+                    alert("\"单个IP地址控制格式错误\"");
+                    return false;
+                }
+                else if(!reg2.test(ip2)){
+                    alert("\"通配符控制格式错误\"");
+                    return false;
+                }
             }
             return false;
         }

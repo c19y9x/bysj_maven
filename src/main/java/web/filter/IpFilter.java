@@ -237,7 +237,7 @@ public class IpFilter implements Filter{
         /*pattern = Pattern.compile("("+regx+"\\."+ regx+"\\.\\*\\."+ "\\*)|" +
                 "("+regx+"\\."+regx+"\\.\\*\\."+ "\\*(,|;))*");*/
         pattern = Pattern.compile("("+regx+"\\."+ regx+"\\.\\*\\."+ "\\*)|" +
-                "("+regx+"\\."+regx+"\\.((\\*)|"+regx+")\\."+ "\\*(,|;))*");
+                "(((\\*)|"+regx+")\\.((\\*)|"+regx+")\\.((\\*)|"+regx+")\\."+ "\\*(,|;))*");
         if(this.isNullorMatches(allowIPWildcard, pattern)){
             result = true;  //匹配成功
         } else {

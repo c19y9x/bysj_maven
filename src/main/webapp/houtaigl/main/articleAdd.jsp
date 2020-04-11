@@ -78,10 +78,9 @@
         });
         function commit_info(e)
         {
+            //取消button的表单提交
             e.preventDefault();
             if(confirm("您确定要提交吗？")){
-                //取消button的表单提交
-
                 $.ajax({
                     //几个参数需要注意一下
                     type: "POST",//方法类型
