@@ -62,7 +62,7 @@
                 text:'管理员用户',
                 items:[
                     {id:'operation',text:'管理员管理',href:'htadmin'},
-                    {id:'quick',text:'管理员IP限制',href:'houtaigl/admin/adminIP.jsp'}
+                    {id:'quick',text:'管理员IP限制',href:'htadminIPLimit'}
                 ]
 
             }</c:if>

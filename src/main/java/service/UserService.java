@@ -62,4 +62,6 @@ public interface UserService {
     void deladmin(int adminid);
     //获取ip限制地址
     public List<Iplimit> getIPvalues();
+    //更新IP控制规则
+    public void updateIPlimit(String iplimit1, String iplimit2);
 }

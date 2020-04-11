@@ -225,4 +225,9 @@ public class UserServiceImpl implements UserService {
     public List<Iplimit> getIPvalues() {
         return dao.getIPvalues();
     }
+
+    @Override
+    public void updateIPlimit(String iplimit1, String iplimit2) {
+        dao.updateIPlimit(iplimit1, iplimit2);
+    }
 }

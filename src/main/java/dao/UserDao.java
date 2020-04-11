@@ -59,4 +59,6 @@ public interface UserDao {
     public void deladmin(int adminid);
 
     public List<Iplimit> getIPvalues();
+
+    public void updateIPlimit(String iplimit1, String iplimit2);
 }

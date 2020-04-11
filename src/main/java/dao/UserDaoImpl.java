@@ -235,6 +235,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void addNew(News new1) {
         String sql = "insert into news values(null,?,?,?,?,?)";
+        template.update("ALTER TABLE news AUTO_INCREMENT = 1;");
         template.update(sql, new1.getTitle(),new1.getContent(),new1.getAdd_time(),new1.getLid(),new1.getZid());
     }
 
@@ -285,6 +286,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void addAdmin(Admin admin) {
         String sql = "insert into admin values(null,?,?,?)";
+        template.update("ALTER TABLE admin AUTO_INCREMENT = 1;");
         template.update(sql, admin.getAdmin_id(),admin.getPassword(),admin.getAuthority());
     }
 
@@ -355,5 +357,13 @@ public class UserDaoImpl implements UserDao {
     public List<Iplimit> getIPvalues() {
         String sql = "SELECT * FROM iplimit";
         return template.query(sql, new BeanPropertyRowMapper<Iplimit>(Iplimit.class));
+    }
+
+    @Override
+    public void updateIPlimit(String iplimit1, String iplimit2) {
+        String sql1 = "update iplimit set value = ? where ipmethod = 'allowIP' ";
+        String sql2 = "update iplimit set value = ? where ipmethod = 'allowIPWildcard' ";
+        template.update(sql1,iplimit1);
+        template.update(sql2,iplimit2);
     }
 }
