@@ -350,4 +350,10 @@ public class UserDaoImpl implements UserDao {
         String sql = "delete from admin where id = ?";
         template.update(sql, adminid);
     }
+
+    @Override
+    public List<Iplimit> getIPvalues() {
+        String sql = "SELECT * FROM iplimit";
+        return template.query(sql, new BeanPropertyRowMapper<Iplimit>(Iplimit.class));
+    }
 }

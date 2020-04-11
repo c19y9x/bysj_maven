@@ -36,6 +36,7 @@
 
         function tijiao_data() {
             var ip = $("#ip_limit").val();
+            alert(ip);
             var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])|(\*))$/;
             if(!reg.test(ip))
                 alert("匹配成功");
@@ -73,7 +74,8 @@
         <br><br>
         <div class="form-group">
             <label for="ip_limit">IP控制：</label>
-            <input type="" class="form-control" id="ip_limit" name="ip_limit"  value=""/>
+            <%--<input type="" class="form-control" id="ip_limit" name="ip_limit"  value=""/>--%>
+            <textarea rows="3" cols="50" class="form-control" id="ip_limit" name="ip_limit" value=""></textarea>
 
         </div>
 

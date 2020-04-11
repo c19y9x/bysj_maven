@@ -60,4 +60,6 @@ public interface UserService {
     public void delLanmu(int lid, int zid);
     //删除管理员
     void deladmin(int adminid);
+    //获取ip限制地址
+    public List<Iplimit> getIPvalues();
 }

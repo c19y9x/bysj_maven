@@ -37,6 +37,10 @@ public class Htlogin1Servlet extends HttpServlet {
             //登录成功
             //将用户存入session
             session.setAttribute("admin",admin1);
+            if(admin1.getAuthority() == 0)
+                session.setAttribute("ipno",true);
+            else
+                session.setAttribute("ipno",false);
             //跳转页面
             response.sendRedirect(request.getContextPath()+"/houtaigl");
         }else{

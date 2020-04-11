@@ -220,4 +220,9 @@ public class UserServiceImpl implements UserService {
     public void deladmin(int adminid) {
         dao.deladmin(adminid);
     }
+
+    @Override
+    public List<Iplimit> getIPvalues() {
+        return dao.getIPvalues();
+    }
 }

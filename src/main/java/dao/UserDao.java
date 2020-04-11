@@ -57,4 +57,6 @@ public interface UserDao {
     public void delLanmu(int lid, int zid);
 
     public void deladmin(int adminid);
+
+    public List<Iplimit> getIPvalues();
 }

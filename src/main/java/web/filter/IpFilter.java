@@ -1,5 +1,9 @@
 package web.filter;
 
+import domain.Iplimit;
+import service.UserService;
+import service.UserServiceImpl;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -14,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 过滤器
@@ -41,29 +46,41 @@ public class IpFilter implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
-
-        //获取访问的IP地址
-        String remoteAddr = request.getRemoteAddr();
-        System.out.println("===============" + remoteAddr);
-        //如果allowList为空,则认为没做限制,不为空则检查是否限制
-        if(allowList.size() == 0 || allowList == null) {
+        HttpServletRequest req=(HttpServletRequest)request;
+        if((Boolean) req.getSession().getAttribute("ipno"))
+        {
             filterChain.doFilter(request, response);
-        } else {
-            Boolean flag = false;  //访问标志，默认为false，限制访问
-            //进行逐个检查
-            for(String regex : allowList){
-                if(remoteAddr.matches(regex)){
-                    //ip没被限制，正常访问
-                    filterChain.doFilter(request, response);
-                    flag = true;  //置为true，表示不限制访问
-                    break;
+        }
+        else {
+            try {
+                initConfig();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //获取访问的IP地址
+            String remoteAddr = request.getRemoteAddr();
+            System.out.println("===============" + remoteAddr);
+            //如果allowList为空,则认为没做限制,不为空则检查是否限制
+            if(allowList.size() == 0 || allowList == null) {
+                filterChain.doFilter(request, response);
+            } else {
+                Boolean flag = false;  //访问标志，默认为false，限制访问
+                //进行逐个检查
+                for(String regex : allowList){
+                    if(remoteAddr.matches(regex)){
+                        //ip没被限制，正常访问
+                        filterChain.doFilter(request, response);
+                        flag = true;  //置为true，表示不限制访问
+                        break;
+                    }
+                }
+                if(!flag) {
+                    //ip被限制，跳到指定页面
+                    request.setAttribute("login_msg","您的ip被限制访问");
+                    request.getRequestDispatcher("htlogin").forward(request,response);
                 }
             }
-            if(!flag) {
-                //ip被限制，跳到指定页面
-                request.setAttribute("login_msg","您的ip被限制访问");
-                request.getRequestDispatcher("htlogin").forward(request,response);
-            }
+
         }
 
     }
@@ -80,18 +97,16 @@ public class IpFilter implements Filter{
      * @throws IOException
      */
     public void initConfig() throws IOException {
-        //将文件转化成流
-        InputStream inputStream = IpFilter.class.getClassLoader().getResourceAsStream("ipConfig.properties");
 
-        Properties properties = new Properties();
-
-        //通过Properties对象实例加载流
-        properties.load(inputStream);
+        //在每次获取值之前先清空
+        allowList.clear();
+        UserService service = new UserServiceImpl();
+        List<Iplimit> ipvalues = service.getIPvalues();
 
         //获取三种配置方式的值
-        String allowIP = properties.getProperty("allowIP");
-        String allowIPRange = properties.getProperty("allowIPRange");
-        String allowIPWildcard = properties.getProperty("allowIPWildcard");
+        String allowIP = ipvalues.get(0).getValue();
+        String allowIPRange = ipvalues.get(1).getValue();
+        String allowIPWildcard = ipvalues.get(2).getValue();
 
         //校验,校验失败后抛出异常
         if(!validate(allowIP, allowIPRange, allowIPWildcard)) {
