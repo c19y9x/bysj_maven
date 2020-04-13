@@ -65,6 +65,18 @@
         })
 
     </script>
+    <script>
+        function search_news(e) {
+            e.preventDefault();
+            var a = $("#showkeycode134318").val();
+            if(a == null || a == ''){
+                alert("请输入搜索内容");
+            }
+            else{
+                window.location.href = "${pageContext.request.contextPath}/newSearch?new_key="+a;
+            }
+        }
+    </script>
 </head>
 <body data-spy="scroll" data-target="#header">
 
@@ -100,10 +112,10 @@
                     <!--End of col-md-4-->
                     <!--搜索框-->
                     <div class="social_icon text-right">
-                        <form action="search.jsp?wbtreeid=1058" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
+                        <form action="" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
                             <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
-                            <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字">
-                            <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand">
+                            <input name="showkeycode" id="showkeycode134318" class="textCss" value="" placeholder="请输入搜索内容">
+                            <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand" onclick="search_news(event)">
                         </form>
                     </div>
                 </div>
@@ -162,7 +174,7 @@
 </div>
 
 <div class="container container-fluid dynava no-padding cleafix">
-    <div class="con_wz_lf fl cleafix">
+    <div class="con_wz_lf fl cleafix" style="margin-top: 0px">
         <h3><span class="windowstyle134374"> ${newPage.lm.lanmuming}</span></h3>
         <ul>
             <c:forEach items="${newPage.zids}" var="zid" varStatus="s">

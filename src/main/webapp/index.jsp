@@ -82,25 +82,33 @@
             </div>
           </div>
           <!--End of col-md-4-->
-          <!-- <div class="col-md-4">
+          <div class="col-md-4">
               <div class="social_icon text-right">
-                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <%--<a href=""><i class="fa fa-facebook"></i></a>
                   <a href=""><i class="fa fa-twitter"></i></a>
                   <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-youtube"></i></a>
+                  <a href=""><i class="fa fa-youtube"></i></a>--%>
+                    <form action="" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
+                      <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
+                      <input name="showkeycode" id="showkeycode134318" class="textCss" value="" placeholder="请输入搜索内容">
+                      <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand" onclick="search_news(event)">
+                    </form>
+                  <a href="${pageContext.request.contextPath}/htlogin">[后台管理]</a>
               </div>
-          </div> -->
+          </div>
           <!--End of col-md-4-->
           <!--搜索框-->
-          <div class="social_icon text-right">
+          <%--<div class="social_icon text-right">
             <form action="" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
               <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
               <input name="showkeycode" id="showkeycode134318" class="textCss" value="" placeholder="请输入搜索内容">
               <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand" onclick="search_news(event)">
             </form>
-          </div>
+          </div>--%>
+
         </div>
         <!--End of row-->
+
       </div>
       <!--End of container-->
     </div>
@@ -217,10 +225,14 @@
 <!-- 开始 -->
 <div>
 <%--  style="height: 800px;"--%>
-<%--  用id="frm"控制frame框的大小--%>
+<%--  用id="frm"控制frame框的大小(代码在zhuye.jsp)--%>
   <iframe id="frm" width="100%" src="frame/zhuye.jsp" frameborder="0"  scrolling = "no"></iframe>
 </div>
 <!-- 结束 -->
+
+<div>
+  <iframe id="frm1" width="100%" src="frame/frlink.jsp" frameborder="0"  scrolling = "no"></iframe>
+</div>
 
 
 
