@@ -85,5 +85,55 @@
             <artifactId>servlet-api</artifactId>
             <version>1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-annotations-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-core-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>jackson-databind-2.2.3</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+        </dependency>
+
+
+        <!--<dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>commons-codec-1.9</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>commons-fileupload-1.3.1</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>commons-io-2.4</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>json</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>com.cyx</groupId>
+            <artifactId>ueditor-1.1.2</artifactId>
+            <version>1.0</version>
+        </dependency>-->
     </dependencies>
 </project>

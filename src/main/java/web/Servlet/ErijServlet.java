@@ -46,7 +46,7 @@ public class ErijServlet extends HttpServlet {
         request.setAttribute("pb",pb);
         //用于确定子栏目是哪一个(显示在右侧标题部分的左上方)
         request.setAttribute("zid",int_zid);
-
+        //主栏目栏
         request.setAttribute("lm",lanmus);
 
         request.getRequestDispatcher("/erji_bt.jsp").forward(request,response);

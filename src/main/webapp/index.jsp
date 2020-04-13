@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <title>Home</title>
+  <title>吉首大学物理与机电工程学院</title>
 
   <!--    Google Fonts-->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -46,7 +46,18 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  <script>
+    function search_news(e) {
+      e.preventDefault();
+      var a = $("#showkeycode134318").val();
+      if(a == null || a == ''){
+        alert("请输入搜索内容");
+      }
+      else{
+        window.location.href = "${pageContext.request.contextPath}/newSearch?new_key="+a;
+      }
+    }
+  </script>
 </head>
 <body data-spy="scroll" data-target="#header">
 
@@ -82,10 +93,10 @@
           <!--End of col-md-4-->
           <!--搜索框-->
           <div class="social_icon text-right">
-            <form action="search.jsp?wbtreeid=1058" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
+            <form action="" method="post" id="au6a" name="au6a" onsubmit="" style="display: inline">
               <input type="hidden" id="lucenenewssearchkey134318" name="lucenenewssearchkey" value="">
-              <input name="showkeycode" id="showkeycode134318" class="textCss" value="请输入搜索关键字">
-              <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand">
+              <input name="showkeycode" id="showkeycode134318" class="textCss" value="" placeholder="请输入搜索内容">
+              <input type="image" src="img/shouye/search_03.png" align="absmiddle" class="search" style="cursor: hand" onclick="search_news(event)">
             </form>
           </div>
         </div>
@@ -96,7 +107,7 @@
     <!--End of top header-->
 
 
-    <div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav" style="background: #005f9c;">
+    <div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav" style="background: #458B74;">
       <div class="container">
         <nav class="navbar navbar-default zero_mp ">
           <!-- Brand and toggle get grouped for better mobile display -->

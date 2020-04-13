@@ -75,6 +75,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int[] StringToInt(String[] arrs) {
+        int[] ints = new int[arrs.length];
+        for (int i = 0; i < arrs.length ; i++) {
+            ints[i] = Integer.parseInt(arrs[i]);
+        }
+        return ints;
+    }
+
+    @Override
     public ShouyePage getShouyePage() {
         ShouyePage shouyePage = new ShouyePage();
 
@@ -85,24 +94,24 @@ public class UserServiceImpl implements UserService {
         List<String> titles = new ArrayList<String>();
         titles.add("学院</b>要闻");
         titles.add("学术</b>聚焦");
-        titles.add("通知</b>公告");
+        titles.add("学风</b>建设");
         titles.add("招生</b>就业");
         titles.add("教学</b>信息");
-
-
+        titles.add("");
 
         List<List<News>> news = new ArrayList<List<News>>();
 
-        news.add(dao.getShouyebt(1,1,8)); //首页-学院要闻 显示8条
+        news.add(dao.getShouyebt(8,3,8)); //院务公开-学院要闻 显示8条
         news.add(dao.getShouyebt(4,2,6));
-        news.add(dao.getShouyebt(8,2,7));
+        news.add(dao.getShouyebt(6,3,7));
         news.add(dao.getShouyebt(7,0,7));
         news.add(dao.getShouyebt(3,0,7));
+        news.add(dao.getShouyebt(8,2,8));
 
         List<ShouyeContent> shouyeContents = new ArrayList<>();
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             ShouyeContent sc = new ShouyeContent();
             sc.setTitle(titles.get(i));
             sc.setNews(news.get(i));
@@ -111,5 +120,119 @@ public class UserServiceImpl implements UserService {
         shouyePage.setShouyeContents(shouyeContents);
 
         return shouyePage;
+    }
+
+    @Override
+    public List<ZiLanmu> getZlmforlm(int lid) {
+        return dao.getzids(lid);
+    }
+
+    @Override
+    public void updateLm(int lid, int zid, String lanmuming) {
+        if(lid == 0)
+            dao.updateLm(zid,lanmuming);
+        else
+            dao.updateZlm(lid,zid,lanmuming);
+    }
+
+    @Override
+    public List<News> getNewsForlzid(int lid, int zid) {
+        return dao.getNewsForlzid(lid,zid);
+    }
+
+    @Override
+    public void delNew(int newid) {
+        dao.delNew(newid);
+    }
+
+    @Override
+    public News getNew(int newid) {
+        return dao.getNew(newid);
+    }
+
+    @Override
+    public void updateNew(News new1) {
+        dao.updateNew(new1);
+    }
+
+    @Override
+    public void addNew(News new1) {
+        dao.addNew(new1);
+    }
+
+    @Override
+    public NewPage getNewPage(int lid) {
+        NewPage newPage = new NewPage();
+        String str_lid = dao.getLid(lid);
+        List<ZiLanmu> zids = dao.getzids(lid);
+
+        Lanmu lm = new Lanmu();
+        lm.setId(lid);
+        lm.setLanmuming(str_lid);
+
+        newPage.setLm(lm);
+        newPage.setZids(zids);
+
+        return newPage;
+    }
+
+    @Override
+    public Admin login(Admin admin) {
+        return dao.findAdmin(admin.getAdmin_id(),admin.getPassword());
+    }
+
+    @Override
+    public List<Admin> getAdmins() {
+        return dao.getAdmins();
+    }
+
+    @Override
+    public void updateAdmin(Admin admin) {
+        dao.updateAdmin(admin);
+    }
+
+    @Override
+    public Admin getAdminById(int id) {
+        return dao.getAdminById(id);
+    }
+
+    @Override
+    public List<Lanmu> getLanmuById(int i) {
+        return dao.getLanmuById(i);
+    }
+
+    @Override
+    public void addAdmin(Admin admin) {
+        dao.addAdmin(admin);
+    }
+
+    @Override
+    public void addLm(int lid, String lanmuming) {
+        dao.addLm(lid,lanmuming);
+    }
+
+    @Override
+    public void delLanmu(int lid, int zid) {
+        dao.delLanmu(lid, zid);
+    }
+
+    @Override
+    public void deladmin(int adminid) {
+        dao.deladmin(adminid);
+    }
+
+    @Override
+    public List<Iplimit> getIPvalues() {
+        return dao.getIPvalues();
+    }
+
+    @Override
+    public void updateIPlimit(String iplimit1, String iplimit2) {
+        dao.updateIPlimit(iplimit1, iplimit2);
+    }
+
+    @Override
+    public List<News> getNewsForSearch(String new_key) {
+        return dao.getNewsForSearch(new_key);
     }
 }
