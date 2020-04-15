@@ -69,7 +69,7 @@
             ,{
                 text:'其他设置',
                 items:[
-                    {id:'resource',text:'滚动公告栏设置',href:'main/resource.html'}
+                    {id:'resource',text:'首页滚动图片',href:'htlunbotu'}
                     //{id:'loader',text:'引入JS方式',href:'main/loader.html'}
                 ]
             }]

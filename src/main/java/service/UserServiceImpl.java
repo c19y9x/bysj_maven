@@ -235,4 +235,14 @@ public class UserServiceImpl implements UserService {
     public List<News> getNewsForSearch(String new_key) {
         return dao.getNewsForSearch(new_key);
     }
+
+    @Override
+    public List<FilePath> getImgPaths() {
+        return dao.getImgPaths();
+    }
+
+    @Override
+    public void updateImgPath(int pathid, String s) {
+        dao.updateImgPath(pathid,s);
+    }
 }

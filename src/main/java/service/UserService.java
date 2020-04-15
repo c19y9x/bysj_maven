@@ -64,6 +64,14 @@ public interface UserService {
     public List<Iplimit> getIPvalues();
     //更新IP控制规则
     public void updateIPlimit(String iplimit1, String iplimit2);
+
+
     //根据搜索词返回文章
     public List<News> getNewsForSearch(String new_key);
+
+
+    //返回轮播图的三个文件路径
+    public List<FilePath> getImgPaths();
+    //更新轮播图路径
+    void updateImgPath(int pathid, String s);
 }

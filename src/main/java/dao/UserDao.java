@@ -63,4 +63,8 @@ public interface UserDao {
     public void updateIPlimit(String iplimit1, String iplimit2);
 
     public List<News> getNewsForSearch(String new_key);
+
+    public List<FilePath> getImgPaths();
+
+    public void updateImgPath(int pathid,String s);
 }

@@ -372,4 +372,16 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM news WHERE title LIKE '%"+new_key+"%' OR content LIKE '%"+new_key+"%';";
         return template.query(sql, new BeanPropertyRowMapper<News>(News.class));
     }
+
+    @Override
+    public List<FilePath> getImgPaths() {
+        String sql = "SELECT * FROM filePath WHERE id < 4;";
+        return template.query(sql, new BeanPropertyRowMapper<FilePath>(FilePath.class));
+    }
+
+    @Override
+    public void updateImgPath(int pathid,String s) {
+        String sql1 = "update filepath set path = ? where id = "+pathid;
+        template.update(sql1,s);
+    }
 }

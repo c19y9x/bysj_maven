@@ -128,7 +128,7 @@
             </button>
             <!--校徽-->
             <a class="navbar-brand custom_navbar-brand" href="#">
-              <img src="img/logo_03.png" style="width:100%;height:250%;" alt="">
+              <img src="img/logo_03.png" style="width:100%;height:250%;" alt="" >
             </a>
           </div>
           <!--End of navbar-header-->
@@ -174,7 +174,7 @@
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <div class="slider_overlay">
-          <img src="img/shouye/banner10.jpg" alt="...">
+          <img src="${imgPath[0].path}" alt="..." width="1900px" height="700px">
           <div class="carousel-caption">
             <div class="slider_text">
               <!-- <h3>Protect</h3>
@@ -188,7 +188,7 @@
       <!--End of item With Active-->
       <div class="item">
         <div class="slider_overlay">
-          <img src="img/shouye/lsbanner_03.jpg" alt="...">
+          <img src="${imgPath[1].path}" alt="..." width="1900px" height="700px">
           <div class="carousel-caption">
             <div class="slider_text">
               <!-- <h3>Protect</h3>
@@ -202,7 +202,7 @@
       <!--End of Item-->
       <div class="item">
         <div class="slider_overlay">
-          <img src="img/shouye/banner3.jpg" alt="...">
+          <img src="${imgPath[2].path}" alt="..." width="1900px" height="700px">
           <div class="carousel-caption">
             <div class="slider_text">
               <!-- <h3>Protect</h3>
