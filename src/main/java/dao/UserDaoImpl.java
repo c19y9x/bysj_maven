@@ -384,4 +384,17 @@ public class UserDaoImpl implements UserDao {
         String sql1 = "update filepath set path = ? where id = "+pathid;
         template.update(sql1,s);
     }
+
+    @Override
+    public void addLoginData(LoginData loginData) {
+        String sql = "insert into logindata values(null,?,?,?)";
+        template.update("ALTER TABLE logindata AUTO_INCREMENT = 1;");
+        template.update(sql, loginData.getAdmin_id(),loginData.getLogintime(),loginData.getIp());
+    }
+
+    @Override
+    public List<LoginData> getLogindatas() {
+        String sql = "SELECT * FROM logindata ORDER BY logintime DESC;";
+        return template.query(sql, new BeanPropertyRowMapper<LoginData>(LoginData.class));
+    }
 }

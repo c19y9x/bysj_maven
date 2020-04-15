@@ -245,4 +245,14 @@ public class UserServiceImpl implements UserService {
     public void updateImgPath(int pathid, String s) {
         dao.updateImgPath(pathid,s);
     }
+
+    @Override
+    public void addLoginData(LoginData loginData) {
+        dao.addLoginData(loginData);
+    }
+
+    @Override
+    public List<LoginData> getLogindatas() {
+        return dao.getLogindatas();
+    }
 }

@@ -62,7 +62,8 @@
                 text:'管理员用户',
                 items:[
                     {id:'operation',text:'管理员管理',href:'htadmin'},
-                    {id:'quick',text:'管理员IP限制',href:'htadminIPLimit'}
+                    {id:'quick',text:'管理员IP限制',href:'htadminIPLimit'},
+                    {id:'logindata',text:'管理员登陆记录',href:'htadminlogindata'}
                 ]
 
             }</c:if>

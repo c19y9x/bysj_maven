@@ -1,4 +1,4 @@
-package web.Servlet.ht;
+package web.Servlet.ht.htadmin;
 
 import domain.Admin;
 import domain.LoginData;
@@ -10,23 +10,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
+import java.util.List;
 
-@WebServlet("/houtaigl")
-public class HoutaiServlet extends HttpServlet {
+//管理员登陆记录
+@WebServlet("/htadminlogindata")
+public class HtadminlogindataServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Admin admin = (Admin) request.getSession().getAttribute("admin");
-        //创建登陆记录类
-        LoginData loginData = new LoginData();
-        loginData.setAdmin_id(admin.getAdmin_id());
-        loginData.setLogintime(new Date());
-        loginData.setIp(request.getRemoteAddr());
+        request.setCharacterEncoding("utf-8");
 
         UserService service = new UserServiceImpl();
-        service.addLoginData(loginData);
 
-        request.getRequestDispatcher("/houtaigl/index.jsp").forward(request,response);
+        List<LoginData> logindatas = service.getLogindatas();
+        System.out.println(logindatas);
+        request.setAttribute("logindatas",logindatas);
+        //4.转发到list.jsp
+        request.getRequestDispatcher("/houtaigl/admin/adminlogindata.jsp").forward(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

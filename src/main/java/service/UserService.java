@@ -74,4 +74,8 @@ public interface UserService {
     public List<FilePath> getImgPaths();
     //更新轮播图路径
     void updateImgPath(int pathid, String s);
+    //增加管理员登陆记录
+    public void addLoginData(LoginData loginData);
+    //获取管理员登陆记录
+    public List<LoginData> getLogindatas();
 }

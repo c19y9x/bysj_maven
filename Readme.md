@@ -71,6 +71,7 @@
 * admin表 管理员信息
 * iplimit ip限制表，限制的ip地址
 * lanmu表 用于存储网站的几个栏目
+* logindata表 用于存储管理员登陆记录
 * news表 存储新闻
     * 所有文章内容放一张表。在表中添加lid和zid用于定位所在栏目位置
 * 其他表 lanmu表的子栏目

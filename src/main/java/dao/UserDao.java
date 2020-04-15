@@ -67,4 +67,8 @@ public interface UserDao {
     public List<FilePath> getImgPaths();
 
     public void updateImgPath(int pathid,String s);
+
+    public void addLoginData(LoginData loginData);
+
+    public List<LoginData> getLogindatas();
 }
