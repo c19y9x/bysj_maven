@@ -47,42 +47,49 @@ public class IpFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
         HttpServletRequest req=(HttpServletRequest)request;
-        if((Boolean) req.getSession().getAttribute("ipno"))
+
+        if((Boolean) req.getSession().getAttribute("ipno") == null)
         {
-            filterChain.doFilter(request, response);
+            request.setAttribute("login_msg","请重新登陆");
+            request.getRequestDispatcher("htlogin").forward(request,response);
         }
-        else {
-            try {
-                initConfig();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //获取访问的IP地址
-            String remoteAddr = request.getRemoteAddr();
-            System.out.println("===============" + remoteAddr);
-            //如果allowList为空,则认为没做限制,不为空则检查是否限制
-            if(allowList.size() == 0 || allowList == null) {
+        else{
+            if((Boolean) req.getSession().getAttribute("ipno"))
+            {
                 filterChain.doFilter(request, response);
-            } else {
-                Boolean flag = false;  //访问标志，默认为false，限制访问
-                //进行逐个检查
-                for(String regex : allowList){
-                    if(remoteAddr.matches(regex)){
-                        //ip没被限制，正常访问
-                        filterChain.doFilter(request, response);
-                        flag = true;  //置为true，表示不限制访问
-                        break;
+            }
+            else {
+                try {
+                    initConfig();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //获取访问的IP地址
+                String remoteAddr = request.getRemoteAddr();
+                System.out.println("===============" + remoteAddr);
+                //如果allowList为空,则认为没做限制,不为空则检查是否限制
+                if(allowList.size() == 0 || allowList == null) {
+                    filterChain.doFilter(request, response);
+                } else {
+                    Boolean flag = false;  //访问标志，默认为false，限制访问
+                    //进行逐个检查
+                    for(String regex : allowList){
+                        if(remoteAddr.matches(regex)){
+                            //ip没被限制，正常访问
+                            filterChain.doFilter(request, response);
+                            flag = true;  //置为true，表示不限制访问
+                            break;
+                        }
+                    }
+                    if(!flag) {
+                        //ip被限制，跳到指定页面
+                        request.setAttribute("login_msg","您的ip被限制访问");
+                        request.getRequestDispatcher("htlogin").forward(request,response);
                     }
                 }
-                if(!flag) {
-                    //ip被限制，跳到指定页面
-                    request.setAttribute("login_msg","您的ip被限制访问");
-                    request.getRequestDispatcher("htlogin").forward(request,response);
-                }
+
             }
-
         }
-
     }
 
     @Override

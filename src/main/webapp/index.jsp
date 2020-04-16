@@ -172,45 +172,21 @@
     <!--滑动的图片-->
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
+      <div class="item active" style="width: 1900px;height: 700px">
         <div class="slider_overlay">
           <img src="${imgPath[0].path}" alt="..." width="1900px" height="700px">
-          <div class="carousel-caption">
-            <div class="slider_text">
-              <!-- <h3>Protect</h3>
-              <h2>nature the environment</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-              <!-- <a href="" class="custom_btn">Read  More</a> -->
-            </div>
-          </div>
         </div>
       </div>
       <!--End of item With Active-->
       <div class="item">
-        <div class="slider_overlay">
-          <img src="${imgPath[1].path}" alt="..." width="1900px" height="700px">
-          <div class="carousel-caption">
-            <div class="slider_text">
-              <!-- <h3>Protect</h3>
-              <h2>nature the environment</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <a href="" class="custom_btn">Read  More</a> -->
-            </div>
-          </div>
+        <div class="slider_overlay" style="width: 1900px;height: 700px">
+          <img src="${imgPath[1].path}" width="1900px" height="700px">
         </div>
       </div>
       <!--End of Item-->
       <div class="item">
-        <div class="slider_overlay">
+        <div class="slider_overlay" style="width: 1900px;height: 700px">
           <img src="${imgPath[2].path}" alt="..." width="1900px" height="700px">
-          <div class="carousel-caption">
-            <div class="slider_text">
-              <!-- <h3>Protect</h3>
-              <h2>nature the environment</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <a href="" class="custom_btn">Read  More</a> -->
-            </div>
-          </div>
         </div>
       </div>
       <!--End of item-->

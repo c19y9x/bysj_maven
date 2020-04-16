@@ -375,7 +375,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<FilePath> getImgPaths() {
-        String sql = "SELECT * FROM filePath WHERE id < 4;";
+        String sql = "SELECT * FROM filepath WHERE id < 4;";
         return template.query(sql, new BeanPropertyRowMapper<FilePath>(FilePath.class));
     }
 

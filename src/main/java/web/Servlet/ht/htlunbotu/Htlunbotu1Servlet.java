@@ -79,7 +79,9 @@ public class Htlunbotu1Servlet extends HttpServlet {
                         || filename.substring(filename.lastIndexOf(".") + 1).equals("jpg")
                         || filename.substring(filename.lastIndexOf(".") + 1).equals("jpeg")) {
                     InputStream in = item.getInputStream();// 獲得上傳的輸入流
-                    FileOutputStream out = new FileOutputStream(savePath + "\\" + filename);// 指定web-inf目錄下的images文件
+                    //在windows下运行用第一个。在linux下用第二个
+                    //FileOutputStream out = new FileOutputStream(savePath + "\\" + filename);// 指定web-inf目錄下的images文件
+                    FileOutputStream out = new FileOutputStream(savePath + "/" + filename);// 指定web-inf目錄下的images文件
                     req.setAttribute("path",  savePath + filename);
 
                     int len = 0;

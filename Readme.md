@@ -159,6 +159,17 @@
             str = matcher.replaceAll("<span style='color:#dd4b39'>"+SearchContent+"</span>");
 ```
 
+* 文件上传路径问题
+```aidl
+        在本地运行没有错误，但是上传到服务器运行时发现图片上传失败
+        开始以为只能在本地上传，但是打开服务器的catalina.out文件查看输出信息时发现服务器端收到了文件
+        继续排查发现是linux和windows文件路径不同
+        FileOutputStream out = new FileOutputStream(savePath + "\\" + filename);//win下
+        FileOutputStream out = new FileOutputStream(savePath + "/" + filename);//linux下
+
+        参考链接:http://blog.sina.com.cn/s/blog_9cc70ab50102wli2.html
+```
+
 
     
 

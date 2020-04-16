@@ -16,7 +16,7 @@
 <body>
     <h3 style="text-align: center;">首页轮播图设置</h3>
     <div style="text-align: center;">
-        <span style="color: red">支持png,jpg,jpeg格式文件</span>
+        <span style="color: red">支持png,jpg,jpeg格式文件,请上传1900*700的图片</span>
         <table style="margin: auto;border-collapse:separate; border-spacing:0px 10px;">
             <tr>
                 <td><img src="${imgPath[0].path}" width="475px" height="175px"></td>

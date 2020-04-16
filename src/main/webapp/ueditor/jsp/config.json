@@ -8,7 +8,7 @@
     "imageCompressEnable": true, 
     "imageCompressBorder": 1600, 
     "imageInsertAlign": "none", 
-    "imageUrlPrefix": "http://localhost:8080/bysj",
+    "imageUrlPrefix": "http://47.96.226.98:8080/bysj",
     "imagePathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
 
     
