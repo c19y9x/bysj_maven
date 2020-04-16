@@ -78,4 +78,6 @@ public interface UserService {
     public void addLoginData(LoginData loginData);
     //获取管理员登陆记录
     public List<LoginData> getLogindatas();
+    //删除登陆记录
+    public void delLogindata(int logindataid);
 }

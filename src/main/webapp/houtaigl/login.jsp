@@ -34,6 +34,10 @@
                 alert("用户名不能为空");
                 return false;
             }
+            if($("#password").val() == null || $("#password").val() == ''){
+                alert("密码不能为空");
+                return false;
+            }
             return true;
         }
     </script>

@@ -397,4 +397,10 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM logindata ORDER BY logintime DESC;";
         return template.query(sql, new BeanPropertyRowMapper<LoginData>(LoginData.class));
     }
+
+    @Override
+    public void delLogindata(int logindataid) {
+        String sql = "delete from logindata where id = "+logindataid;
+        template.update(sql);
+    }
 }

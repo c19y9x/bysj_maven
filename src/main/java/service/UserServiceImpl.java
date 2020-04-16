@@ -255,4 +255,9 @@ public class UserServiceImpl implements UserService {
     public List<LoginData> getLogindatas() {
         return dao.getLogindatas();
     }
+
+    @Override
+    public void delLogindata(int logindataid) {
+        dao.delLogindata(logindataid);
+    }
 }

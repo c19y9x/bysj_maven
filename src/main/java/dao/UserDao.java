@@ -71,4 +71,6 @@ public interface UserDao {
     public void addLoginData(LoginData loginData);
 
     public List<LoginData> getLogindatas();
+
+    public void delLogindata(int logindataid);
 }

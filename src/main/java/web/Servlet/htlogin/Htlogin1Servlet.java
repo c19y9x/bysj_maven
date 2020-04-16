@@ -37,6 +37,7 @@ public class Htlogin1Servlet extends HttpServlet {
             //登录成功
             //将用户存入session
             session.setAttribute("admin",admin1);
+            //获取权限信息，如果是超级管理员，ipno位置true，用以跳过ip限制
             if(admin1.getAuthority() == 0)
                 session.setAttribute("ipno",true);
             else

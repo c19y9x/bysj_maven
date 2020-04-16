@@ -1,4 +1,4 @@
-##项目结构
+## 项目结构
 该项目使用到的技术为jsp+Servlet+tomcat+mysql<br>
 下面提到的栏目指主栏目(即首页右上角的七个栏目),子栏目指栏目下面的二级栏目
 * src 
@@ -23,30 +23,42 @@
                     * ErjiServlet 显示二级界面(新闻标题界面)    
                     * ht 后台
                         * HoutaiServlet 显示后台管理主界面
-                        * HtlanmuServlet 后台管理-栏目管理
-                        * Htlanmu1Servlet 功能类:根据栏目id获取此栏目下的子栏目
-                        * Htlanmu2Servlet 功能类:栏目更新
-                        * Htwenzhang1Servlet 功能类:接受栏目lid zid返回所属文章
-                        * Htwenzhang2Servlet 功能类:根据newid删除文章
-                        * Htwenzhang3Servlet 功能类:多选删除文章
-                        * Htwenzhangadd1Servlet 功能类:添加文章
-                        * Htwenzhangedit1Servlet 功能类:更新修改文章
-                        * HtwenzhangeditServlet 文章编辑界面类
-                        * HtwenzhangServlet 文章管理界面类
+                        * htlanmu
+                            * HtlanmuServlet 后台管理-栏目管理
+                            * Htlanmu1Servlet 功能类:根据栏目id获取此栏目下的子栏目
+                            * Htlanmu2Servlet 功能类:栏目更新
+                        * htwenzhang
+                            * Htwenzhang1Servlet 功能类:接受栏目lid zid返回所属文章
+                            * Htwenzhang2Servlet 功能类:根据newid删除文章
+                            * Htwenzhang3Servlet 功能类:多选删除文章
+                            * Htwenzhangadd1Servlet 功能类:添加文章
+                            * Htwenzhangedit1Servlet 功能类:更新修改文章
+                            * HtwenzhangeditServlet 文章编辑界面类
+                            * HtwenzhangServlet 文章管理界面类
                         * htadmin 后台管理员列表界面
+                            * HtadminServlet  后台管理员列表界面
                             * Htadmin1Servlet 功能类:修改账号密码
-                            * HtadminServlet  后台管理员列表界面类
+                            * Htadmin2Servlet 功能类:增加管理员
+                            * Htadmin3Servlet 功能类:删除管理员
+                            * HtadmineditServlet 修改管理员信息界面
+                            * HtadminIPLimit1Servlet 功能类:更新ip限制规则
+                            * HtadminIPLimitServlet ip限制界面
+                            * HtadminlogindataServlet 管理员登陆记录界面
+                            * Htadminlogindata1Servlet 功能类:删除登陆记录
+                        * htlunbotu  首页滚动图片设置界面
+                            * HtlunbotuServlet 首页滚动图片设置界面
+                            * Htlunbotu1Servlet 功能类:修改首页滚动图片
                     * htlogin 后台系统登陆界面
                         * HtloginServlet 界面类
                         * Htlogin1Servlet 功能类：登陆逻辑判断
         * resources 资源文件
             * druid.properties 数据库配置文件
-            * ipConfig.properties 限制ip配置文件
         * webapp 界面文件
             * index.jsp 首页
                 * 内部用了frame框架集成了frame/zhuye.jsp
             * erji_biaoti.jsp 主页下的二级界面(左侧有导航栏),可以理解为放文章标题的界面
             * erji_content.jsp 放文章内容的界面
+            * search.jsp 新闻搜索界面
             * houtaigl 后台管理界面
                 * admin 管理员列表界面
                 * main  栏目文章管理界面
@@ -56,6 +68,7 @@
 * 后台界面设计
     * 栏目文章管理
         * 栏目管理
+            * 功能:对各个栏目及其子栏目进行管理
         ```
            设置一个下拉菜单。下面为表格，显示栏目名
             下拉菜单可选0-9
@@ -63,8 +76,18 @@
              选中0后显示所有栏目
         ```
         * 文章管理
+            * 功能:可以选择显示全部文章或者各个栏目下的文章
+                   可以实现文章添加修改和(批量)删除功能。
     * 管理员用户
-              
+        * 管理员管理
+            * 功能:实现管理员账户的增删查改。
+        * 管理员ip限制
+            * 功能:对非超级管理员账户进行ip限制
+        * 管理员登陆记录
+            * 功能:查看管理员账户的登陆记录
+    * 其他设置
+        * 首页滚动图片   
+            * 功能:对首页滚动展示的图片进行更改
         
         
 ## bysj数据库
@@ -134,7 +157,6 @@
             Pattern pattern = Pattern.compile(SearchContent);
             Matcher matcher = pattern.matcher(str);
             str = matcher.replaceAll("<span style='color:#dd4b39'>"+SearchContent+"</span>");
-       
 ```
 
 
