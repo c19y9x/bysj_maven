@@ -124,7 +124,7 @@
                         </button>
                         <!--校徽-->
                         <a class="navbar-brand custom_navbar-brand" href="#">
-                            <img src="img/logo_03.png" style="width:100%;height:250%;" alt="">
+                            <img src="img/logo_032.png" style="width:100%;height:250%;" alt="">
                         </a>
                     </div>
                     <!--End of navbar-header-->

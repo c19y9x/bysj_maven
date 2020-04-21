@@ -141,7 +141,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<News> getShouyebt(int lid,int zid,int count) {
-        String sql = "select * from news where 1 = 1";
+        String sql = "select id,title,add_time,lid,zid from news where 1 = 1";
 
         StringBuilder sb = new StringBuilder(sql);
 

@@ -6,13 +6,14 @@
   Time: 12:04
   To change this template use File | Settings | File Templates.
 --%>
+<%--新闻滚动--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基于bootstrup的响应式jQuery滚动新闻插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />

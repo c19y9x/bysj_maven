@@ -37,7 +37,7 @@
                     <tr>
                         <td> <a href="http://www.ccyl.org.cn/" title="中国共青团网" target="_blank"> <img src="img/W020200304504103114926.jpg" border="0" width="310" height="150" /> </a> </td>
                         <td> <a href="http://www.qstheory.cn/" title="求是网" target="_blank"> <img src="img/bwcx.png" border="0" width="310" height="150" /> </a> </td>
-                        <td> <a href="https://www.gov.cn/" title="中国政府网" target="_blank"> <img src="img/wlj.jpg" border="0" width="310" height="150" /> </a> </td>
+                        <td> <a href="https://www.gov.cn/" title="中国政府网" target="_blank"> <img src="img/cvbnz.jpg" border="0" width="310" height="150" /> </a> </td>
                         <td> <a href="http://www.gmw.cn/" title="光明网" target="_blank"> <img src="img/xxx.jpg" border="0" width="310" height="150" /> </a> </td>
                     </tr>
                     </tbody>
