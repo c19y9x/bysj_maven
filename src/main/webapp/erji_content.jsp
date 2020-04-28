@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Title</title>
+    <title>${newss.title}</title>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <!--    自己添加的-->
     <link rel="stylesheet" href="css/my/style.css">
@@ -57,7 +57,7 @@
         }
     </style>
     <script>
-        //格式控制，直接从网页上复制的文章加入不会居中显示
+        //格式控制，直接从网页上复制的文章图片加入不会居中显示
         $(function () {
             setTimeout(function () {
                 $(".imgtable").css("margin","0 auto");
@@ -76,6 +76,32 @@
                 window.location.href = "${pageContext.request.contextPath}/newSearch?new_key="+a;
             }
         }
+
+        $(function () {
+            /*
+            * p：获取到<p>标签 href:获取下载地址
+            * */
+            var p = $(".v_news_content:first p");
+
+            var href;
+            var a;
+            var pattern = /\.(pdf)$/;
+            for(var i = 0;i<p.length;i++)
+            {
+
+                var a = $(p[i]).children("a:first");
+                /*console.log(tests);*/
+                if(pattern.test(a.text())){
+                    href = a.attr("href");
+                    $(p[i]).append("<br><br><object data=\""+href+"\" type=\"application/pdf\" width=\"912px\" height=\"750px\">\n" +
+                        "                <embed src=\""+href+"\" type=\"application/pdf\">\n" +
+                        "                <p>This browser does not support PDFs. Please download the PDF to view it: <a href=\""+href+"\">Download PDF</a>.</p>\n" +
+                        "            </embed>\n" +
+                        "            </object>")
+                }
+
+            }
+        })
     </script>
 </head>
 <body data-spy="scroll" data-target="#header">
@@ -214,6 +240,7 @@
                 <div id="vsb_content_2" class="nvtpw">
                     <div class="v_news_content">
                         ${newss.content}
+
                     </div>
                 </div>
                 <div id="div_vote_id"></div>

@@ -22,7 +22,7 @@
         <a href="" title="地址" target="_blank"><!-- 仅仅为了提供文档的快速入口，项目中请删除链接 -->
             <span class="lp-title-port">物理与机电工程学院</span><span class="dl-title-text"></span>
         </a>
-        <a href="http://www.cssmoban.com">后台管理系统</a>
+        后台管理系统
     </div>
 
     <div class="dl-log">欢迎您，<span class="dl-log-user">${admin.admin_id}</span><a href="${pageContext.request.contextPath}/htlogin" title="退出系统" class="dl-log-quit">[退出]</a>
@@ -43,7 +43,7 @@
     </ul>
 </div>
 <script type="text/javascript" src="houtaigl/assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="houtaigl/assets/js/bui.js"></script>
+<script type="text/javascript" src="houtaigl/assets/js/bui-min.js"></script>
 <script type="text/javascript" src="houtaigl/assets/js/config.js"></script>
 
 <script>

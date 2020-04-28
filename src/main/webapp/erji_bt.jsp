@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Title</title>
+    <title>${pb.lm.lanmuming}</title>
 
     <!--    自己添加的-->
     <link rel="stylesheet" href="css/my/style.css">
@@ -61,6 +61,9 @@
                 window.location.href = "${pageContext.request.contextPath}/newSearch?new_key="+a;
             }
         }
+
+        //判断文章内容，有pdf文件就在界面显示
+
     </script>
 </head>
 <body data-spy="scroll" data-target="#header">
@@ -306,7 +309,7 @@
     //限制高度
     function setFrmHeight() {
         var frm = $(window.document).find("#nrrrr");
-        frm.height(926);
+        frm.height(500);
     }
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
