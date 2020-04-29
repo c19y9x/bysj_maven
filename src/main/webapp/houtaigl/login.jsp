@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 陈逸轩
@@ -40,6 +41,12 @@
             }
             return true;
         }
+
+        $(function () {
+            if(${login_msg == null}){
+                alert(没信息);
+            }
+        })
     </script>
 </head>
 <body class="bg-dark">
@@ -75,12 +82,15 @@
                     <!-- </div> -->
                 </form>
                 <!-- 出错显示的信息框 -->
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" >
-                        <span>&times;</span>
-                    </button>
-                    <strong>${login_msg}</strong>
-                </div>
+                <c:if test="${login_msg != null}">
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" >
+                            <span id="cccc">&times;</span>
+                        </button>
+                        <strong>${login_msg}</strong>
+                    </div>
+                </c:if>
+
             </div>
         </div>
 

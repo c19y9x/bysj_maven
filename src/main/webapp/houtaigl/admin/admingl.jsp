@@ -94,7 +94,7 @@
     <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover" id="my_table">
             <tr class="success" id="no_del">
-                <th width="25px"><input type="checkbox" id="firstCb"></th>
+                <th width="25px" hidden="hidden"><input type="checkbox" id="firstCb"></th>
                 <th width="50px">编号</th>
                 <th width="200px">管理员id</th>
                 <th width="200px">权限</th>
@@ -102,7 +102,7 @@
             </tr>
             <c:forEach items="${admins}" var="admin" varStatus="s">
                 <tr>
-                    <td><input type="checkbox" name="aid" value="${admin.id}"></td>
+                    <td hidden="hidden"><input type="checkbox" name="aid" value="${admin.id}"></td>
                     <td>${s.count}</td>
                     <td class="admin_id">${admin.admin_id}<input id="yc_pswd" value="${admin.password}" type="hidden" /></td>
                     <td class="authority" value="${admin.authority}"></td>

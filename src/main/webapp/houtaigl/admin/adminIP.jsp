@@ -43,7 +43,7 @@
         }
     </script>
 </head>
-<body background="">
+<body>
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">管理员IP限制</h3>
     <form id="form_ip" action="${pageContext.request.contextPath}/htadminIPLimit1" method="post">

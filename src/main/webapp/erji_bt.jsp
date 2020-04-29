@@ -162,7 +162,7 @@
 </div>
 
 <div class="container container-fluid dynava no-padding cleafix" id="nrrrr">
-    <div class="con_wz_lf fl cleafix" style="margin-top: 0px">
+    <div class="con_wz_lf fl cleafix" style="margin-top: 0px" id="nrrr">
         <h3><span class="windowstyle134374"> ${pb.lm.lanmuming}</span></h3>
         <!-- 左边栏目 -->
         <ul>
@@ -306,10 +306,10 @@
     $(function() {
         setFrmHeight();
     });
-    //限制高度
+    //限制高度为左侧栏目区加30
     function setFrmHeight() {
         var frm = $(window.document).find("#nrrrr");
-        frm.height(500);
+        frm.height($("#nrrr").height+30);
     }
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

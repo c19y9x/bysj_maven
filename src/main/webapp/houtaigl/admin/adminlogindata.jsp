@@ -33,23 +33,24 @@
         function tijiao_news() {
             if(confirm("您确定要删除吗？")){
                 var checkID = [];
-                $("input[name='newid']:checked").each(function (i) {
+                $("input[name='dataid']:checked").each(function (i) {
                     checkID[i] = $(this).val();
                 });
 
                 $.ajax(
-                    {data:{'checkID':checkID},
+                    {data:{'logindataids':checkID},
                         dataType:'text',
                         success: function(data){
                             //模拟点击查询按钮
-                            document.getElementById("wz_cx").click();
+                            window.location.href = "${pageContext.request.contextPath}/htadminlogindata";
                             alert("已删除");
                         },
                         type:'post',
-                        url:'htwenzhang3',
+                        url:'htadminlogindata2',
                         traditional:true
                     }
                 );
+
             }
 
         }
@@ -66,11 +67,11 @@
 <div class="container">
     <h3 style="text-align: center">登陆记录</h3>
 
-<%--    <div style="float: right;margin: 5px;">
+    <div style="float: right;margin: 5px;">
 
         <a class="btn btn-primary" onclick="tijiao_news()" id="delSelected">删除选中</a>
 
-    </div>--%>
+    </div>
 
     <br>
     <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
@@ -85,7 +86,7 @@
             </tr>
             <c:forEach items="${logindatas}" var="logindata" varStatus="s">
                 <tr>
-                    <td width="25px"><input type="checkbox" value="${logindata.id}"></td>
+                    <td width="25px"><input type="checkbox" value="${logindata.id}" name="dataid"></td>
                     <td width="75px">${s.count}</td>
                     <td>${logindata.admin_id}</td>
                     <td><fmt:formatDate value='${logindata.logintime}' type="both" dateStyle="medium" timeStyle="medium"/></td>
