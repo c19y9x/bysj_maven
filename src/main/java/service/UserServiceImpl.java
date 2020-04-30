@@ -252,8 +252,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<LoginData> getLogindatas() {
-        return dao.getLogindatas();
+    public PageBean<LoginData> getLogindatas(String _currentPage) {
+        int currentPage = Integer.parseInt(_currentPage);
+        if(currentPage <=0) {
+            currentPage = 1;
+        }
+
+        PageBean<LoginData> pblogindatas = new PageBean<>();
+        pblogindatas.setCurrentPage(currentPage);
+        pblogindatas.setRows(10);  //每页显示的信息条数
+
+        int totalCount = dao.Logindatastotal();
+        pblogindatas.setTotalCount(totalCount);
+
+        int start = (currentPage - 1) * 10;
+        List<LoginData> loginDataList = dao.getLogindatas(start);
+        pblogindatas.setList(loginDataList);
+
+        int totalPage = (totalCount % 10)  == 0 ? totalCount/10 : (totalCount/10) + 1;
+        pblogindatas.setTotalPage(totalPage);
+
+        if(currentPage > totalPage) {
+            pblogindatas.setCurrentPage(totalPage);
+        }
+        return pblogindatas;
     }
 
     @Override

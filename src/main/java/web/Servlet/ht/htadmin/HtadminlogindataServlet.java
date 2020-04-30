@@ -2,6 +2,7 @@ package web.Servlet.ht.htadmin;
 
 import domain.Admin;
 import domain.LoginData;
+import domain.PageBean;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -19,11 +20,15 @@ import java.util.List;
 public class HtadminlogindataServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-
+        //1.获取参数
+        String currentPage = request.getParameter("currentPage");//当前页码
         UserService service = new UserServiceImpl();
+        if(service.isEmptyString(currentPage)) {
+            currentPage = "1";
+        }
 
-        List<LoginData> logindatas = service.getLogindatas();
-        System.out.println(logindatas);
+        PageBean<LoginData> logindatas = service.getLogindatas(currentPage);
+
         request.setAttribute("logindatas",logindatas);
         //4.转发到list.jsp
         request.getRequestDispatcher("/houtaigl/admin/adminlogindata.jsp").forward(request,response);

@@ -393,14 +393,48 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<LoginData> getLogindatas() {
-        String sql = "SELECT * FROM logindata ORDER BY logintime DESC;";
-        return template.query(sql, new BeanPropertyRowMapper<LoginData>(LoginData.class));
+    public List<LoginData> getLogindatas(int start) {
+        String sql = "select * from logindata where 1 = 1";
+
+        StringBuilder sb = new StringBuilder(sql);
+        //遍历map
+        //Set<String> keyset = condition.keySet();
+        //定义参数集合
+        List<Object> params = new ArrayList<Object>();
+        /*for (String key : keyset)
+        {
+            //排除分页条件参数，
+            if("currentPage".equals(key) || "rows".equals(key)){
+                continue;
+            }
+            String value = condition.get(key)[0];
+
+            if(value != null && !"".equals(value)){
+                //有值
+                sb.append(" and "+key+" like ? ");
+                params.add("%"+value+"%");  //加条件的值
+            }
+        }*/
+
+        //添加分页查询
+        sb.append(" ORDER BY logintime DESC limit ?,?");
+        //添加分页查询值
+        params.add(start);
+        params.add(10);
+        sql = sb.toString();
+        return template.query(sql,new BeanPropertyRowMapper<LoginData>(LoginData.class),params.toArray());
     }
 
     @Override
     public void delLogindata(int logindataid) {
         String sql = "delete from logindata where id = "+logindataid;
         template.update(sql);
+    }
+
+    @Override
+    public int Logindatastotal() {
+        String sql = "select count(*) from logindata where 1 = 1 ";
+
+        return template.queryForObject(sql,Integer.class);
     }
 }

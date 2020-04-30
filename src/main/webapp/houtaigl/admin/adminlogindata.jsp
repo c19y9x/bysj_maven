@@ -73,7 +73,6 @@
 
     </div>
 
-    <br>
     <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
         <table border="1" class="table table-bordered table-hover" id="my_table">
             <tr class="success" id="no_del">
@@ -84,7 +83,7 @@
                 <th>登陆ip</th>
                 <th width="100px">操作</th>
             </tr>
-            <c:forEach items="${logindatas}" var="logindata" varStatus="s">
+            <c:forEach items="${logindatas.list}" var="logindata" varStatus="s">
                 <tr>
                     <td width="25px"><input type="checkbox" value="${logindata.id}" name="dataid"></td>
                     <td width="75px">${s.count}</td>
@@ -96,6 +95,58 @@
             </c:forEach>
         </table>
     </form>
+
+    <div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+
+                <%--   设置回退一页 并且到第一页时禁用回退功能--%>
+                <c:if test="${pb.currentPage == 1}">
+                    <li class="disabled"
+                </c:if>
+
+                <c:if test="${pb.currentPage != 1}">
+                <li>
+                    </c:if>
+                <li>
+                    <a href="${pageContext.request.contextPath}/htadminlogindata?currentPage=${logindatas.currentPage - 1}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+
+                <c:forEach begin="1" end="${logindatas.totalPage}" var="i" >
+
+                    <c:if test="${logindatas.currentPage == i}">
+                        <li class = "active"><a href="${pageContext.request.contextPath}/htadminlogindata?currentPage=${i}">${i}</a></li>
+                    </c:if>
+                    <c:if test="${logindatas.currentPage != i}">
+                        <li><a href="${pageContext.request.contextPath}/htadminlogindata?currentPage=${i}">${i}</a></li>
+                    </c:if>
+                </c:forEach>
+
+
+                <c:if test="${logindatas.currentPage == logindatas.totalPage}">
+                <li class="disabled">
+                    </c:if>
+
+                    <c:if test="${logindatas.currentPage != logindatas.totalPage}">
+                <li>
+                    </c:if>
+
+                    <a href="${pageContext.request.contextPath}/htadminlogindata?currentPage=${logindatas.currentPage + 1}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+
+                <span style="font-size: 25px;margin-left: 5px;">
+                    共${logindatas.totalCount}条记录，共${logindatas.totalPage}页
+                </span>
+            </ul>
+        </nav>
+
+
+    </div>
 
 </div>
 </body>

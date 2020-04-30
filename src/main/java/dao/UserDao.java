@@ -70,7 +70,9 @@ public interface UserDao {
 
     public void addLoginData(LoginData loginData);
 
-    public List<LoginData> getLogindatas();
+    public List<LoginData> getLogindatas(int i);
 
     public void delLogindata(int logindataid);
+    //查找管理员管理记录总条数
+    public int Logindatastotal();
 }
