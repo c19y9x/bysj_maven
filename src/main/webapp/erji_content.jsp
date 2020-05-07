@@ -229,7 +229,7 @@
             <script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
             <!-- 这个div下放文章内容 -->
             <div>
-                <h1 align="center" style="color: #00a0df;font: jis90">${newss.title}</h1>
+                <h1 align="center" style="color: #00a0df;">${newss.title}</h1>
                 <div align="center">
                     时间：
                     <fmt:formatDate value="${newss.add_time}" pattern="yyyy-MM-dd"/>

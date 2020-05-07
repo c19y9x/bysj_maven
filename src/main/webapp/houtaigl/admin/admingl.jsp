@@ -86,7 +86,6 @@
     <div style="float: right;margin: 5px;">
 
         <a class="btn btn-primary" href="houtaigl/admin/adminadd.jsp">添加管理员</a>
-        <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
 
     </div>
 

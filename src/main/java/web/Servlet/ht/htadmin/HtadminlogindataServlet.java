@@ -26,7 +26,6 @@ public class HtadminlogindataServlet extends HttpServlet {
         if(service.isEmptyString(currentPage)) {
             currentPage = "1";
         }
-
         PageBean<LoginData> logindatas = service.getLogindatas(currentPage);
 
         request.setAttribute("logindatas",logindatas);

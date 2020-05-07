@@ -254,25 +254,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public PageBean<LoginData> getLogindatas(String _currentPage) {
         int currentPage = Integer.parseInt(_currentPage);
-        if(currentPage <=0) {
+        if(currentPage <=0) { //当页码为第一页时不能往前翻页
             currentPage = 1;
         }
 
         PageBean<LoginData> pblogindatas = new PageBean<>();
-        pblogindatas.setCurrentPage(currentPage);
+        pblogindatas.setCurrentPage(currentPage); //设置当前页码
         pblogindatas.setRows(10);  //每页显示的信息条数
 
         int totalCount = dao.Logindatastotal();
-        pblogindatas.setTotalCount(totalCount);
+        pblogindatas.setTotalCount(totalCount); //设置记录总条数
 
         int start = (currentPage - 1) * 10;
-        List<LoginData> loginDataList = dao.getLogindatas(start);
-        pblogindatas.setList(loginDataList);
+        List<LoginData> loginDataList = dao.getLogindatas(start); //设置从数据库查询时的其实查询地址
+        pblogindatas.setList(loginDataList); //设置登陆记录
 
         int totalPage = (totalCount % 10)  == 0 ? totalCount/10 : (totalCount/10) + 1;
-        pblogindatas.setTotalPage(totalPage);
+        pblogindatas.setTotalPage(totalPage); //设置总页码
 
-        if(currentPage > totalPage) {
+        if(currentPage > totalPage) { //当页码为最后一页时不能往后翻页
             pblogindatas.setCurrentPage(totalPage);
         }
         return pblogindatas;

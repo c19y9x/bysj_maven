@@ -19,7 +19,7 @@
 <div class="header">
 
     <div class="dl-title">
-        <a href="" title="地址" target="_blank"><!-- 仅仅为了提供文档的快速入口，项目中请删除链接 -->
+        <a href="${pageContext.request.contextPath}/shouye" title="地址" target="_blank"><!-- 仅仅为了提供文档的快速入口，项目中请删除链接 -->
             <span class="lp-title-port">物理与机电工程学院</span><span class="dl-title-text"></span>
         </a>
         后台管理系统
@@ -30,7 +30,7 @@
 </div>
 <div class="content">
     <div class="dl-main-nav">
-        <div class="dl-inform"><div class="dl-inform-title">小秘书<s class="dl-inform-icon dl-up"></s></div></div>
+        <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
         <ul id="J_Nav"  class="nav-list ks-clear">
             <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
             <%--<li class="nav-item"><div class="nav-item-inner nav-order">表单页</div></li>
@@ -66,14 +66,14 @@
                     {id:'logindata',text:'管理员登陆记录',href:'htadminlogindata'}
                 ]
 
-            }</c:if>
+            }
             ,{
                 text:'其他设置',
                 items:[
                     {id:'resource',text:'首页滚动图片',href:'htlunbotu'}
                     //{id:'loader',text:'引入JS方式',href:'main/loader.html'}
                 ]
-            }]
+            }</c:if>]
         },{
             id:'form',
             menu:[{

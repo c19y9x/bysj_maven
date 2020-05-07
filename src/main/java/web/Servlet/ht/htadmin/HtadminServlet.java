@@ -21,9 +21,9 @@ public class HtadminServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         UserService service = new UserServiceImpl();
-
+        //获取所有管理员
         List<Admin> admins = service.getAdmins();
-        System.out.println(admins);
+        //System.out.println(admins);
         session.setAttribute("admins",admins);
         //4.转发到list.jsp
         request.getRequestDispatcher("/houtaigl/admin/admingl.jsp").forward(request,response);
